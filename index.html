@@ -1,105 +1,315 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="no">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.1">
-  <style type="text/css">
-    body {background-color: #0b0b0b}
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 32.0px 'Helvetica Neue'; color: #efefef; -webkit-text-stroke: #ffffff; background-color: #0d636f}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #efefef; -webkit-text-stroke: #efefef; background-color: #101010; background-color: rgba(16, 16, 16, 0.9); min-height: 21.0px}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 20.0px 'Helvetica Neue'; color: #efefef; -webkit-text-stroke: #ffffff}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 20.0px 'Helvetica Neue'; color: #efefef; -webkit-text-stroke: #ffffff}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 20.0px 'Helvetica Neue'; color: #efefef; -webkit-text-stroke: #efefef}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 20.0px 'Helvetica Neue'; color: #efefef; -webkit-text-stroke: #efefef}
-    p.p8 {margin: 0.0px 0.0px 18.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #efefef; -webkit-text-stroke: #efefef}
-    li.li5 {margin: 0.0px 0.0px 8.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #efefef; -webkit-text-stroke: #efefef}
-    span.s1 {font-kerning: none}
-    span.s2 {font-kerning: none; background-color: #0d636f}
-    span.s3 {background-color: rgba(16, 16, 16, 0.9); -webkit-text-stroke: 0px #000000}
-    span.s4 {font-kerning: none; background-color: rgba(16, 16, 16, 0.9)}
-    span.s5 {font: 20.0px '.Apple Color Emoji UI'; font-kerning: none; background-color: #1b262c}
-    span.s6 {font-kerning: none; background-color: #1b262c}
-    ul.ul1 {list-style-type: disc}
+  <meta charset="UTF-8" />
+  <title>KONTROLL – responsiv</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#007682" />
+
+  <!-- Roboto fra Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- Design tokens ---------- */
+    :root {
+      --tollturkis: #007682;
+      --infobla: #dce8ed;
+      --bakgrunn: #f9f9f9;
+      --tekst: #121212;
+      --bord: #e5e5e5;
+      --radius: 12px;
+      --shadow: 0 2px 8px rgba(0,0,0,.06);
+      --space: clamp(12px, 2.5vw, 20px);
+      --header-size: clamp(18px, 2.6vw, 20px);
+      --title-size: clamp(24px, 4vw, 32px);
+      --body-size: clamp(16px, 2.8vw, 18px);
+      --touch: 52px;
+      --maxw: 820px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --infobla: #24333a;
+        --bakgrunn: #0c0c0c;
+        --tekst: #f2f2f2;
+        --bord: #2a2a2a;
+        --shadow: 0 2px 10px rgba(0,0,0,.35);
+      }
+    }
+
+    /* ---------- Basestil ---------- */
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+                   Arial, sans-serif;
+      font-size: var(--body-size);
+      line-height: 1.55;
+      color: var(--tekst);
+      background: var(--bakgrunn);
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Safe-area for iPhone med notch */
+    .page {
+      padding:
+        calc(env(safe-area-inset-top) + var(--space))
+        calc(env(safe-area-inset-right) + var(--space))
+        calc(env(safe-area-inset-bottom) + var(--space))
+        calc(env(safe-area-inset-left) + var(--space));
+      display: grid;
+      place-items: start center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+    }
+
+    /* ---------- Kort/accordion ---------- */
+    .stack { display: grid; gap: 12px; }
+
+    .card {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--bord);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: clip;
+    }
+    @media (prefers-color-scheme: dark) {
+      .card { background: rgba(20,20,20,0.9); }
+    }
+
+    .banner {
+      border-left: 6px solid var(--tollturkis);
+      margin-bottom: 12px; /* gir luft under overskriften */
+    }
+    .banner-title {
+      display: grid;
+      place-items: center;
+      min-height: max(var(--touch), 64px);
+      font-weight: 800;
+      font-size: var(--title-size);
+      background: var(--tollturkis);
+      color: #fff;
+      letter-spacing: 0.2px;
+      padding: 8px 12px;
+    }
+
+    details { border-radius: var(--radius); }
+
+    summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      min-height: var(--touch);
+      padding: 14px 18px;
+      background: var(--tollturkis);
+      color: #fff;
+      font-weight: 700;
+      font-size: var(--header-size);
+      cursor: pointer;
+      outline: none;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+
+    .info summary {
+      background: var(--infobla);
+      color: inherit;
+    }
+
+    .chev {
+      transition: transform .2s ease;
+      inline-size: 1.1em;
+      text-align: center;
+    }
+    details[open] .chev { transform: rotate(90deg); }
+
+    .panel {
+      display: grid;
+      gap: 8px;
+      padding: 16px 18px 18px;
+      background: transparent;
+    }
+
+    ul { margin: 8px 0 0 0; padding: 0 0 0 22px; }
+    li { margin: 8px 0; }
+
+    summary:focus-visible {
+      outline: 3px solid rgba(0,118,130,.6);
+      outline-offset: 2px;
+    }
+    @media (hover:hover) {
+      summary:hover { filter: brightness(0.98); }
+    }
+    * { -webkit-tap-highlight-color: transparent; }
+
+    @media (min-width: 430px) {
+      .panel { padding: 18px 22px 22px; }
+      summary { padding: 16px 22px; }
+    }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">KONTROLL</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p3"><span class="s2">K – Kompass (reiserute)</span></p>
-<p class="p4"><span class="s2">▶</span></p>
-<ul class="ul1">
-  <li class="li5"><span class="s3"></span><span class="s4">Hvilke land/steder har du vært i?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Hvordan reiste du (fly, bil, buss)?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Hvilke grenseoverganger eller flyplasser brukte du?</span></li>
-</ul>
-<p class="p3"><span class="s2">O – Opphold</span></p>
-<p class="p4"><span class="s2">▶</span></p>
-<ul class="ul1">
-  <li class="li5"><span class="s3"></span><span class="s4">Hvor bodde du (hotell, venner, Airbnb)?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Hvor lenge var du på hvert sted?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Har du kvitteringer eller bookingbekreftelser?</span></li>
-</ul>
-<p class="p3"><span class="s2">N – Nettverk (formål og tilknytning)</span></p>
-<p class="p4"><span class="s2">▶</span></p>
-<ul class="ul1">
-  <li class="li5"><span class="s3"></span><span class="s4">Hva var hensikten med reisen?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Hvem betalte eller organiserte reisen?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Reiste du sammen med noen?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Hvem møtte du, eller skal du møte?</span></li>
-</ul>
-<p class="p3"><span class="s2">T – Tidspunkt</span></p>
-<p class="p4"><span class="s2">▶</span></p>
-<ul class="ul1">
-  <li class="li5"><span class="s3"></span><span class="s4">Når dro du hjemmefra, og når kom du tilbake?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Hva gjorde du de første og siste dagene?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Har du billetter, boardingkort eller annen dokumentasjon?</span></li>
-</ul>
-<p class="p3"><span class="s2">R – Reisegods</span></p>
-<p class="p4"><span class="s2">▶</span></p>
-<ul class="ul1">
-  <li class="li5"><span class="s3"></span><span class="s4">Hva inneholder bagasjen?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Er alt ditt?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Har noen andre pakket for deg?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Har du gaver eller varer for andre?</span></li>
-</ul>
-<p class="p3"><span class="s2">O – Overensstemmelse</span></p>
-<p class="p4"><span class="s2">▶</span></p>
-<ul class="ul1">
-  <li class="li5"><span class="s3"></span><span class="s4">Henger forklaringen sammen med bagasje og reiserute?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Har du dokumentasjon eller bevis?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Er det noe som ikke stemmer?</span></li>
-</ul>
-<p class="p3"><span class="s2">L – Lovlighet (handel)</span></p>
-<p class="p4"><span class="s2">▶</span></p>
-<ul class="ul1">
-  <li class="li5"><span class="s3"></span><span class="s4">Har du kjøpt noe i utlandet?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Har du varer over kvote, store verdier eller kontanter?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Har du kvitteringer, taxfree-bevis eller annen dokumentasjon?</span></li>
-</ul>
-<p class="p3"><span class="s2">L – Logisk helhet (egenvurdering)</span></p>
-<p class="p4"><span class="s2">▶</span></p>
-<ul class="ul1">
-  <li class="li5"><span class="s3"></span><span class="s4">Virker historien troverdig?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Er det logiske hull eller selvmotsigelser?</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Bør det iverksettes videre kontroll eller tiltak?</span></li>
-</ul>
-<p class="p6"><span class="s5">🧭</span><span class="s6"> Om tiltakskortet KONTROLL</span></p>
-<p class="p7"><span class="s6">▶</span></p>
-<p class="p8"><span class="s4">Tiltakskortet KONTROLL er et verktøy for strukturert informasjonsinnhenting og vurdering i kontrollsituasjoner. Det er ikke en fasit, men et hjelpemiddel som støtter både den uerfarne og den erfarne tolleren.</span></p>
-<p class="p6"><span class="s5">💡</span><span class="s6"> Bruk av operative tiltakskort</span></p>
-<p class="p7"><span class="s6">▶</span></p>
-<ul class="ul1">
-  <li class="li5"><span class="s3"></span><span class="s4">Gir struktur og støtte under samtaler og vurderinger</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Fremmer felles forståelse i team og samarbeid</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Forenkler dokumentasjon og rapportering</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Reduserer mental belastning i pressede situasjoner</span></li>
-  <li class="li5"><span class="s3"></span><span class="s4">Bidrar til mer presis og effektiv kontroll</span></li>
-</ul>
-<p class="p6"><span class="s5">📚</span><span class="s6"> Faglig forankring og referanser</span></p>
-<p class="p7"><span class="s6">▶</span></p>
-<p class="p8"><span class="s4">Operative tiltakskort er velprøvd i nødetater og forbedrer kvalitet, samhandling og beslutningsstøtte.</span></p>
+  <main class="page">
+    <div class="container">
+      <!-- Toppbanner -->
+      <section class="card banner" aria-label="Tittel">
+        <div class="banner-title">KONTROLL</div>
+      </section>
+
+      <!-- Accordion-seksjoner -->
+      <div class="stack" role="list">
+        <details class="card" role="listitem">
+          <summary>
+            <span>K – Kompass (reiserute)</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Kompass – innhold">
+            <ul>
+              <li>Hvilke land/steder har du vært i?</li>
+              <li>Hvordan reiste du (fly, bil, buss)?</li>
+              <li>Hvilke grenseoverganger eller flyplasser brukte du?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>O – Opphold</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Opphold – innhold">
+            <ul>
+              <li>Hvor bodde du (hotell, venner, Airbnb)?</li>
+              <li>Hvor lenge var du på hvert sted?</li>
+              <li>Har du kvitteringer eller bookingbekreftelser?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>N – Nettverk (formål og tilknytning)</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Nettverk – innhold">
+            <ul>
+              <li>Hva var hensikten med reisen?</li>
+              <li>Hvem betalte eller organiserte reisen?</li>
+              <li>Reiste du sammen med noen?</li>
+              <li>Hvem møtte du, eller skal du møte?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>T – Tidspunkt</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Tidspunkt – innhold">
+            <ul>
+              <li>Når dro du hjemmefra, og når kom du tilbake?</li>
+              <li>Hva gjorde du de første og siste dagene?</li>
+              <li>Har du billetter, boardingkort eller annen dokumentasjon?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>R – Reisegods</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Reisegods – innhold">
+            <ul>
+              <li>Hva inneholder bagasjen?</li>
+              <li>Er alt ditt?</li>
+              <li>Har noen andre pakket for deg?</li>
+              <li>Har du gaver eller varer for andre?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>O – Overensstemmelse</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Overensstemmelse – innhold">
+            <ul>
+              <li>Henger forklaringen sammen med bagasje og reiserute?</li>
+              <li>Har du dokumentasjon eller bevis?</li>
+              <li>Er det noe som ikke stemmer?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>L – Lovlighet (handel)</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Lovlighet – innhold">
+            <ul>
+              <li>Har du kjøpt noe i utlandet?</li>
+              <li>Har du varer over kvote, store verdier eller kontanter?</li>
+              <li>Har du kvitteringer, taxfree-bevis eller annen dokumentasjon?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>L – Logisk helhet (egenvurdering)</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Logisk helhet – innhold">
+            <ul>
+              <li>Virker historien troverdig?</li>
+              <li>Er det logiske hull eller selvmotsigelser?</li>
+              <li>Bør det iverksettes videre kontroll eller tiltak?</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Infobokser -->
+        <details class="card info" role="listitem">
+          <summary>
+            <span>🧭 Om tiltakskortet KONTROLL</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Om tiltakskortet">
+            <p>
+              Tiltakskortet KONTROLL er et verktøy for strukturert informasjonsinnhenting og vurdering i kontrollsituasjoner.
+              Det er ikke en fasit, men et hjelpemiddel som støtter både den uerfarne og den erfarne tolleren.
+            </p>
+          </div>
+        </details>
+
+        <details class="card info" role="listitem">
+          <summary>
+            <span>💡 Bruk av operative tiltakskort</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Bruk av tiltakskort">
+            <ul>
+              <li>Gir struktur og støtte under samtaler og vurderinger</li>
+              <li>Fremmer felles forståelse i team og samarbeid</li>
+              <li>Forenkler dokumentasjon og rapportering</li>
+              <li>Reduserer mental belastning i pressede situasjoner</li>
+              <li>Bidrar til mer presis og effektiv kontroll</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card info" role="listitem">
+          <summary>
+            <span>📚 Faglig forankring og referanser</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Faglig forankring">
+            <p>Operative tiltakskort er velprøvd i nødetater og forbedrer kvalitet, samhandling og beslutningsstøtte.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
