@@ -1,328 +1,312 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="no">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.1">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8" />
+  <title>KONTROLL – responsiv</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#007682" />
+
+  <!-- Roboto fra Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- Design tokens ---------- */
+    :root {
+      --tollturkis: #007682;
+      --infobla: #dce8ed;
+      --bakgrunn: #f9f9f9;
+      --tekst: #121212;
+      --bord: #e5e5e5;
+      --radius: 12px;
+      --shadow: 0 2px 8px rgba(0,0,0,.06);
+      --space: clamp(12px, 2.5vw, 20px);
+      --header-size: clamp(18px, 2.6vw, 20px);
+      --title-size: clamp(24px, 4vw, 32px);
+      --body-size: clamp(16px, 2.8vw, 18px);
+      --touch: 52px;
+      --maxw: 820px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --infobla: #24333a;
+        --bakgrunn: #0c0c0c;
+        --tekst: #f2f2f2;
+        --bord: #2a2a2a;
+        --shadow: 0 2px 10px rgba(0,0,0,.35);
+      }
+    }
+
+    /* ---------- Basestil ---------- */
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+                   Arial, sans-serif;
+      font-size: var(--body-size);
+      line-height: 1.55;
+      color: var(--tekst);
+      background: var(--bakgrunn);
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Safe-area for iPhone med notch */
+    .page {
+      padding:
+        calc(env(safe-area-inset-top) + var(--space))
+        calc(env(safe-area-inset-right) + var(--space))
+        calc(env(safe-area-inset-bottom) + var(--space))
+        calc(env(safe-area-inset-left) + var(--space));
+      display: grid;
+      place-items: start center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+    }
+
+    /* ---------- Kort/accordion ---------- */
+    .stack { display: grid; gap: 12px; }
+
+    .card {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--bord);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: clip;
+    }
+    @media (prefers-color-scheme: dark) {
+      .card { background: rgba(20,20,20,0.9); }
+    }
+
+    .banner { border-left: 6px solid var(--tollturkis); }
+    .banner-title {
+      display: grid;
+      place-items: center;
+      min-height: max(var(--touch), 64px);
+      font-weight: 800;
+      font-size: var(--title-size);
+      background: var(--tollturkis);
+      color: #fff;
+      letter-spacing: 0.2px;
+      padding: 8px 12px;
+    }
+
+    details { border-radius: var(--radius); }
+
+    summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      min-height: var(--touch);
+      padding: 14px 18px;
+      background: var(--tollturkis);
+      color: #fff;
+      font-weight: 700;
+      font-size: var(--header-size);
+      cursor: pointer;
+      outline: none;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+
+    .info summary {
+      background: var(--infobla);
+      color: inherit;
+    }
+
+    .chev {
+      transition: transform .2s ease;
+      inline-size: 1.1em;
+      text-align: center;
+    }
+    details[open] .chev { transform: rotate(90deg); }
+
+    .panel {
+      display: grid;
+      gap: 8px;
+      padding: 16px 18px 18px;
+      background: transparent;
+    }
+
+    ul { margin: 8px 0 0 0; padding: 0 0 0 22px; }
+    li { margin: 8px 0; }
+
+    summary:focus-visible {
+      outline: 3px solid rgba(0,118,130,.6);
+      outline-offset: 2px;
+    }
+    @media (hover:hover) {
+      summary:hover { filter: brightness(0.98); }
+    }
+    * { -webkit-tap-highlight-color: transparent; }
+
+    @media (min-width: 430px) {
+      .panel { padding: 18px 22px 22px; }
+      summary { padding: 16px 22px; }
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="no"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;KONTROLL – responsiv&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="color-scheme" content="light dark" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="theme-color" content="#007682" /&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Roboto fra Google Fonts --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&amp;display=swap" rel="stylesheet" /&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ---------- Design tokens ---------- */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--tollturkis: #007682;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--infobla: #dce8ed;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--bakgrunn: #f9f9f9;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--tekst: #121212;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--bord: #e5e5e5;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--shadow: 0 2px 8px rgba(0,0,0,.06);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--space: clamp(12px, 2.5vw, 20px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--header-size: clamp(18px, 2.6vw, 20px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--title-size: clamp(24px, 4vw, 32px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--body-size: clamp(16px, 2.8vw, 18px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--touch: 52px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--maxw: 820px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (prefers-color-scheme: dark) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>--infobla: #24333a;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>--bakgrunn: #0c0c0c;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>--tekst: #f2f2f2;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>--bord: #2a2a2a;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>--shadow: 0 2px 10px rgba(0,0,0,.35);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ---------- Basestil ---------- */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>html, body { height: 100%; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",</p>
-<p class="p1"><span class="Apple-converted-space">                   </span>Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: var(--body-size);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.55;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--tekst);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: var(--bakgrunn);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>-webkit-text-size-adjust: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-rendering: optimizeLegibility;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Safe-area for iPhone med notch */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.page {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:</p>
-<p class="p1"><span class="Apple-converted-space">        </span>calc(env(safe-area-inset-top) + var(--space))</p>
-<p class="p1"><span class="Apple-converted-space">        </span>calc(env(safe-area-inset-right) + var(--space))</p>
-<p class="p1"><span class="Apple-converted-space">        </span>calc(env(safe-area-inset-bottom) + var(--space))</p>
-<p class="p1"><span class="Apple-converted-space">        </span>calc(env(safe-area-inset-left) + var(--space));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>place-items: start center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: var(--maxw);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ---------- Kort/accordion ---------- */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.stack { display: grid; gap: 12px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.9);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid var(--bord);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: clip;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (prefers-color-scheme: dark) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.card { background: rgba(20,20,20,0.9); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.banner { border-left: 6px solid var(--tollturkis); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.banner-title {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>place-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: max(var(--touch), 64px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 800;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: var(--title-size);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: var(--tollturkis);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.2px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px 12px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>details { border-radius: var(--radius); }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>summary {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>list-style: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: var(--touch);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 14px 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: var(--tollturkis);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: var(--header-size);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>outline: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>user-select: none;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>summary::-webkit-details-marker { display: none; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.info summary {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: var(--infobla);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: inherit;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.chev {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: transform .2s ease;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>inline-size: 1.1em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>details[open] .chev { transform: rotate(90deg); }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.panel {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 16px 18px 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: transparent;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>ul { margin: 8px 0 0 0; padding: 0 0 0 22px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>li { margin: 8px 0; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>summary:focus-visible {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>outline: 3px solid rgba(0,118,130,.6);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>outline-offset: 2px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (hover:hover) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>summary:hover { filter: brightness(0.98); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>* { -webkit-tap-highlight-color: transparent; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (min-width: 430px) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.panel { padding: 18px 22px 22px; }</p>
-<p class="p1"><span class="Apple-converted-space">      </span>summary { padding: 16px 22px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;main class="page"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Toppbanner --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;section class="card banner" aria-label="Tittel"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="banner-title"&gt;KONTROLL&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Accordion-seksjoner --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stack" role="list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;K – Kompass (reiserute)&lt;/span&gt;&lt;span class="chev"&gt;▶&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" role="region" aria-label="Kompass – innhold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Hvilke land/steder har du vært i?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Hvordan reiste du (fly, bil, buss)?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Hvilke grenseoverganger eller flyplasser brukte du?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;O – Opphold&lt;/span&gt;&lt;span class="chev"&gt;▶&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" role="region" aria-label="Opphold – innhold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Hvor bodde du (hotell, venner, Airbnb)?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Hvor lenge var du på hvert sted?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Har du kvitteringer eller bookingbekreftelser?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;N – Nettverk (formål og tilknytning)&lt;/span&gt;&lt;span class="chev"&gt;▶&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" role="region" aria-label="Nettverk – innhold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Hva var hensikten med reisen?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Hvem betalte eller organiserte reisen?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Reiste du sammen med noen?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Hvem møtte du, eller skal du møte?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;T – Tidspunkt&lt;/span&gt;&lt;span class="chev"&gt;▶&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" role="region" aria-label="Tidspunkt – innhold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Når dro du hjemmefra, og når kom du tilbake?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Hva gjorde du de første og siste dagene?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Har du billetter, boardingkort eller annen dokumentasjon?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;R – Reisegods&lt;/span&gt;&lt;span class="chev"&gt;▶&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" role="region" aria-label="Reisegods – innhold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Hva inneholder bagasjen?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Er alt ditt?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Har noen andre pakket for deg?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Har du gaver eller varer for andre?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;O – Overensstemmelse&lt;/span&gt;&lt;span class="chev"&gt;▶&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" role="region" aria-label="Overensstemmelse – innhold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Henger forklaringen sammen med bagasje og reiserute?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Har du dokumentasjon eller bevis?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Er det noe som ikke stemmer?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;L – Lovlighet (handel)&lt;/span&gt;&lt;span class="chev"&gt;▶&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" role="region" aria-label="Lovlighet – innhold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Har du kjøpt noe i utlandet?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Har du varer over kvote, store verdier eller kontanter?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Har du kvitteringer, taxfree-bevis eller annen dokumentasjon?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;L – Logisk helhet (egenvurdering)&lt;/span&gt;&lt;span class="chev"&gt;▶&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" role="region" aria-label="Logisk helhet – innhold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Virker historien troverdig?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Er det logiske hull eller selvmotsigelser?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Bør det iverksettes videre kontroll eller tiltak?&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Infobokser --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card info" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;🧭 Om tiltakskortet KONTROLL&lt;/span&gt;&lt;span class="chev"&gt;▶&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" role="region" aria-label="Om tiltakskortet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Tiltakskortet KONTROLL er et verktøy for strukturert informasjonsinnhenting og vurdering i kontrollsituasjoner.</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Det er ikke en fasit, men et hjelpemiddel som støtter både den uerfarne og den erfarne tolleren.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card info" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;💡 Bruk av operative tiltakskort&lt;/span&gt;&lt;span class="chev"&gt;▶&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" role="region" aria-label="Bruk av tiltakskort"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Gir struktur og støtte under samtaler og vurderinger&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Fremmer felles forståelse i team og samarbeid&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Forenkler dokumentasjon og rapportering&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Reduserer mental belastning i pressede situasjoner&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Bidrar til mer presis og effektiv kontroll&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card info" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;📚 Faglig forankring og referanser&lt;/span&gt;&lt;span class="chev"&gt;▶&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/summary&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" role="region" aria-label="Faglig forankring"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Operative tiltakskort er velprøvd i nødetater og forbedrer kvalitet, samhandling og beslutningsstøtte.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <main class="page">
+    <div class="container">
+      <!-- Toppbanner -->
+      <section class="card banner" aria-label="Tittel">
+        <div class="banner-title">KONTROLL</div>
+      </section>
+
+      <!-- Accordion-seksjoner -->
+      <div class="stack" role="list">
+        <details class="card" role="listitem">
+          <summary>
+            <span>K – Kompass (reiserute)</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Kompass – innhold">
+            <ul>
+              <li>Hvilke land/steder har du vært i?</li>
+              <li>Hvordan reiste du (fly, bil, buss)?</li>
+              <li>Hvilke grenseoverganger eller flyplasser brukte du?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>O – Opphold</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Opphold – innhold">
+            <ul>
+              <li>Hvor bodde du (hotell, venner, Airbnb)?</li>
+              <li>Hvor lenge var du på hvert sted?</li>
+              <li>Har du kvitteringer eller bookingbekreftelser?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>N – Nettverk (formål og tilknytning)</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Nettverk – innhold">
+            <ul>
+              <li>Hva var hensikten med reisen?</li>
+              <li>Hvem betalte eller organiserte reisen?</li>
+              <li>Reiste du sammen med noen?</li>
+              <li>Hvem møtte du, eller skal du møte?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>T – Tidspunkt</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Tidspunkt – innhold">
+            <ul>
+              <li>Når dro du hjemmefra, og når kom du tilbake?</li>
+              <li>Hva gjorde du de første og siste dagene?</li>
+              <li>Har du billetter, boardingkort eller annen dokumentasjon?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>R – Reisegods</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Reisegods – innhold">
+            <ul>
+              <li>Hva inneholder bagasjen?</li>
+              <li>Er alt ditt?</li>
+              <li>Har noen andre pakket for deg?</li>
+              <li>Har du gaver eller varer for andre?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>O – Overensstemmelse</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Overensstemmelse – innhold">
+            <ul>
+              <li>Henger forklaringen sammen med bagasje og reiserute?</li>
+              <li>Har du dokumentasjon eller bevis?</li>
+              <li>Er det noe som ikke stemmer?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>L – Lovlighet (handel)</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Lovlighet – innhold">
+            <ul>
+              <li>Har du kjøpt noe i utlandet?</li>
+              <li>Har du varer over kvote, store verdier eller kontanter?</li>
+              <li>Har du kvitteringer, taxfree-bevis eller annen dokumentasjon?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card" role="listitem">
+          <summary>
+            <span>L – Logisk helhet (egenvurdering)</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Logisk helhet – innhold">
+            <ul>
+              <li>Virker historien troverdig?</li>
+              <li>Er det logiske hull eller selvmotsigelser?</li>
+              <li>Bør det iverksettes videre kontroll eller tiltak?</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Infobokser -->
+        <details class="card info" role="listitem">
+          <summary>
+            <span>🧭 Om tiltakskortet KONTROLL</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Om tiltakskortet">
+            <p>
+              Tiltakskortet KONTROLL er et verktøy for strukturert informasjonsinnhenting og vurdering i kontrollsituasjoner.
+              Det er ikke en fasit, men et hjelpemiddel som støtter både den uerfarne og den erfarne tolleren.
+            </p>
+          </div>
+        </details>
+
+        <details class="card info" role="listitem">
+          <summary>
+            <span>💡 Bruk av operative tiltakskort</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Bruk av tiltakskort">
+            <ul>
+              <li>Gir struktur og støtte under samtaler og vurderinger</li>
+              <li>Fremmer felles forståelse i team og samarbeid</li>
+              <li>Forenkler dokumentasjon og rapportering</li>
+              <li>Reduserer mental belastning i pressede situasjoner</li>
+              <li>Bidrar til mer presis og effektiv kontroll</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card info" role="listitem">
+          <summary>
+            <span>📚 Faglig forankring og referanser</span><span class="chev">▶</span>
+          </summary>
+          <div class="panel" role="region" aria-label="Faglig forankring">
+            <p>Operative tiltakskort er velprøvd i nødetater og forbedrer kvalitet, samhandling og beslutningsstøtte.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
