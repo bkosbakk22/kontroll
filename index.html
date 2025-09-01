@@ -5,163 +5,120 @@
   <title>KONTROLL – responsiv</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
-  <meta name="theme-color" content="#007682" />
-
-  <!-- Roboto fra Google Fonts -->
+  <meta name="theme-color" content="#12404F" />
+  <!-- Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    /* ---------- Design tokens ---------- */
     :root {
-      --tollturkis: #007682;
-      --infobla: #dce8ed;
-      --bakgrunn: #f9f9f9;
-      --tekst: #121212;
-      --bord: #e5e5e5;
-      --radius: 12px;
-      --shadow: 0 2px 8px rgba(0,0,0,.06);
-      --space: clamp(12px, 2.5vw, 20px);
-      --header-size: clamp(18px, 2.6vw, 20px);
-      --title-size: clamp(24px, 4vw, 32px);
-      --body-size: clamp(16px, 2.8vw, 18px);
-      --touch: 52px;
-      --maxw: 820px;
+      --tollturkis:#007682;
+      --tollmorkebla:#12404F;
+      --infobla:#dce8ed;
+      --bakgrunn:#f9f9f9;
+      --tekst:#121212;
+      --bord:#e5e5e5;
+      --radius:12px;
+      --shadow:0 2px 8px rgba(0,0,0,.06);
+      --space:clamp(12px,2.5vw,20px);
+      --header-size:clamp(18px,2.6vw,20px);
+      --title-size:clamp(24px,4vw,32px);
+      --body-size:clamp(16px,2.8vw,18px);
+      --touch:52px;
+      --maxw:820px;
     }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --infobla: #24333a;
-        --bakgrunn: #0c0c0c;
-        --tekst: #f2f2f2;
-        --bord: #2a2a2a;
-        --shadow: 0 2px 10px rgba(0,0,0,.35);
+    @media (prefers-color-scheme: dark){
+      :root{
+        --infobla:#24333a;
+        --bakgrunn:#0c0c0c;
+        --tekst:#f2f2f2;
+        --bord:#2a2a2a;
+        --shadow:0 2px 10px rgba(0,0,0,.35);
       }
     }
 
-    /* ---------- Basestil ---------- */
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
-                   Arial, sans-serif;
-      font-size: var(--body-size);
-      line-height: 1.55;
-      color: var(--tekst);
-      background: var(--bakgrunn);
-      -webkit-text-size-adjust: 100%;
-      text-rendering: optimizeLegibility;
+    html, body { height:100%; }
+    body{
+      margin:0;
+      font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      font-size:var(--body-size);
+      line-height:1.55;
+      color:var(--tekst);
+      background:var(--bakgrunn);
+      -webkit-text-size-adjust:100%;
+      text-rendering:optimizeLegibility;
     }
 
-    /* Safe-area for iPhone med notch */
-    .page {
+    .page{
       padding:
-        calc(env(safe-area-inset-top) + var(--space))
-        calc(env(safe-area-inset-right) + var(--space))
-        calc(env(safe-area-inset-bottom) + var(--space))
-        calc(env(safe-area-inset-left) + var(--space));
-      display: grid;
-      place-items: start center;
+        calc(env(safe-area-inset-top)+var(--space))
+        calc(env(safe-area-inset-right)+var(--space))
+        calc(env(safe-area-inset-bottom)+var(--space))
+        calc(env(safe-area-inset-left)+var(--space));
+      display:grid; place-items:start center;
+    }
+    .container{ width:100%; max-width:var(--maxw); }
+
+    .stack{ display:grid; gap:12px; grid-template-columns:1fr; }
+
+    .card{
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--bord);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:clip;
+    }
+    @media (prefers-color-scheme: dark){
+      .card{ background:rgba(20,20,20,.9); }
     }
 
-    .container {
-      width: 100%;
-      max-width: var(--maxw);
+    /* Banner i Tollmørkeblå */
+    .banner{ border-left:6px solid var(--tollmorkebla); margin-bottom:12px; }
+    .banner-title{
+      display:grid; place-items:center;
+      min-height:max(var(--touch),64px);
+      font-weight:800; font-size:var(--title-size);
+      background:var(--tollmorkebla); color:#fff;
+      letter-spacing:.2px; padding:8px 12px;
     }
 
-    /* ---------- Kort/accordion ---------- */
-    .stack {
-      display: grid;
-      gap: 12px;
-      grid-template-columns: 1fr; /* tving én kolonne */
+    /* Accordion */
+    details{ border-radius:var(--radius); }
+    summary{
+      list-style:none;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; width:100%;
+      min-height:var(--touch);
+      padding:14px 18px;
+      color:#fff; font-weight:700; font-size:var(--header-size);
+      cursor:pointer; user-select:none;
     }
+    summary::-webkit-details-marker{ display:none; }
+    .chev{ transition:transform .2s ease; inline-size:1.1em; text-align:center; }
+    details[open] .chev{ transform:rotate(90deg); }
 
-    .card {
-      background: rgba(255,255,255,0.9);
-      border: 1px solid var(--bord);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: clip;
-    }
-    @media (prefers-color-scheme: dark) {
-      .card { background: rgba(20,20,20,0.9); }
-    }
+    /* Farger: kontrollkort (turkis) vs. seksjoner etter KONTROLL (mørkeblå) */
+    .control summary{ background:var(--tollturkis); }
+    .info summary{ background:var(--tollmorkebla); color:#fff; }
 
-    .banner {
-      border-left: 6px solid var(--tollturkis);
-      margin-bottom: 12px; /* luft under overskriften */
-    }
-    .banner-title {
-      display: grid;
-      place-items: center;
-      min-height: max(var(--touch), 64px);
-      font-weight: 800;
-      font-size: var(--title-size);
-      background: var(--tollturkis);
-      color: #fff;
-      letter-spacing: 0.2px;
-      padding: 8px 12px;
-    }
+    .panel{ display:grid; gap:12px; padding:16px 18px 18px; }
 
-    details { border-radius: var(--radius); }
+    ul{ margin:8px 0 0 0; padding:0 0 0 22px; }
+    li{ margin:8px 0; }
 
-    summary,
-    .link-button {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      width: 100%;
-      min-height: var(--touch);
-      padding: 14px 18px;
-      background: var(--tollturkis);
-      color: #fff;
-      font-weight: 700;
-      font-size: var(--header-size);
-      cursor: pointer;
-      outline: none;
-      user-select: none;
-      text-decoration: none; /* for <a> */
+    /* Lenke-boks (Sanksjonering) i Tollmørkeblå */
+    .link-button{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      width:100%; min-height:var(--touch);
+      padding:14px 18px; background:var(--tollmorkebla); color:#fff;
+      font-weight:700; font-size:var(--header-size); text-decoration:none;
     }
-    summary::-webkit-details-marker { display: none; }
+    .link-button:hover{ filter:brightness(.98); }
+    .link-button:focus-visible{ outline:3px solid rgba(18,64,79,.6); outline-offset:2px; }
 
-    .info summary {
-      background: var(--infobla);
-      color: inherit;
-    }
-
-    .chev {
-      transition: transform .2s ease;
-      inline-size: 1.1em;
-      text-align: center;
-    }
-    details[open] .chev { transform: rotate(90deg); }
-
-    .panel {
-      display: grid;
-      gap: 8px;
-      padding: 16px 18px 18px;
-      background: transparent;
-    }
-
-    ul { margin: 8px 0 0 0; padding: 0 0 0 22px; }
-    li { margin: 8px 0; }
-
-    summary:focus-visible,
-    .link-button:focus-visible {
-      outline: 3px solid rgba(0,118,130,.6);
-      outline-offset: 2px;
-    }
-    @media (hover:hover) {
-      summary:hover,
-      .link-button:hover { filter: brightness(0.98); }
-    }
-    * { -webkit-tap-highlight-color: transparent; }
-
-    @media (min-width: 430px) {
-      .panel { padding: 18px 22px 22px; }
-      summary { padding: 16px 22px; }
-      .link-button { padding: 16px 22px; }
+    @media (min-width:430px){
+      .panel{ padding:18px 22px 22px; }
+      summary{ padding:16px 22px; }
+      .link-button{ padding:16px 22px; }
     }
   </style>
 </head>
@@ -173,12 +130,10 @@
         <div class="banner-title">KONTROLL</div>
       </section>
 
-      <!-- Accordion-seksjoner -->
+      <!-- Tiltakskortet (turkis) -->
       <div class="stack" role="list">
-        <details class="card" role="listitem">
-          <summary>
-            <span>K – Kompass (reiserute)</span><span class="chev">▶</span>
-          </summary>
+        <details class="card control" role="listitem">
+          <summary><span>K – Kompass (reiserute)</span><span class="chev">▶</span></summary>
           <div class="panel" role="region" aria-label="Kompass – innhold">
             <ul>
               <li>Hvilke land/steder har du vært i?</li>
@@ -188,10 +143,8 @@
           </div>
         </details>
 
-        <details class="card" role="listitem">
-          <summary>
-            <span>O – Opphold</span><span class="chev">▶</span>
-          </summary>
+        <details class="card control" role="listitem">
+          <summary><span>O – Opphold</span><span class="chev">▶</span></summary>
           <div class="panel" role="region" aria-label="Opphold – innhold">
             <ul>
               <li>Hvor bodde du (hotell, venner, Airbnb)?</li>
@@ -201,10 +154,8 @@
           </div>
         </details>
 
-        <details class="card" role="listitem">
-          <summary>
-            <span>N – Nettverk (formål og tilknytning)</span><span class="chev">▶</span>
-          </summary>
+        <details class="card control" role="listitem">
+          <summary><span>N – Nettverk (formål og tilknytning)</span><span class="chev">▶</span></summary>
           <div class="panel" role="region" aria-label="Nettverk – innhold">
             <ul>
               <li>Hva var hensikten med reisen?</li>
@@ -215,10 +166,8 @@
           </div>
         </details>
 
-        <details class="card" role="listitem">
-          <summary>
-            <span>T – Tidspunkt</span><span class="chev">▶</span>
-          </summary>
+        <details class="card control" role="listitem">
+          <summary><span>T – Tidspunkt</span><span class="chev">▶</span></summary>
           <div class="panel" role="region" aria-label="Tidspunkt – innhold">
             <ul>
               <li>Når dro du hjemmefra, og når kom du tilbake?</li>
@@ -228,10 +177,8 @@
           </div>
         </details>
 
-        <details class="card" role="listitem">
-          <summary>
-            <span>R – Reisegods</span><span class="chev">▶</span>
-          </summary>
+        <details class="card control" role="listitem">
+          <summary><span>R – Reisegods</span><span class="chev">▶</span></summary>
           <div class="panel" role="region" aria-label="Reisegods – innhold">
             <ul>
               <li>Hva inneholder bagasjen?</li>
@@ -242,10 +189,8 @@
           </div>
         </details>
 
-        <details class="card" role="listitem">
-          <summary>
-            <span>O – Overensstemmelse</span><span class="chev">▶</span>
-          </summary>
+        <details class="card control" role="listitem">
+          <summary><span>O – Overensstemmelse</span><span class="chev">▶</span></summary>
           <div class="panel" role="region" aria-label="Overensstemmelse – innhold">
             <ul>
               <li>Henger forklaringen sammen med bagasje og reiserute?</li>
@@ -255,26 +200,19 @@
           </div>
         </details>
 
-        <details class="card" role="listitem">
-          <summary>
-            <span>L – Lovlighet (handel)</span><span class="chev">▶</span>
-          </summary>
+        <details class="card control" role="listitem">
+          <summary><span>L – Lovlighet (handel)</span><span class="chev">▶</span></summary>
           <div class="panel" role="region" aria-label="Lovlighet – innhold">
             <ul>
               <li>Har du kjøpt noe i utlandet?</li>
               <li>Har du varer over kvote, store verdier eller kontanter?</li>
               <li>Har du kvitteringer, taxfree-bevis eller annen dokumentasjon?</li>
             </ul>
-            <p style="margin-top:8px;">
-              <a href="sanksjonering.html">Gå til Sanksjonering →</a>
-            </p>
           </div>
         </details>
 
-        <details class="card" role="listitem">
-          <summary>
-            <span>L – Logisk helhet (egenvurdering)</span><span class="chev">▶</span>
-          </summary>
+        <details class="card control" role="listitem">
+          <summary><span>L – Logisk helhet (egenvurdering)</span><span class="chev">▶</span></summary>
           <div class="panel" role="region" aria-label="Logisk helhet – innhold">
             <ul>
               <li>Virker historien troverdig?</li>
@@ -283,40 +221,35 @@
             </ul>
           </div>
         </details>
+      </div>
 
-        <!-- NY: Link-boks til Sanksjonering (samme stil som card/header) -->
-        <section class="card" role="region" aria-label="Lenker">
-          <a class="link-button" href="sanksjonering.html">
-            <span>Sanksjonering</span>
-            <span class="chev">▶</span>
-          </a>
-        </section>
+      <!-- Link-boks til Sanksjonering (mørkeblå) – etter tiltakskortet -->
+      <section class="card" style="margin-top:20px;" aria-label="Lenker">
+        <a class="link-button" href="sanksjonering.html">
+          <span>📑 Sanksjonering</span>
+          <span class="chev">▶</span>
+        </a>
+      </section>
 
-        <!-- Infobokser (Om/Bruk/Faglig forankring) -->
+      <!-- Infobokser (mørkeblå) – full tekst -->
+      <div class="stack" style="margin-top:20px;" role="list">
         <details class="card info" role="listitem">
-          <summary>
-            <span>🧭 Om tiltakskortet KONTROLL</span><span class="chev">▶</span>
-          </summary>
+          <summary><span>🧭 Om tiltakskortet KONTROLL</span><span class="chev">▶</span></summary>
           <div class="panel" role="region" aria-label="Om tiltakskortet">
             <p>
-              Tiltakskortet KONTROLL er et verktøy for strukturert informasjonsinnhenting og vurdering i kontrollsituasjoner. 
-              Det er ikke en fasit, men et hjelpemiddel som støtter både den uerfarne og den erfarne tolleren.
+              Tiltakskortet KONTROLL er et verktøy for strukturert informasjonsinnhenting og vurdering i kontrollsituasjoner. Det er ikke en fasit, men et hjelpemiddel som støtter både den uerfarne og den erfarne tolleren.
             </p>
             <p>
-              For den uerfarne kan kortet med fordel brukes som en sjekkliste for å sikre at man får med seg det viktigste. 
-              For den erfarne fungerer det mer som en mental modell – en rød tråd man holder samtalen og vurderingene opp mot.
+              For den uerfarne kan kortet med fordel brukes som en sjekkliste for å sikre at man får med seg det viktigste. For den erfarne fungerer det mer som en mental modell – en rød tråd man holder samtalen og vurderingene opp mot.
             </p>
             <p>
-              Kortet er ikke uttømmende. I praksis vil noen punkter være lite relevante i én situasjon, mens andre krever grundig oppfølging. 
-              Det er her vurderingsevne og erfaring kommer inn: å vite hvor man skal gå i dybden, og hvor det er tilstrekkelig å berøre overflaten.
+              Kortet er ikke uttømmende. I praksis vil noen punkter være lite relevante i én situasjon, mens andre krever grundig oppfølging. Det er her vurderingsevne og erfaring kommer inn: å vite hvor man skal gå i dybden, og hvor det er tilstrekkelig å berøre overflaten.
             </p>
           </div>
         </details>
 
         <details class="card info" role="listitem">
-          <summary>
-            <span>💡 Bruk av operative tiltakskort</span><span class="chev">▶</span>
-          </summary>
+          <summary><span>💡 Bruk av operative tiltakskort</span><span class="chev">▶</span></summary>
           <div class="panel" role="region" aria-label="Bruk av tiltakskort">
             <p>Bruken av tiltakskort gir en rekke gevinster i operative situasjoner:</p>
             <ul>
@@ -328,27 +261,20 @@
               <li>Styrker etterprøvbarhet og profesjonell praksis</li>
             </ul>
             <p>
-              Selv om tiltakskortene gir en felles struktur og begrepsforståelse, vil de aldri gjøre kontrollsituasjoner eller vurderinger like. 
-              Erfaring og kompetanse vil alltid prege hvordan innholdet tolkes, prioriteres og følges opp.
+              Selv om tiltakskortene gir en felles struktur og begrepsforståelse, vil de aldri gjøre kontrollsituasjoner eller vurderinger like. Erfaring og kompetanse vil alltid prege hvordan innholdet tolkes, prioriteres og følges opp.
             </p>
             <p>
-              Et godt tiltakskort legger ikke bare til rette for likhet i metode, men også for ulikhet i faglig tyngde. 
-              Jo mer erfaren man er, desto mer effektivt brukes tiltakskortet – ikke for å erstatte vurderingsevne, 
-              men for å frigjøre mental kapasitet som kan brukes der den virkelig trengs: i selve kontrollsituasjonen.
+              Et godt tiltakskort legger ikke bare til rette for likhet i metode, men også for ulikhet i faglig tyngde. Jo mer erfaren man er, desto mer effektivt brukes tiltakskortet – ikke for å erstatte vurderingsevne, men for å frigjøre mental kapasitet som kan brukes der den virkelig trengs: i selve kontrollsituasjonen.
             </p>
           </div>
         </details>
 
         <details class="card info" role="listitem">
-          <summary>
-            <span>📚 Faglig forankring og referanser</span><span class="chev">▶</span>
-          </summary>
+          <summary><span>📚 Faglig forankring og referanser</span><span class="chev">▶</span></summary>
           <div class="panel" role="region" aria-label="Faglig forankring">
-            <p>Hos nødetatene er operative tiltakskort anerkjent som svært effektive verktøy for å kvalitetssikre både yrkesutøvelse og håndtering av hendelser. 
-               Også på tvers av etatene benyttes felles mentale modeller for å sikre felles forståelse og felles planlegging i kritiske situasjoner.</p>
+            <p>Hos nødetatene er operative tiltakskort anerkjent som svært effektive verktøy for å kvalitetssikre både yrkesutøvelse og håndtering av hendelser. Også på tvers av etatene benyttes felles mentale modeller for å sikre felles forståelse og felles planlegging i kritiske situasjoner.</p>
 
-            <p>Bruken av akronymer som huskeregler er veldokumentert som et effektivt virkemiddel for å etablere og dele mentale modeller på tvers av roller og fagmiljøer. 
-               Dette styrker evnen til å handle raskt, strukturert og samordnet.</p>
+            <p>Bruken av akronymer som huskeregler er veldokumentert som et effektivt virkemiddel for å etablere og dele mentale modeller på tvers av roller og fagmiljøer. Dette styrker evnen til å handle raskt, strukturert og samordnet.</p>
 
             <ul>
               <li><strong>Helse, brann og politi:</strong> bruker felles akronymet <strong>SPE</strong> for førsteinnsats ved ulykker og skadesteder.
@@ -374,15 +300,14 @@
               </li>
             </ul>
 
-            <p>Disse systemene viser at tiltakskort og operative manualer er velprøvde og effektive i norske beredskapsorganisasjoner. 
-               De kombinerer struktur med rom for vurdering og erfaring – på samme måte som tiltakskortet <strong>KONTROLL</strong> vil kunne fungere for Tolletaten.</p>
+            <p>Disse systemene viser at tiltakskort og operative manualer er velprøvde og effektive i norske beredskapsorganisasjoner. De kombinerer struktur med rom for vurdering og erfaring – på samme måte som tiltakskortet <strong>KONTROLL</strong> vil kunne fungere for Tolletaten.</p>
 
             <hr style="margin: 30px 0;">
 
             <p><strong>Forskning støtter også bruken av tiltakskort som beslutningsstøtte i mange ulike yrker:</strong></p>
 
             <ul>
-              <li><strong>Luftfart:</strong> Degani & Wiener (1993). <em>"Cockpit Checklists: Concepts, Design, and Use"</em>. NASA TM 104805.
+              <li><strong>Luftfart:</strong> Degani &amp; Wiener (1993). <em>"Cockpit Checklists: Concepts, Design, and Use"</em>. NASA TM 104805.
                 <ul>
                   <li>Reduserer feil i høybelastede situasjoner</li>
                   <li>Sikrer at kritiske trinn følges under stress</li>
@@ -397,7 +322,7 @@
                 </ul>
               </li>
 
-              <li><strong>Politi og etterforskning:</strong> Alison, Harkin & Power (2013). <em>"The Effects of Subjective Time Pressure..."</em>. Legal and Criminological Psychology.
+              <li><strong>Politi og etterforskning:</strong> Alison, Harkin &amp; Power (2013). <em>"The Effects of Subjective Time Pressure..."</em>. Legal and Criminological Psychology.
                 <ul>
                   <li>Strukturerte verktøy styrker etterforskning under tidspress</li>
                   <li>Støtter mer objektive og etterprøvbare vurderinger</li>
