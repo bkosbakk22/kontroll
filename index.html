@@ -104,7 +104,8 @@
 
     details { border-radius: var(--radius); }
 
-    summary {
+    summary,
+    .link-button {
       list-style: none;
       display: flex;
       align-items: center;
@@ -120,6 +121,7 @@
       cursor: pointer;
       outline: none;
       user-select: none;
+      text-decoration: none; /* for <a> */
     }
     summary::-webkit-details-marker { display: none; }
 
@@ -145,18 +147,21 @@
     ul { margin: 8px 0 0 0; padding: 0 0 0 22px; }
     li { margin: 8px 0; }
 
-    summary:focus-visible {
+    summary:focus-visible,
+    .link-button:focus-visible {
       outline: 3px solid rgba(0,118,130,.6);
       outline-offset: 2px;
     }
     @media (hover:hover) {
-      summary:hover { filter: brightness(0.98); }
+      summary:hover,
+      .link-button:hover { filter: brightness(0.98); }
     }
     * { -webkit-tap-highlight-color: transparent; }
 
     @media (min-width: 430px) {
       .panel { padding: 18px 22px 22px; }
       summary { padding: 16px 22px; }
+      .link-button { padding: 16px 22px; }
     }
   </style>
 </head>
@@ -260,6 +265,9 @@
               <li>Har du varer over kvote, store verdier eller kontanter?</li>
               <li>Har du kvitteringer, taxfree-bevis eller annen dokumentasjon?</li>
             </ul>
+            <p style="margin-top:8px;">
+              <a href="sanksjonering.html">Gå til Sanksjonering →</a>
+            </p>
           </div>
         </details>
 
@@ -276,7 +284,15 @@
           </div>
         </details>
 
-        <!-- Infobokser -->
+        <!-- NY: Link-boks til Sanksjonering (samme stil som card/header) -->
+        <section class="card" role="region" aria-label="Lenker">
+          <a class="link-button" href="sanksjonering.html">
+            <span>Sanksjonering</span>
+            <span class="chev">▶</span>
+          </a>
+        </section>
+
+        <!-- Infobokser (Om/Bruk/Faglig forankring) -->
         <details class="card info" role="listitem">
           <summary>
             <span>🧭 Om tiltakskortet KONTROLL</span><span class="chev">▶</span>
