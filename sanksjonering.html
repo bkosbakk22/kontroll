@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Forenklet forelegg – varer og bøtebeløp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#007682" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --tollturkis:#007682; --infobla:#dce8ed; --bakgrunn:#f9f9f9; --tekst:#121212;
+      --bord:#e5e5e5; --radius:12px; --shadow:0 2px 8px rgba(0,0,0,.06);
+      --space:clamp(12px,2.5vw,20px); --header-size:clamp(18px,2.6vw,20px);
+      --title-size:clamp(24px,4vw,32px); --body-size:clamp(16px,2.8vw,18px);
+      --touch:52px; --maxw:820px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --infobla:#24333a; --bakgrunn:#0c0c0c; --tekst:#f2f2f2; --bord:#2a2a2a; --shadow:0 2px 10px rgba(0,0,0,.35); }
+    }
+    html,body{height:100%}
+    body{
+      margin:0; font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      font-size:var(--body-size); line-height:1.55; color:var(--tekst); background:var(--bakgrunn);
+      -webkit-text-size-adjust:100%; text-rendering:optimizeLegibility;
+    }
+    .page{
+      padding:calc(env(safe-area-inset-top)+var(--space))
+              calc(env(safe-area-inset-right)+var(--space))
+              calc(env(safe-area-inset-bottom)+var(--space))
+              calc(env(safe-area-inset-left)+var(--space));
+      display:grid; place-items:start center;
+    }
+    .container{width:100%; max-width:var(--maxw);}
+    .stack{display:grid; gap:12px}
+    .card{background:rgba(255,255,255,.9); border:1px solid var(--bord); border-radius:var(--radius); box-shadow:var(--shadow); overflow:clip;}
+    @media (prefers-color-scheme: dark){ .card{background:rgba(20,20,20,.9);} }
+    .banner{border-left:6px solid var(--tollturkis); margin-bottom:12px;}
+    .banner-title{display:grid; place-items:center; min-height:max(var(--touch),64px); font-weight:800; font-size:var(--title-size); background:var(--tollturkis); color:#fff; letter-spacing:.2px; padding:8px 12px;}
+    details{border-radius:var(--radius);}
+    summary{list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; min-height:var(--touch); padding:14px 18px; background:var(--tollturkis); color:#fff; font-weight:700; font-size:var(--header-size); cursor:pointer; user-select:none;}
+    summary::-webkit-details-marker{display:none}
+    .chev{transition:transform .2s ease; inline-size:1.1em; text-align:center}
+    details[open] .chev{transform:rotate(90deg)}
+    .panel{display:grid; gap:12px; padding:16px 18px 18px;}
+    table{width:100%; border-collapse:collapse; font-size:0.98em}
+    th,td{border:1px solid var(--bord); padding:10px; vertical-align:top}
+    th{background:#f3f6f7; text-align:left}
+    @media (prefers-color-scheme: dark){ th{background:#1a2428} }
+    a.back{display:inline-block; margin-bottom:16px; text-decoration:none; border:1px solid var(--tollturkis); padding:10px 14px; border-radius:10px; font-weight:700; color:var(--tollturkis);}
+    a.back:hover{filter:brightness(.95);}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+      <!-- Overskrift -->
+      <section class="card banner" aria-label="Tittel">
+        <div class="banner-title">Forenklet forelegg – varer og bøtebeløp</div>
+      </section>
+
+      <!-- Tilbakeknapp -->
+      <a href="index.html" class="back">← Tilbake til KONTROLL</a>
+
+      <!-- Første boks: Drikk 22–60 volumprosent -->
+      <div class="stack">
+        <details class="card">
+          <summary><span>Drikk 22–60 volumprosent</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <table>
+              <thead>
+                <tr><th>Antall liter</th><th>Beløp</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>til og med 1</td><td>400 kr</td></tr>
+                <tr><td>derover til og med 2</td><td>800 kr</td></tr>
+                <tr><td>derover til og med 3</td><td>1 600 kr</td></tr>
+                <tr><td>derover til og med 4</td><td>2 500 kr</td></tr>
+                <tr><td>derover til og med 5</td><td>3 400 kr</td></tr>
+                <tr><td>derover til og med 6</td><td>4 500 kr</td></tr>
+                <tr><td>derover til og med 8</td><td>7 000 kr</td></tr>
+                <tr><td>derover til og med 10</td><td>9 500 kr</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
