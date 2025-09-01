@@ -19,37 +19,69 @@
     @media (prefers-color-scheme: dark){
       :root{ --infobla:#24333a; --bakgrunn:#0c0c0c; --tekst:#f2f2f2; --bord:#2a2a2a; --shadow:0 2px 10px rgba(0,0,0,.35); }
     }
-    html,body{height:100%}
+
+    html, body { height: 100%; }
     body{
       margin:0; font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
       font-size:var(--body-size); line-height:1.55; color:var(--tekst); background:var(--bakgrunn);
       -webkit-text-size-adjust:100%; text-rendering:optimizeLegibility;
     }
+
+    /* Layout: container som kolonne → footer-boks holdes nederst */
     .page{
       padding:calc(env(safe-area-inset-top)+var(--space))
               calc(env(safe-area-inset-right)+var(--space))
               calc(env(safe-area-inset-bottom)+var(--space))
               calc(env(safe-area-inset-left)+var(--space));
+      min-height:100%;
       display:grid; place-items:start center;
     }
-    .container{width:100%; max-width:var(--maxw);}
-    .stack{display:grid; gap:12px}
-    .card{background:rgba(255,255,255,.9); border:1px solid var(--bord); border-radius:var(--radius); box-shadow:var(--shadow); overflow:clip;}
-    @media (prefers-color-scheme: dark){ .card{background:rgba(20,20,20,.9);} }
-    .banner{border-left:6px solid var(--tollturkis); margin-bottom:12px;}
-    .banner-title{display:grid; place-items:center; min-height:max(var(--touch),64px); font-weight:800; font-size:var(--title-size); background:var(--tollturkis); color:#fff; letter-spacing:.2px; padding:8px 12px;}
-    details{border-radius:var(--radius);}
-    summary{list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; min-height:var(--touch); padding:14px 18px; background:var(--tollturkis); color:#fff; font-weight:700; font-size:var(--header-size); cursor:pointer; user-select:none;}
-    summary::-webkit-details-marker{display:none}
-    .chev{transition:transform .2s ease; inline-size:1.1em; text-align:center}
-    details[open] .chev{transform:rotate(90deg)}
-    .panel{display:grid; gap:12px; padding:16px 18px 18px;}
-    table{width:100%; border-collapse:collapse; font-size:0.98em}
-    th,td{border:1px solid var(--bord); padding:10px; vertical-align:top}
-    th{background:#f3f6f7; text-align:left}
-    @media (prefers-color-scheme: dark){ th{background:#1a2428} }
-    a.back{display:inline-block; margin-bottom:16px; text-decoration:none; border:1px solid var(--tollturkis); padding:10px 14px; border-radius:10px; font-weight:700; color:var(--tollturkis);}
-    a.back:hover{filter:brightness(.95);}
+    .container{
+      width:100%; max-width:var(--maxw);
+      display:flex; flex-direction:column; min-height:100%;
+    }
+
+    .stack{ display:grid; gap:12px; grid-template-columns:1fr; }
+
+    .card{ background:rgba(255,255,255,.9); border:1px solid var(--bord); border-radius:var(--radius); box-shadow:var(--shadow); overflow:clip; }
+    @media (prefers-color-scheme: dark){ .card{ background:rgba(20,20,20,.9); } }
+
+    .banner{ border-left:6px solid var(--tollturkis); margin-bottom:12px; }
+    .banner-title{ display:grid; place-items:center; min-height:max(var(--touch),64px); font-weight:800; font-size:var(--title-size); background:var(--tollturkis); color:#fff; letter-spacing:.2px; padding:8px 12px; }
+
+    details{ border-radius:var(--radius); }
+    summary{
+      list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%;
+      min-height:var(--touch); padding:14px 18px; background:var(--tollturkis); color:#fff; font-weight:700; font-size:var(--header-size);
+      cursor:pointer; user-select:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .chev{ transition:transform .2s ease; inline-size:1.1em; text-align:center; }
+    details[open] .chev{ transform:rotate(90deg); }
+
+    .panel{ display:grid; gap:12px; padding:16px 18px 18px; }
+
+    table{ width:100%; border-collapse:collapse; font-size:0.98em; }
+    th,td{ border:1px solid var(--bord); padding:10px; vertical-align:top; }
+    th{ background:#f3f6f7; text-align:left; }
+    @media (prefers-color-scheme: dark){ th{ background:#1a2428; } }
+
+    /* Footer-lenke i boks nederst */
+    .footer-spacer{ flex:1 1 auto; } /* skyver footeren ned */
+    .footer-card{ margin-top:12px; }
+    .link-button{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      width:100%; min-height:var(--touch); padding:14px 18px; background:var(--tollturkis); color:#fff;
+      font-weight:700; font-size:var(--header-size); text-decoration:none;
+    }
+    .link-button:hover{ filter:brightness(.98); }
+    .link-button:focus-visible{ outline:3px solid rgba(0,118,130,.6); outline-offset:2px; }
+
+    @media (min-width: 430px) {
+      .panel { padding:18px 22px 22px; }
+      summary { padding:16px 22px; }
+      .link-button { padding:16px 22px; }
+    }
   </style>
 </head>
 <body>
@@ -60,18 +92,14 @@
         <div class="banner-title">Forenklet forelegg – varer og bøtebeløp</div>
       </section>
 
-      <!-- Tilbakeknapp -->
-      <a href="index.html" class="back">← Tilbake til KONTROLL</a>
-
-      <!-- Første boks: Drikk 22–60 volumprosent -->
-      <div class="stack">
-        <details class="card">
-          <summary><span>Drikk 22–60 volumprosent</span><span class="chev">▶</span></summary>
+      <!-- Innhold -->
+      <div class="stack" role="list">
+        <!-- 1 -->
+        <details class="card" role="listitem">
+          <summary><span>Alkoholinnhold over 22 til og med 60 volumprosent</span><span class="chev">▶</span></summary>
           <div class="panel">
             <table>
-              <thead>
-                <tr><th>Antall liter</th><th>Beløp</th></tr>
-              </thead>
+              <thead><tr><th>Antall liter</th><th>Beløp</th></tr></thead>
               <tbody>
                 <tr><td>til og med 1</td><td>400 kr</td></tr>
                 <tr><td>derover til og med 2</td><td>800 kr</td></tr>
@@ -85,7 +113,162 @@
             </table>
           </div>
         </details>
+
+        <!-- 2 -->
+        <details class="card" role="listitem">
+          <summary><span>Drikk med alkoholinnhold over 7,0 til og med 22 volumprosent</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <table>
+              <thead><tr><th>Antall liter</th><th>Beløp</th></tr></thead>
+              <tbody>
+                <tr><td>til og med 2</td><td>400 kr</td></tr>
+                <tr><td>derover til og med 4</td><td>800 kr</td></tr>
+                <tr><td>derover til og med 6</td><td>1 600 kr</td></tr>
+                <tr><td>derover til og med 8</td><td>2 500 kr</td></tr>
+                <tr><td>derover til og med 10</td><td>3 400 kr</td></tr>
+                <tr><td>derover til og med 12</td><td>4 500 kr</td></tr>
+                <tr><td>derover til og med 16</td><td>7 000 kr</td></tr>
+                <tr><td>derover til og med 20</td><td>9 500 kr</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- 3 -->
+        <details class="card" role="listitem">
+          <summary><span>Drikk med alkoholinnhold over 2,5 til og med 7,0 volumprosent</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <table>
+              <thead><tr><th>Antall liter</th><th>Beløp</th></tr></thead>
+              <tbody>
+                <tr><td>til og med 10</td><td>400 kr</td></tr>
+                <tr><td>derover til og med 20</td><td>800 kr</td></tr>
+                <tr><td>derover til og med 30</td><td>1 600 kr</td></tr>
+                <tr><td>derover til og med 40</td><td>2 500 kr</td></tr>
+                <tr><td>derover til og med 50</td><td>3 400 kr</td></tr>
+                <tr><td>derover til og med 60</td><td>4 500 kr</td></tr>
+                <tr><td>derover til og med 80</td><td>7 000 kr</td></tr>
+                <tr><td>derover til og med 100</td><td>9 500 kr</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- 4 -->
+        <details class="card" role="listitem">
+          <summary><span>Sigaretter, sigarer eller sigarillos</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <table>
+              <thead><tr><th>Antall</th><th>Beløp</th></tr></thead>
+              <tbody>
+                <tr><td>til og med 400</td><td>400 kr</td></tr>
+                <tr><td>derover til og med 600</td><td>800 kr</td></tr>
+                <tr><td>derover til og med 800</td><td>1 600 kr</td></tr>
+                <tr><td>derover til og med 1 000</td><td>2 500 kr</td></tr>
+                <tr><td>derover til og med 1 200</td><td>3 600 kr</td></tr>
+                <tr><td>derover til og med 1 600</td><td>6 100 kr</td></tr>
+                <tr><td>derover til og med 2 000</td><td>8 600 kr</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- 5 -->
+        <details class="card" role="listitem">
+          <summary><span>Snus, skråtobakk og røyketobakk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <table>
+              <thead><tr><th>Antall gram</th><th>Beløp</th></tr></thead>
+              <tbody>
+                <tr><td>til og med 500</td><td>400 kr</td></tr>
+                <tr><td>derover til og med 750</td><td>800 kr</td></tr>
+                <tr><td>derover til og med 1 000</td><td>1 600 kr</td></tr>
+                <tr><td>derover til og med 1 250</td><td>2 500 kr</td></tr>
+                <tr><td>derover til og med 1 500</td><td>3 600 kr</td></tr>
+                <tr><td>derover til og med 2 000</td><td>6 100 kr</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- 6 -->
+        <details class="card" role="listitem">
+          <summary><span>Kjøttvarer</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <table>
+              <thead><tr><th>Antall kg</th><th>Beløp</th></tr></thead>
+              <tbody>
+                <tr><td>til og med 10</td><td>400 kr</td></tr>
+                <tr><td>derover til og med 20</td><td>800 kr</td></tr>
+                <tr><td>derover til og med 30</td><td>1 600 kr</td></tr>
+                <tr><td>derover til og med 40</td><td>2 500 kr</td></tr>
+                <tr><td>derover til og med 60</td><td>4 500 kr</td></tr>
+                <tr><td>derover til og med 80</td><td>6 500 kr</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- 7 -->
+        <details class="card" role="listitem">
+          <summary><span>Drivstoff</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <table>
+              <thead><tr><th>Antall liter</th><th>Beløp</th></tr></thead>
+              <tbody>
+                <tr><td>til og med 100</td><td>400 kr</td></tr>
+                <tr><td>derover til og med 200</td><td>800 kr</td></tr>
+                <tr><td>derover til og med 400</td><td>1 600 kr</td></tr>
+                <tr><td>derover til og med 500</td><td>2 500 kr</td></tr>
+                <tr><td>derover til og med 600</td><td>3 400 kr</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- 8 -->
+        <details class="card" role="listitem">
+          <summary><span>Andre varer</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <table>
+              <thead><tr><th>Verdi i norske kroner</th><th>Beløp</th></tr></thead>
+              <tbody>
+                <tr><td>til og med 2 800</td><td>400 kr</td></tr>
+                <tr><td>derover til og med 5 000</td><td>800 kr</td></tr>
+                <tr><td>derover til og med 7 500</td><td>1 600 kr</td></tr>
+                <tr><td>derover til og med 10 000</td><td>2 500 kr</td></tr>
+                <tr><td>derover til og med 15 000</td><td>4 500 kr</td></tr>
+                <tr><td>derover til og med 20 000</td><td>6 500 kr</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- 9 -->
+        <details class="card" role="listitem">
+          <summary><span>Subsidiær fengselsstraff</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p>Forelegget skal omfatte subsidiær fengselsstraff. Den subsidiære fengselsstraffen fastsettes på følgende måte:</p>
+            <ul>
+              <li>a. ved bot til og med 400 kr: 1 dags fengsel</li>
+              <li>b. ved bot til og med 1 500 kr: 2 dager fengsel</li>
+              <li>c. ved bot til og med 3 000 kr: 3 dager fengsel</li>
+              <li>d. ved bot til og med 8 000 kr: 4 dager fengsel</li>
+              <li>e. ved bot til og med 14 000 kr: 6 dager fengsel</li>
+              <li>f. ved bot til og med 20 000 kr: 9 dager fengsel</li>
+            </ul>
+          </div>
+        </details>
       </div>
+
+      <!-- Footer-boks: alltid nederst -->
+      <div class="footer-spacer" aria-hidden="true"></div>
+      <section class="card footer-card" aria-label="Tilbake">
+        <a class="link-button" href="index.html">
+          <span>← Tilbake til KONTROLL</span>
+          <span class="chev">▶</span>
+        </a>
+      </section>
     </div>
   </main>
 </body>
