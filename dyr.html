@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Krav til kjæledyr ved innførsel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#12404F" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --tollturkis:#007682;
+      --tollmorkebla:#12404F;
+      --infobla:#dce8ed; --bakgrunn:#f9f9f9; --tekst:#121212;
+      --bord:#e5e5e5; --radius:12px; --shadow:0 2px 8px rgba(0,0,0,.06);
+      --space:clamp(12px,2.5vw,20px); --header-size:clamp(18px,2.6vw,20px);
+      --title-size:clamp(24px,4vw,32px); --body-size:clamp(16px,2.8vw,18px);
+      --touch:52px; --maxw:820px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --infobla:#24333a; --bakgrunn:#0c0c0c; --tekst:#f2f2f2; --bord:#2a2a2a; --shadow:0 2px 10px rgba(0,0,0,.35); }
+    }
+
+    html, body { height: 100%; }
+    body{
+      margin:0; font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      font-size:var(--body-size); line-height:1.55; color:var(--tekst); background:var(--bakgrunn);
+      -webkit-text-size-adjust:100%; text-rendering:optimizeLegibility;
+    }
+
+    .page{
+      padding:calc(env(safe-area-inset-top)+var(--space))
+              calc(env(safe-area-inset-right)+var(--space))
+              calc(env(safe-area-inset-bottom)+var(--space))
+              calc(env(safe-area-inset-left)+var(--space));
+      display:grid; place-items:start center;
+    }
+    .container{ width:100%; max-width:var(--maxw); display:flex; flex-direction:column; }
+
+    .stack{ display:grid; gap:12px; grid-template-columns:1fr; }
+
+    .card{ background:rgba(255,255,255,.9); border:1px solid var(--bord); border-radius:var(--radius); box-shadow:var(--shadow); overflow:clip; }
+    @media (prefers-color-scheme: dark){ .card{ background:rgba(20,20,20,.9); } }
+
+    /* Banner i Tollmørkeblå */
+    .banner{ border-left:6px solid var(--tollmorkebla); margin-bottom:12px; }
+    .banner-title{ display:grid; place-items:center; min-height:max(var(--touch),64px); font-weight:800; font-size:var(--title-size); background:var(--tollmorkebla); color:#fff; letter-spacing:.2px; padding:8px 12px; }
+
+    /* Accordion */
+    details{ border-radius:var(--radius); }
+    summary{
+      list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%;
+      min-height:var(--touch); padding:14px 18px; background:var(--tollturkis); color:#fff; font-weight:700; font-size:var(--header-size);
+      cursor:pointer; user-select:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .chev{ transition:transform .2s ease; inline-size:1.1em; text-align:center; }
+    details[open] .chev{ transform:rotate(90deg); }
+
+    .panel{ display:grid; gap:12px; padding:16px 18px 18px; }
+
+    table{ width:100%; border-collapse:collapse; font-size:0.98em; }
+    th,td{ border:1px solid var(--bord); padding:10px; vertical-align:top; }
+    th{ background:#f3f6f7; text-align:left; }
+    @media (prefers-color-scheme: dark){ th{ background:#1a2428; } }
+    .muted{ font-size:0.95em; opacity:0.85; }
+
+    /* Tilbake-boks i Tollmørkeblå */
+    .footer-card{ margin-top:20px; }
+    .link-button{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      width:100%; min-height:var(--touch); padding:14px 18px; background:var(--tollmorkebla); color:#fff;
+      font-weight:700; font-size:var(--header-size); text-decoration:none;
+    }
+    .link-button:hover{ filter:brightness(.98); }
+    .link-button:focus-visible{ outline:3px solid rgba(18,64,79,.6); outline-offset:2px; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+      <!-- Overskrift -->
+      <section class="card banner" aria-label="Tittel">
+        <div class="banner-title">Krav til kjæledyr ved innførsel</div>
+      </section>
+
+      <!-- Alle dyr -->
+      <div class="stack" role="list">
+
+        <!-- Hunder -->
+        <details class="card" role="listitem">
+          <summary><span>Hunder</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <strong>Inntil 5 hunder</strong>
+            <table aria-label="Krav for hunder">
+              <thead>
+                <tr><th>Opprinnelse</th><th>Krav</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Direkte fra Sverige</strong></td>
+                  <td>Pass, chip og echinococcose.</td>
+                </tr>
+                <tr>
+                  <td><strong>Andre EØS-land og Nord-Irland</strong></td>
+                  <td>Pass, chip, rabiesvaksine + 21 dager, og echinococcose.</td>
+                </tr>
+                <tr>
+                  <td><strong>Direkte fra Finland</strong></td>
+                  <td>Pass, chip og rabiesvaksine + 21 dager.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra listeførte 3. land (inkl. UK og Nord-Irland)</strong></td>
+                  <td>Pass/sertifikat, chip, rabiesvaksine + 21 dager, og echinococcose.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra andre 3. land samt Svalbard</strong></td>
+                  <td>Pass/sertifikat, chip, rabiesvaksine + 30 dager, blodprøvekontroll + 90 dager, og echinococcose.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- Katter -->
+        <details class="card" role="listitem">
+          <summary><span>Katter</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <strong>Inntil 5 katter</strong>
+            <table aria-label="Krav for katter">
+              <thead>
+                <tr><th>Opprinnelse</th><th>Krav</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Direkte fra Sverige</strong></td>
+                  <td>Pass og chip.</td>
+                </tr>
+                <tr>
+                  <td><strong>Andre EØS-land og Nord-Irland</strong></td>
+                  <td>Pass, chip og rabiesvaksine + 21 dager.</td>
+                </tr>
+                <tr>
+                  <td><strong>Direkte fra Finland</strong></td>
+                  <td>Pass, chip og rabiesvaksine + 21 dager.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra listeførte 3. land (inkl. UK og Nord-Irland)</strong></td>
+                  <td>Pass/sertifikat, chip og rabiesvaksine + 21 dager.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra andre 3. land samt Svalbard</strong></td>
+                  <td>Pass/sertifikat, chip, rabiesvaksine + 30 dager, og blodprøvekontroll + 90 dager.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- Ildere -->
+        <details class="card" role="listitem">
+          <summary><span>Ildere</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <strong>Inntil 5 ildere</strong>
+            <table aria-label="Krav for ildere">
+              <thead>
+                <tr><th>Opprinnelse</th><th>Krav</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Direkte fra Sverige</strong></td>
+                  <td>Pass og chip.</td>
+                </tr>
+                <tr>
+                  <td><strong>Andre EØS-land og Nord-Irland</strong></td>
+                  <td>Pass, chip og rabiesvaksine + 21 dager.</td>
+                </tr>
+                <tr>
+                  <td><strong>Direkte fra Finland</strong></td>
+                  <td>Pass, chip og rabiesvaksine + 21 dager.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra listeførte 3. land (inkl. UK og Nord-Irland)</strong></td>
+                  <td>Pass/sertifikat, chip og rabiesvaksine + 21 dager.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra andre 3. land samt Svalbard</strong></td>
+                  <td>Pass/sertifikat, chip, rabiesvaksine + 30 dager, og blodprøvekontroll + 90 dager.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- Gnagere -->
+        <details class="card" role="listitem">
+          <summary><span>Gnagere</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <strong>Inntil 3 gnagere</strong>
+            <table aria-label="Krav for gnagere">
+              <thead>
+                <tr><th>Opprinnelse</th><th>Krav</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Direkte fra Sverige</strong></td>
+                  <td>Ingen krav.</td>
+                </tr>
+                <tr>
+                  <td><strong>Andre EØS-land og Nord-Irland</strong></td>
+                  <td>Ingen krav.</td>
+                </tr>
+                <tr>
+                  <td><strong>Direkte fra Finland</strong></td>
+                  <td>Ingen krav.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra listeførte 3. land (inkl. UK og Nord-Irland)</strong></td>
+                  <td>Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra andre 3. land samt Svalbard</strong></td>
+                  <td>Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- Kaniner -->
+        <details class="card" role="listitem">
+          <summary><span>Kaniner</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <strong>Inntil 3 kaniner</strong>
+            <table aria-label="Krav for kaniner">
+              <thead>
+                <tr><th>Opprinnelse</th><th>Krav</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Direkte fra Sverige</strong></td>
+                  <td>Som fra andre EØS-land → Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Andre EØS-land og Nord-Irland</strong></td>
+                  <td>Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Direkte fra Finland</strong></td>
+                  <td>Som fra andre EØS-land → Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra listeførte 3. land (inkl. UK og Nord-Irland)</strong></td>
+                  <td>Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra andre 3. land samt Svalbard</strong></td>
+                  <td>Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- Fugler -->
+        <details class="card" role="listitem">
+          <summary><span>Fugler</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <strong>Inntil 3 fugler</strong>
+            <table aria-label="Krav for fugler">
+              <thead>
+                <tr><th>Opprinnelse</th><th>Krav</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Direkte fra Sverige</strong></td>
+                  <td>Som fra andre EØS-land → Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Andre EØS-land og Nord-Irland</strong></td>
+                  <td>Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Direkte fra Finland</strong></td>
+                  <td>Som fra andre EØS-land → Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra listeførte 3. land (inkl. UK og Nord-Irland)</strong></td>
+                  <td>Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra andre 3. land samt Svalbard</strong></td>
+                  <td>Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- Pappegøyefugler -->
+        <details class="card" role="listitem">
+          <summary><span>Pappegøyefugler</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <strong>Inntil 3 pappegøyefugler</strong>
+            <table aria-label="Krav for pappegøyefugler">
+              <thead>
+                <tr><th>Opprinnelse</th><th>Krav</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Direkte fra Sverige</strong></td>
+                  <td>Som fra andre EØS-land → Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Andre EØS-land og Nord-Irland</strong></td>
+                  <td>Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Direkte fra Finland</strong></td>
+                  <td>Som fra andre EØS-land → Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra listeførte 3. land (inkl. UK og Nord-Irland)</strong></td>
+                  <td>Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+                <tr>
+                  <td><strong>Fra andre 3. land samt Svalbard</strong></td>
+                  <td>Identifikasjonsdokument med helsesertifikat og erklæring*</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="muted">* Erklæring iht. gjeldende regelverk for ikke-kommersiell innførsel.</p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- Tilbake-boks -->
+      <section class="card footer-card" aria-label="Tilbake">
+        <a class="link-button" href="index.html">
+          <span>← Tilbake til KONTROLL</span>
+          <span class="chev">▶</span>
+        </a>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
