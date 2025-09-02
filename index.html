@@ -2,11 +2,10 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
-  <title>KONTROLL</title>
+  <title>Forelegg – tekster på flere språk</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#12404F" />
-  <!-- Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
 
   <style>
@@ -27,341 +26,561 @@
       --maxw:820px;
     }
     @media (prefers-color-scheme: dark){
-      :root{
-        --infobla:#24333a;
-        --bakgrunn:#0c0c0c;
-        --tekst:#f2f2f2;
-        --bord:#2a2a2a;
-        --shadow:0 2px 10px rgba(0,0,0,.35);
-      }
+      :root{ --infobla:#24333a; --bakgrunn:#0c0c0c; --tekst:#f2f2f2; --bord:#2a2a2a; --shadow:0 2px 10px rgba(0,0,0,.35); }
     }
 
-    html, body { height:100%; }
+    html, body { height: 100%; }
     body{
-      margin:0;
-      font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
-      font-size:var(--body-size);
-      line-height:1.55;
-      color:var(--tekst);
-      background:var(--bakgrunn);
-      -webkit-text-size-adjust:100%;
-      text-rendering:optimizeLegibility;
+      margin:0; font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      font-size:var(--body-size); line-height:1.55; color:var(--tekst); background:var(--bakgrunn);
+      -webkit-text-size-adjust:100%; text-rendering:optimizeLegibility;
     }
 
     .page{
-      padding:
-        calc(env(safe-area-inset-top)+var(--space))
-        calc(env(safe-area-inset-right)+var(--space))
-        calc(env(safe-area-inset-bottom)+var(--space))
-        calc(env(safe-area-inset-left)+var(--space));
+      padding:calc(env(safe-area-inset-top)+var(--space))
+              calc(env(safe-area-inset-right)+var(--space))
+              calc(env(safe-area-inset-bottom)+var(--space))
+              calc(env(safe-area-inset-left)+var(--space));
       display:grid; place-items:start center;
     }
-    .container{ width:100%; max-width:var(--maxw); }
+    .container{ width:100%; max-width:var(--maxw); display:flex; flex-direction:column; }
 
     .stack{ display:grid; gap:12px; grid-template-columns:1fr; }
 
-    .card{
-      background:rgba(255,255,255,.9);
-      border:1px solid var(--bord);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:clip;
-    }
-    @media (prefers-color-scheme: dark){
-      .card{ background:rgba(20,20,20,.9); }
-    }
+    .card{ background:rgba(255,255,255,.9); border:1px solid var(--bord); border-radius:var(--radius); box-shadow:var(--shadow); overflow:clip; }
+    @media (prefers-color-scheme: dark){ .card{ background:rgba(20,20,20,.9); } }
 
-    /* Banner i Tollmørkeblå */
     .banner{ border-left:6px solid var(--tollmorkebla); margin-bottom:12px; }
-    .banner-title{
-      display:grid; place-items:center;
-      min-height:max(var(--touch),64px);
-      font-weight:800; font-size:var(--title-size);
-      background:var(--tollmorkebla); color:#fff;
-      letter-spacing:.2px; padding:8px 12px;
-    }
+    .banner-title{ display:grid; place-items:center; min-height:max(var(--touch),64px); font-weight:800; font-size:var(--title-size); background:var(--tollmorkebla); color:#fff; letter-spacing:.2px; padding:8px 12px; }
 
-    /* Accordion */
     details{ border-radius:var(--radius); }
     summary{
-      list-style:none;
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; width:100%;
-      min-height:var(--touch);
-      padding:14px 18px;
-      color:#fff; font-weight:700; font-size:var(--header-size);
+      list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%;
+      min-height:var(--touch); padding:14px 18px; background:var(--tollturkis); color:#fff; font-weight:700; font-size:var(--header-size);
       cursor:pointer; user-select:none;
     }
     summary::-webkit-details-marker{ display:none; }
     .chev{ transition:transform .2s ease; inline-size:1.1em; text-align:center; }
     details[open] .chev{ transform:rotate(90deg); }
 
-    /* Farger: kontrollkort (turkis) vs. seksjoner etter KONTROLL (mørkeblå) */
-    .control summary{ background:var(--tollturkis); }
-    .info summary{ background:var(--tollmorkebla); color:#fff; }
-
     .panel{ display:grid; gap:12px; padding:16px 18px 18px; }
+    ul{ margin:0; padding-left:22px; }
+    li{ margin:6px 0; }
 
-    ul{ margin:8px 0 0 0; padding:0 0 0 22px; }
-    li{ margin:8px 0; }
-
-    /* Lenke-boks (Sanksjonering) i Tollmørkeblå */
+    .footer-card{ margin-top:20px; }
     .link-button{
       display:flex; align-items:center; justify-content:space-between; gap:12px;
-      width:100%; min-height:var(--touch);
-      padding:14px 18px; background:var(--tollmorkebla); color:#fff;
+      width:100%; min-height:var(--touch); padding:14px 18px; background:var(--tollmorkebla); color:#fff;
       font-weight:700; font-size:var(--header-size); text-decoration:none;
+      border-radius:var(--radius); border:1px solid var(--bord);
     }
     .link-button:hover{ filter:brightness(.98); }
     .link-button:focus-visible{ outline:3px solid rgba(18,64,79,.6); outline-offset:2px; }
-
-    @media (min-width:430px){
-      .panel{ padding:18px 22px 22px; }
-      summary{ padding:16px 22px; }
-      .link-button{ padding:16px 22px; }
-    }
   </style>
 </head>
 <body>
   <main class="page">
     <div class="container">
-      <!-- Toppbanner -->
+      <!-- Overskrift -->
       <section class="card banner" aria-label="Tittel">
-        <div class="banner-title">KONTROLL</div>
+        <div class="banner-title">Forelegg – tekster på flere språk</div>
       </section>
 
-      <!-- Tiltakskortet (turkis) -->
       <div class="stack" role="list">
-        <details class="card control" role="listitem">
-          <summary><span>K – Kompass (reiserute)</span><span class="chev">▶</span></summary>
-          <div class="panel" role="region" aria-label="Kompass – innhold">
+        <!-- Norsk (lukket) -->
+        <details class="card" role="listitem">
+          <summary><span>Norsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Innledning</strong><br>
+              Du har med varer som er i strid med kvotebestemmelsene. Brudd på kvotebestemmelsene medfører nå en reaksjon. Du kan velge mellom to alternativer for hvordan saken skal behandles videre.
+            </p>
+
+            <p><strong>Alternativ 1</strong></p>
             <ul>
-              <li>Hvilke land/steder har du vært i?</li>
-              <li>Hvordan reiste du (fly, bil, buss)?</li>
-              <li>Hvilke grenseoverganger eller flyplasser brukte du?</li>
+              <li>Tolletaten inndrar de varene du har over den tollfrie kvoten.</li>
+              <li>Du tilbys å avgjøre saken via et forenklet forelegg.</li>
+              <li>Du vedtar forelegget her på stedet og betaler nå eller innen 7 dager.</li>
+              <li>Forholdet er avgjort når betaling har funnet sted.</li>
+              <li>Avgjørelsen kan ikke påklages.</li>
             </ul>
+
+            <p><strong>Alternativ 2</strong></p>
+            <ul>
+              <li>Tolletaten beslaglegger de varene du har over den tollfrie kvoten.</li>
+              <li>Saken blir anmeldt til Politiet og straffeforfølges på ordinær måte.</li>
+            </ul>
+
+            <p><em>Hva velger du?</em></p>
           </div>
         </details>
 
-        <details class="card control" role="listitem">
-          <summary><span>O – Opphold</span><span class="chev">▶</span></summary>
-          <div class="panel" role="region" aria-label="Opphold – innhold">
+        <!-- Arabisk -->
+        <details class="card" role="listitem">
+          <summary><span>Arabisk</span><span class="chev">▶</span></summary>
+          <div class="panel" dir="rtl">
+            <p><strong>مقدمة</strong><br>
+              لديك بضائع تخالف قواعد الحصص. يؤدي خرق قواعد الحصص الآن إلى إجراء. يمكنك الاختيار بين خيارين لكيفية متابعة معالجة القضية.
+            </p>
+
+            <p><strong>الخيار 1</strong></p>
             <ul>
-              <li>Hvor bodde du (hotell, venner, Airbnb)?</li>
-              <li>Hvor lenge var du på hvert sted?</li>
-              <li>Har du kvitteringer eller bookingbekreftelser?</li>
+              <li>تصادر الجمارك البضائع التي تتجاوز الحصة المعفاة من الرسوم.</li>
+              <li>يُعرض عليك إنهاء القضية عبر «غرامة مبسطة» (forenklet forelegg).</li>
+              <li>تُقرّ بالغرامة في المكان وتدفع الآن أو خلال 7 أيام.</li>
+              <li>تُعتبر القضية منتهية عند إتمام الدفع.</li>
+              <li>القرار نهائي ولا يمكن الطعن فيه.</li>
             </ul>
+
+            <p><strong>الخيار 2</strong></p>
+            <ul>
+              <li>تضع الجمارك البضائع التي تتجاوز الحصة المعفاة تحت الحجز (ضبط).</li>
+              <li>تُحال القضية إلى الشرطة ويجري تتبعها وفق الإجراءات الجنائية المعتادة.</li>
+            </ul>
+
+            <p><em>ماذا تختار؟</em></p>
           </div>
         </details>
 
-        <details class="card control" role="listitem">
-          <summary><span>N – Nettverk (formål og tilknytning)</span><span class="chev">▶</span></summary>
-          <div class="panel" role="region" aria-label="Nettverk – innhold">
+        <!-- Dansk -->
+        <details class="card" role="listitem">
+          <summary><span>Dansk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Indledning</strong><br>
+              Du har varer, som strider mod kvotebestemmelserne. Brud på kvotereglerne medfører nu en reaktion. Du kan vælge mellem to alternativer for den videre behandling.
+            </p>
+
+            <p><strong>Alternativ 1</strong></p>
             <ul>
-              <li>Hva var hensikten med reisen?</li>
-              <li>Hvem betalte eller organiserte reisen?</li>
-              <li>Reiste du sammen med noen?</li>
-              <li>Hvem møtte du, eller skal du møte?</li>
+              <li>Toldmyndigheden inddrager de varer, du har over den toldfrie kvote.</li>
+              <li>Du tilbydes at afslutte sagen med et forenklet forelæg (forenklet forelegg).</li>
+              <li>Du vedtager forelægget på stedet og betaler nu eller inden 7 dage.</li>
+              <li>Sagen er afgjort, når betalingen er gennemført.</li>
+              <li>Afgørelsen kan ikke påklages.</li>
             </ul>
+
+            <p><strong>Alternativ 2</strong></p>
+            <ul>
+              <li>Toldmyndigheden beslaglægger varerne over den toldfrie kvote.</li>
+              <li>Sagen anmeldes til politiet og strafforfølges efter almindelig procedure.</li>
+            </ul>
+
+            <p><em>Hvad vælger du?</em></p>
           </div>
         </details>
 
-        <details class="card control" role="listitem">
-          <summary><span>T – Tidspunkt</span><span class="chev">▶</span></summary>
-          <div class="panel" role="region" aria-label="Tidspunkt – innhold">
+        <!-- Engelsk -->
+        <details class="card" role="listitem">
+          <summary><span>Engelsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Introduction</strong><br>
+              You are carrying goods in breach of the quota rules. This breach now leads to a response. You can choose between two options for how the case proceeds.
+            </p>
+
+            <p><strong>Option 1</strong></p>
             <ul>
-              <li>Når dro du hjemmefra, og når kom du tilbake?</li>
-              <li>Hva gjorde du de første og siste dagene?</li>
-              <li>Har du billetter, boardingkort eller annen dokumentasjon?</li>
+              <li>Customs will forfeit the goods you have above the duty-free allowance.</li>
+              <li>You are offered to settle the case by a simplified fine notice (<em>forenklet forelegg</em>).</li>
+              <li>You accept the notice on the spot and pay now or within 7 days.</li>
+              <li>The matter is concluded once payment has been made.</li>
+              <li>The decision cannot be appealed.</li>
             </ul>
+
+            <p><strong>Option 2</strong></p>
+            <ul>
+              <li>Customs will seize the goods you have above the duty-free allowance.</li>
+              <li>The case will be reported to the police and prosecuted in the ordinary manner.</li>
+            </ul>
+
+            <p><em>Which option do you choose?</em></p>
           </div>
         </details>
 
-        <details class="card control" role="listitem">
-          <summary><span>R – Reisegods</span><span class="chev">▶</span></summary>
-          <div class="panel" role="region" aria-label="Reisegods – innhold">
+        <!-- Estisk -->
+        <details class="card" role="listitem">
+          <summary><span>Estisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Sissejuhatus</strong><br>
+              Teil on kaasas kaupu, mis rikuvad kvoodireegleid. Rikkumine toob nüüd kaasa meetme. Saate valida kahe võimaluse vahel, kuidas asja edasi menetleda.
+            </p>
+
+            <p><strong>Variant 1</strong></p>
             <ul>
-              <li>Hva inneholder bagasjen?</li>
-              <li>Er alt ditt?</li>
-              <li>Har noen andre pakket for deg?</li>
-              <li>Har du gaver eller varer for andre?</li>
+              <li>Toll konfiskeerib tollivaba kvooti ületavad kaubad.</li>
+              <li>Teile pakutakse asja lahendamist lihtsustatud trahviteatega (<em>forenklet forelegg</em>).</li>
+              <li>Te nõustute teatega kohapeal ja maksate nüüd või 7 päeva jooksul.</li>
+              <li>Asi loetakse lõpetatuks pärast makse laekumist.</li>
+              <li>Otsust ei saa edasi kaevata.</li>
             </ul>
+
+            <p><strong>Variant 2</strong></p>
+            <ul>
+              <li>Toll võtab tollivaba kvooti ületavad kaubad ajutiselt hoiule (arestitakse).</li>
+              <li>Asjast teatatakse politseile ning seda menetletakse tavapärases korras.</li>
+            </ul>
+
+            <p><em>Mida valite?</em></p>
           </div>
         </details>
 
-        <details class="card control" role="listitem">
-          <summary><span>O – Overensstemmelse</span><span class="chev">▶</span></summary>
-          <div class="panel" role="region" aria-label="Overensstemmelse – innhold">
+        <!-- Finsk -->
+        <details class="card" role="listitem">
+          <summary><span>Finsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Johdanto</strong><br>
+              Sinulla on mukana tavaroita, jotka rikkovat kiintiösääntöjä. Rikkeestä seuraa nyt toimenpide. Voit valita kahdesta vaihtoehdosta asian jatkokäsittelyyn.
+            </p>
+
+            <p><strong>Vaihtoehto 1</strong></p>
             <ul>
-              <li>Henger forklaringen sammen med bagasje og reiserute?</li>
-              <li>Har du dokumentasjon eller bevis?</li>
-              <li>Er det noe som ikke stemmer?</li>
+              <li>Tulli määrää tullittoman kiintiön ylittävät tavarat menetetyiksi.</li>
+              <li>Sinulle tarjotaan asian ratkaisemista yksinkertaistetulla sakolla (<em>forenklet forelegg</em>).</li>
+              <li>Hyväksyt sakon paikan päällä ja maksat nyt tai 7 päivän kuluessa.</li>
+              <li>Asia on ratkaistu, kun maksu on suoritettu.</li>
+              <li>Päätöksestä ei voi valittaa.</li>
             </ul>
+
+            <p><strong>Vaihtoehto 2</strong></p>
+            <ul>
+              <li>Tulli ottaa tullittoman kiintiön ylittävät tavarat takavarikkoon.</li>
+              <li>Asiasta tehdään rikosilmoitus poliisille ja asiaa käsitellään tavanomaisen prosessin mukaan.</li>
+            </ul>
+
+            <p><em>Minkä vaihtoehdon valitset?</em></p>
           </div>
         </details>
 
-        <details class="card control" role="listitem">
-          <summary><span>L – Lovlighet (handel)</span><span class="chev">▶</span></summary>
-          <div class="panel" role="region" aria-label="Lovlighet – innhold">
+        <!-- Fransk -->
+        <details class="card" role="listitem">
+          <summary><span>Fransk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Introduction</strong><br>
+              Vous transportez des marchandises en infraction avec les règles de quota. Cette infraction entraîne maintenant une mesure. Vous pouvez choisir entre deux options pour la suite.
+            </p>
+
+            <p><strong>Option 1</strong></p>
             <ul>
-              <li>Har du kjøpt noe i utlandet?</li>
-              <li>Har du varer over kvote, store verdier eller kontanter?</li>
-              <li>Har du kvitteringer, taxfree-bevis eller annen dokumentasjon?</li>
+              <li>Les marchandises au-delà de la franchise hors taxes sont confisquées par la douane.</li>
+              <li>Il vous est proposé de régler l’affaire par une amende simplifiée (<em>forenklet forelegg</em>).</li>
+              <li>Vous acceptez l’amende sur place et payez maintenant ou dans les 7 jours.</li>
+              <li>L’affaire est close une fois le paiement effectué.</li>
+              <li>La décision ne peut pas être contestée.</li>
             </ul>
+
+            <p><strong>Option 2</strong></p>
+            <ul>
+              <li>Les marchandises au-delà de la franchise sont placées sous saisie par la douane.</li>
+              <li>L’affaire est signalée à la police et poursuivie selon la procédure pénale ordinaire.</li>
+            </ul>
+
+            <p><em>Quel choix faites-vous&nbsp;?</em></p>
           </div>
         </details>
 
-        <details class="card control" role="listitem">
-          <summary><span>L – Logisk helhet (egenvurdering)</span><span class="chev">▶</span></summary>
-          <div class="panel" role="region" aria-label="Logisk helhet – innhold">
+        <!-- Italiensk -->
+        <details class="card" role="listitem">
+          <summary><span>Italiensk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Introduzione</strong><br>
+              Stai trasportando beni in violazione delle regole sulle quote. Tale violazione comporta ora un provvedimento. Puoi scegliere tra due opzioni su come procedere.
+            </p>
+
+            <p><strong>Opzione 1</strong></p>
             <ul>
-              <li>Virker historien troverdig?</li>
-              <li>Er det logiske hull eller selvmotsigelser?</li>
-              <li>Bør det iverksettes videre kontroll eller tiltak?</li>
+              <li>Le autorità doganali dispongono la confisca dei beni oltre la franchigia duty-free.</li>
+              <li>Ti viene offerto di definire il caso con una sanzione semplificata (<em>forenklet forelegg</em>).</li>
+              <li>Accetti la sanzione sul posto e paghi ora o entro 7 giorni.</li>
+              <li>La questione si considera chiusa una volta effettuato il pagamento.</li>
+              <li>La decisione è definitiva e non impugnabile.</li>
             </ul>
+
+            <p><strong>Opzione 2</strong></p>
+            <ul>
+              <li>I beni oltre la franchigia vengono posti sotto sequestro doganale.</li>
+              <li>Il caso viene denunciato alla polizia e perseguito secondo la procedura ordinaria.</li>
+            </ul>
+
+            <p><em>Cosa scegli?</em></p>
+          </div>
+        </details>
+
+        <!-- Latvisk -->
+        <details class="card" role="listitem">
+          <summary><span>Latvisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Ievads</strong><br>
+              Jums ir līdzi preces, kas pārkāpj kvotu noteikumus. Par pārkāpumu tagad tiek piemērots pasākums. Varat izvēlēties vienu no divām tālākās izskatīšanas iespējām.
+            </p>
+
+            <p><strong>1. variants</strong></p>
+            <ul>
+              <li>Muita konfiscē preces, kas pārsniedz beznodokļu kvotu.</li>
+              <li>Jums tiek piedāvāts lietu pabeigt ar vienkāršotu naudas sodu (<em>forenklet forelegg</em>).</li>
+              <li>Jūs piekrītat sodam uz vietas un maksājat tagad vai 7 dienu laikā.</li>
+              <li>Lieta tiek uzskatīta par pabeigtu, kad maksājums ir veikts.</li>
+              <li>Lēmumu nevar pārsūdzēt.</li>
+            </ul>
+
+            <p><strong>2. variants</strong></p>
+            <ul>
+              <li>Muita izņem (arestē) preces virs beznodokļu kvotas.</li>
+              <li>Par lietu tiek iesniegts ziņojums policijā un tā tiek izskatīta parastajā kārtībā.</li>
+            </ul>
+
+            <p><em>Ko jūs izvēlaties?</em></p>
+          </div>
+        </details>
+
+        <!-- Litauisk -->
+        <details class="card" role="listitem">
+          <summary><span>Litauisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Įvadas</strong><br>
+              Vežatės prekių, pažeidžiančių kvotos taisykles. Dėl šio pažeidimo dabar taikoma priemonė. Galite pasirinkti vieną iš dviejų tolimesnio nagrinėjimo variantų.
+            </p>
+
+            <p><strong>1 variantas</strong></p>
+            <ul>
+              <li>Muitinė konfiskuoja prekes, viršijančias neapmuitinamą kvotą.</li>
+              <li>Siūloma bylą užbaigti taikant supaprastintą baudos nutarimą (<em>forenklet forelegg</em>).</li>
+              <li>Sutinkate vietoje ir sumokate dabar arba per 7 dienas.</li>
+              <li>Byla laikoma užbaigta, kai mokėjimas atliktas.</li>
+              <li>Sprendimas negali būti skundžiamas.</li>
+            </ul>
+
+            <p><strong>2 variantas</strong></p>
+            <ul>
+              <li>Muitinė sulaiko (areštuoja) prekes, viršijančias neapmuitinamą kvotą.</li>
+              <li>Byla perduodama policijai ir nagrinėjama įprasta tvarka.</li>
+            </ul>
+
+            <p><em>Ką pasirenkate?</em></p>
+          </div>
+        </details>
+
+        <!-- Nederlandsk -->
+        <details class="card" role="listitem">
+          <summary><span>Nederlandsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Inleiding</strong><br>
+              U vervoert goederen in strijd met de quotaregels. Deze overtreding leidt nu tot een maatregel. U kunt kiezen uit twee opties voor het vervolg.
+            </p>
+
+            <p><strong>Optie 1</strong></p>
+            <ul>
+              <li>De douane verklaart goederen boven de belastingvrije vrijstelling verbeurd.</li>
+              <li>U krijgt de mogelijkheid de zaak af te doen met een vereenvoudigde boetebeschikking (<em>forenklet forelegg</em>).</li>
+              <li>U aanvaardt de beschikking ter plaatse en betaalt nu of binnen 7 dagen.</li>
+              <li>De zaak is afgerond zodra de betaling is gedaan.</li>
+              <li>De beslissing kan niet worden aangevochten.</li>
+            </ul>
+
+            <p><strong>Optie 2</strong></p>
+            <ul>
+              <li>De douane neemt goederen boven de vrijstelling in beslag.</li>
+              <li>Er wordt aangifte gedaan bij de politie en de zaak wordt volgens de normale procedure vervolgd.</li>
+            </ul>
+
+            <p><em>Waar kiest u voor?</em></p>
+          </div>
+        </details>
+
+        <!-- Polsk -->
+        <details class="card" role="listitem">
+          <summary><span>Polsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Wprowadzenie</strong><br>
+              Przewozisz towary z naruszeniem przepisów dotyczących limitów. Naruszenie powoduje teraz reakcję. Masz do wyboru dwa sposoby dalszego postępowania.
+            </p>
+
+            <p><strong>Opcja 1</strong></p>
+            <ul>
+              <li>Służba Celna orzeka przepadek towarów powyżej limitu bezcłowego.</li>
+              <li>Oferujemy zakończenie sprawy poprzez uproszczony mandat karny (<em>forenklet forelegg</em>).</li>
+              <li>Przyjmujesz mandat na miejscu i płacisz teraz lub w ciągu 7 dni.</li>
+              <li>Sprawa jest zakończona po dokonaniu płatności.</li>
+              <li>Decyzja jest ostateczna i bez prawa do odwołania.</li>
+            </ul>
+
+            <p><strong>Opcja 2</strong></p>
+            <ul>
+              <li>Towary powyżej limitu bezcłowego są zatrzymywane (zajęte) przez Służbę Celną.</li>
+              <li>Składane jest zawiadomienie na policję i sprawa jest ścigana w zwykłym trybie.</li>
+            </ul>
+
+            <p><em>Co wybierasz?</em></p>
+          </div>
+        </details>
+
+        <!-- Rumensk -->
+        <details class="card" role="listitem">
+          <summary><span>Rumensk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Introducere</strong><br>
+              Transportați bunuri cu încălcarea regulilor de cotă. Această încălcare atrage acum o măsură. Puteți alege între două opțiuni pentru modul de continuare.
+            </p>
+
+            <p><strong>Opțiunea 1</strong></p>
+            <ul>
+              <li>Vama dispune confiscarea bunurilor peste cota scutită de taxe.</li>
+              <li>Vi se propune soluționarea printr-un proces-verbal de amendă simplificată (<em>forenklet forelegg</em>).</li>
+              <li>Acceptați pe loc și plătiți acum sau în termen de 7 zile.</li>
+              <li>Cauza este închisă după efectuarea plății.</li>
+              <li>Decizia nu poate fi atacată.</li>
+            </ul>
+
+            <p><strong>Opțiunea 2</strong></p>
+            <ul>
+              <li>Bunurile peste cotă sunt puse sub sechestru (ridicate) de către vamă.</li>
+              <li>Cazul este sesizat poliției și urmărit penal în mod obișnuit.</li>
+            </ul>
+
+            <p><em>Ce alegeți?</em></p>
+          </div>
+        </details>
+
+        <!-- Russisk -->
+        <details class="card" role="listitem">
+          <summary><span>Russisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Введение</strong><br>
+              У вас есть товары с нарушением правил квот. Это нарушение сейчас влечёт меру. Вы можете выбрать один из двух вариантов дальнейшего рассмотрения.
+            </p>
+
+            <p><strong>Вариант 1</strong></p>
+            <ul>
+              <li>Таможня конфискует товары сверх беспошлинной квоты.</li>
+              <li>Вам предлагается урегулировать дело посредством упрощённого штрафного постановления (<em>forenklet forelegg</em>).</li>
+              <li>Вы принимаете постановление на месте и оплачиваете сейчас или в течение 7 дней.</li>
+              <li>Дело считается завершённым после оплаты.</li>
+              <li>Решение окончательное и обжалованию не подлежит.</li>
+            </ul>
+
+            <p><strong>Вариант 2</strong></p>
+            <ul>
+              <li>Таможня изымает товары сверх беспошлинной квоты.</li>
+              <li>Дело направляется в полицию и преследуется в обычном порядке.</li>
+            </ul>
+
+            <p><em>Какой вариант вы выбираете?</em></p>
+          </div>
+        </details>
+
+        <!-- Spansk -->
+        <details class="card" role="listitem">
+          <summary><span>Spansk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Introducción</strong><br>
+              Transporta mercancías en incumplimiento de las normas de cupo. Esta infracción conlleva ahora una medida. Puede elegir entre dos opciones para continuar.
+            </p>
+
+            <p><strong>Opción 1</strong></p>
+            <ul>
+              <li>Aduanas decomisa los bienes que superan la franquicia libre de impuestos.</li>
+              <li>Se le ofrece resolver el caso mediante una notificación de multa simplificada (<em>forenklet forelegg</em>).</li>
+              <li>Usted acepta en el acto y paga ahora o dentro de 7 días.</li>
+              <li>El asunto queda concluido una vez realizado el pago.</li>
+              <li>La decisión es definitiva y no puede recurrirse.</li>
+            </ul>
+
+            <p><strong>Opción 2</strong></p>
+            <ul>
+              <li>Aduanas incauta los bienes que superan la franquicia.</li>
+              <li>El caso se denuncia a la policía y se persigue por el cauce ordinario.</li>
+            </ul>
+
+            <p><em>¿Qué opción elige?</em></p>
+          </div>
+        </details>
+
+        <!-- Svensk -->
+        <details class="card" role="listitem">
+          <summary><span>Svensk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Inledning</strong><br>
+              Du har med varor som strider mot kvotbestämmelserna. Överträdelsen medför nu en åtgärd. Du kan välja mellan två alternativ för hur ärendet hanteras vidare.
+            </p>
+
+            <p><strong>Alternativ 1</strong></p>
+            <ul>
+              <li>Tullverket förverkar de varor du har över den tullfria kvoten.</li>
+              <li>Du erbjuds att avsluta ärendet med ett förenklat föreläggande (<em>forenklet forelegg</em>).</li>
+              <li>Du godtar föreläggandet på plats och betalar nu eller inom 7 dagar.</li>
+              <li>Ärendet är avgjort när betalningen har skett.</li>
+              <li>Beslutet kan inte överklagas.</li>
+            </ul>
+
+            <p><strong>Alternativ 2</strong></p>
+            <ul>
+              <li>Tullverket tar varorna över kvoten i beslag.</li>
+              <li>Ärendet anmäls till polisen och hanteras enligt ordinarie förfarande.</li>
+            </ul>
+
+            <p><em>Vad väljer du?</em></p>
+          </div>
+        </details>
+
+        <!-- Tysk -->
+        <details class="card" role="listitem">
+          <summary><span>Tysk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Einleitung</strong><br>
+              Sie führen Waren mit, die gegen die Quotenbestimmungen verstoßen. Dieser Verstoß hat nun eine Maßnahme zur Folge. Sie können zwischen zwei Optionen für das weitere Vorgehen wählen.
+            </p>
+
+            <p><strong>Option 1</strong></p>
+            <ul>
+              <li>Der Zoll zieht die Waren über der zollfreien Freimenge ein (Einziehung).</li>
+              <li>Es wird angeboten, die Sache mit einem vereinfachten Strafbescheid zu erledigen (<em>forenklet forelegg</em>).</li>
+              <li>Sie akzeptieren den Bescheid vor Ort und zahlen jetzt oder innerhalb von 7 Tagen.</li>
+              <li>Die Angelegenheit ist erledigt, sobald die Zahlung erfolgt ist.</li>
+              <li>Der Bescheid ist endgültig und nicht anfechtbar.</li>
+            </ul>
+
+            <p><strong>Option 2</strong></p>
+            <ul>
+              <li>Der Zoll nimmt die Waren über der Freimenge in Beschlag.</li>
+              <li>Der Fall wird bei der Polizei angezeigt und im ordentlichen Verfahren verfolgt.</li>
+            </ul>
+
+            <p><em>Wofür entscheiden Sie sich?</em></p>
+          </div>
+        </details>
+
+        <!-- Ukrainsk -->
+        <details class="card" role="listitem">
+          <summary><span>Ukrainsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Вступ</strong><br>
+              Ви перевозите товари з порушенням правил квот. Це порушення зараз тягне за собою захід. Ви можете обрати один з двох варіантів подальшого розгляду.
+            </p>
+
+            <p><strong>Варіант 1</strong></p>
+            <ul>
+              <li>Митниця конфіскує товари понад безмитну квоту.</li>
+              <li>Вам пропонують завершити справу за спрощеним штрафним повідомленням (<em>forenklet forelegg</em>).</li>
+              <li>Ви погоджуєтеся на місці та сплачуєте зараз або протягом 7 днів.</li>
+              <li>Справу вважають завершеною після здійснення платежу.</li>
+              <li>Рішення є остаточним і не підлягає оскарженню.</li>
+            </ul>
+
+            <p><strong>Варіант 2</strong></p>
+            <ul>
+              <li>Митниця вилучає товари понад квоту.</li>
+              <li>Справу передають до поліції та переслідують у звичайному порядку.</li>
+            </ul>
+
+            <p><em>Що ви обираєте?</em></p>
           </div>
         </details>
       </div>
 
-      <!-- Link-boks til Sanksjonering (mørkeblå) – etter tiltakskortet -->
-      <section class="card" style="margin-top:20px;" aria-label="Lenker">
+      <!-- Tilbake til Sanksjonering -->
+      <section class="card footer-card" aria-label="Tilbake">
         <a class="link-button" href="sanksjonering.html">
-          <span>⚖ Sanksjonering</span>
+          <span>← Tilbake til Sanksjonering</span>
           <span class="chev">▶</span>
         </a>
       </section>
-
-      <!-- Andre verktøy (mørkeblå) -->
-      <details class="card info" role="listitem" style="margin-top:12px;">
-        <summary><span>🛠 Andre verktøy</span><span class="chev">▶</span></summary>
-        <div class="panel" role="region" aria-label="Andre verktøy">
-          <ul>
-            <li><a href="dyr.html">Kjæledyr</a></li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- Infobokser (mørkeblå) – full tekst -->
-      <div class="stack" style="margin-top:20px;" role="list">
-        <!-- Om tiltakskortet -->
-        <details class="card info" role="listitem">
-          <summary><span>🧭 Om tiltakskortet KONTROLL</span><span class="chev">▶</span></summary>
-          <div class="panel" role="region" aria-label="Om tiltakskortet">
-            <p>
-              Tiltakskortet KONTROLL er et verktøy for strukturert informasjonsinnhenting og vurdering i kontrollsituasjoner. Det er ikke en fasit, men et hjelpemiddel som støtter både den uerfarne og den erfarne tolleren.
-            </p>
-            <p>
-              For den uerfarne kan kortet med fordel brukes som en sjekkliste for å sikre at man får med seg det viktigste. For den erfarne fungerer det mer som en mental modell – en rød tråd man holder samtalen og vurderingene opp mot.
-            </p>
-            <p>
-              Kortet er ikke uttømmende. I praksis vil noen punkter være lite relevante i én situasjon, mens andre krever grundig oppfølging. Det er her vurderingsevne og erfaring kommer inn: å vite hvor man skal gå i dybden, og hvor det er tilstrekkelig å berøre overflaten.
-            </p>
-          </div>
-        </details>
-
-        <!-- Bruk av operative tiltakskort -->
-        <details class="card info" role="listitem">
-          <summary><span>💡 Bruk av operative tiltakskort</span><span class="chev">▶</span></summary>
-          <div class="panel" role="region" aria-label="Bruk av tiltakskort">
-            <p>Bruken av tiltakskort gir en rekke gevinster i operative situasjoner:</p>
-            <ul>
-              <li>Gir struktur og støtte under samtaler og vurderinger</li>
-              <li>Fremmer felles forståelse i team og samarbeid</li>
-              <li>Forenkler dokumentasjon og rapportering</li>
-              <li>Reduserer mental belastning i pressede situasjoner</li>
-              <li>Bidrar til mer presis og effektiv kontroll</li>
-              <li>Styrker etterprøvbarhet og profesjonell praksis</li>
-            </ul>
-            <p>
-              Selv om tiltakskortene gir en felles struktur og begrepsforståelse, vil de aldri gjøre kontrollsituasjoner eller vurderinger like. Erfaring og kompetanse vil alltid prege hvordan innholdet tolkes, prioriteres og følges opp.
-            </p>
-            <p>
-              Et godt tiltakskort legger ikke bare til rette for likhet i metode, men også for ulikhet i faglig tyngde. Jo mer erfaren man er, desto mer effektivt brukes tiltakskortet – ikke for å erstatte vurderingsevne, men for å frigjøre mental kapasitet som kan brukes der den virkelig trengs: i selve kontrollsituasjonen.
-            </p>
-          </div>
-        </details>
-
-        <!-- Faglig forankring og referanser -->
-        <details class="card info" role="listitem">
-          <summary><span>📚 Faglig forankring og referanser</span><span class="chev">▶</span></summary>
-          <div class="panel" role="region" aria-label="Faglig forankring">
-            <p>Hos nødetatene er operative tiltakskort anerkjent som svært effektive verktøy for å kvalitetssikre både yrkesutøvelse og håndtering av hendelser. Også på tvers av etatene benyttes felles mentale modeller for å sikre felles forståelse og felles planlegging i kritiske situasjoner.</p>
-
-            <p>Bruken av akronymer som huskeregler er veldokumentert som et effektivt virkemiddel for å etablere og dele mentale modeller på tvers av roller og fagmiljøer. Dette styrker evnen til å handle raskt, strukturert og samordnet.</p>
-
-            <ul>
-              <li><strong>Helse, brann og politi:</strong> bruker felles akronymet <strong>SPE</strong> for førsteinnsats ved ulykker og skadesteder.
-                <ul>
-                  <li><strong>SPE</strong> står for <em>Sikkerhet, Pasient, Evakuering</em></li>
-                  <li>Gir førsteinnsatsen en strukturert tilnærming i uoversiktlige situasjoner</li>
-                  <li>Forankret i <strong>Helsetilsynets Skadestedsveileder</strong> og nasjonalt samvirkekonsept</li>
-                </ul>
-              </li>
-
-              <li><strong>Politiet:</strong> benytter <strong>PBS – Politiets beredskapssystem</strong>
-                <ul>
-                  <li>Operative prosedyrer og tiltakskort for de fleste hendelsestyper</li>
-                  <li>Brukes som metodebok og beslutningsstøtte ved taktisk og operativ ledelse</li>
-                </ul>
-              </li>
-
-              <li><strong>Ambulansetjenesten:</strong> har <strong>Medisinsk Operativ Manual (MOM)</strong>
-                <ul>
-                  <li>Tiltakskort og prosedyrer for medisinske og taktiske scenarioer</li>
-                  <li>Skaper trygghet, enhetlig respons og dokumentert praksis</li>
-                </ul>
-              </li>
-            </ul>
-
-            <p>Disse systemene viser at tiltakskort og operative manualer er velprøvde og effektive i norske beredskapsorganisasjoner. De kombinerer struktur med rom for vurdering og erfaring – på samme måte som tiltakskortet <strong>KONTROLL</strong> vil kunne fungere for Tolletaten.</p>
-
-            <hr style="margin: 30px 0;">
-
-            <p><strong>Forskning støtter også bruken av tiltakskort som beslutningsstøtte i mange ulike yrker:</strong></p>
-
-            <ul>
-              <li><strong>Luftfart:</strong> Degani &amp; Wiener (1993). <em>"Cockpit Checklists: Concepts, Design, and Use"</em>. NASA TM 104805.
-                <ul>
-                  <li>Reduserer feil i høybelastede situasjoner</li>
-                  <li>Sikrer at kritiske trinn følges under stress</li>
-                  <li>Standardiserer praksis mellom erfarne og uerfarne</li>
-                </ul>
-              </li>
-
-              <li><strong>Medisin:</strong> Haynes et al. (2009). <em>"A Surgical Safety Checklist to Reduce Morbidity and Mortality"</em>. NEJM.
-                <ul>
-                  <li>Reduserte komplikasjoner og dødelighet</li>
-                  <li>Bedret teamkommunikasjon og pasientsikkerhet</li>
-                </ul>
-              </li>
-
-              <li><strong>Politi og etterforskning:</strong> Alison, Harkin &amp; Power (2013). <em>"The Effects of Subjective Time Pressure..."</em>. Legal and Criminological Psychology.
-                <ul>
-                  <li>Strukturerte verktøy styrker etterforskning under tidspress</li>
-                  <li>Støtter mer objektive og etterprøvbare vurderinger</li>
-                </ul>
-              </li>
-
-              <li><strong>Kognitiv avlasting:</strong> Riskin et al. (2010). <em>"Cognitive Offloading..."</em>. Journal of Applied Cognitive Psychology.
-                <ul>
-                  <li>Frigjør mental kapasitet og bedrer vurderingsevne</li>
-                </ul>
-              </li>
-
-              <li><strong>Situasjonsforståelse og beslutningstaking:</strong>
-                <ul>
-                  <li>Klein (1998). <em>"Sources of Power: How People Make Decisions"</em></li>
-                  <li>Endsley (1995). <em>"Toward a Theory of Situation Awareness in Dynamic Systems"</em></li>
-                  <li>Felles mentale modeller forbedrer samarbeid og avgjørelser</li>
-                  <li>Tiltakskort forsterker situasjonsforståelse i komplekse miljøer</li>
-                </ul>
-              </li>
-            </ul>
-
-            <p>Samlet gir dette faglig forankring for bruken av tiltakskortet KONTROLL – både som støtte for uerfarne og som verktøy for effektiv informasjonsinnhenting for erfarne tollere.</p>
-          </div>
-        </details>
-      </div>
     </div>
   </main>
 </body>
