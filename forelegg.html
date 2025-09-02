@@ -2,7 +2,7 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
-  <title>Forelegg – flerspråklige tekster</title>
+  <title>Forelegg – tekster på flere språk</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#12404F" />
@@ -12,11 +12,18 @@
     :root {
       --tollturkis:#007682;
       --tollmorkebla:#12404F;
-      --infobla:#dce8ed; --bakgrunn:#f9f9f9; --tekst:#121212;
-      --bord:#e5e5e5; --radius:12px; --shadow:0 2px 8px rgba(0,0,0,.06);
-      --space:clamp(12px,2.5vw,20px); --header-size:clamp(18px,2.6vw,20px);
-      --title-size:clamp(24px,4vw,32px); --body-size:clamp(16px,2.8vw,18px);
-      --touch:52px; --maxw:820px;
+      --infobla:#dce8ed;
+      --bakgrunn:#f9f9f9;
+      --tekst:#121212;
+      --bord:#e5e5e5;
+      --radius:12px;
+      --shadow:0 2px 8px rgba(0,0,0,.06);
+      --space:clamp(12px,2.5vw,20px);
+      --header-size:clamp(18px,2.6vw,20px);
+      --title-size:clamp(24px,4vw,32px);
+      --body-size:clamp(16px,2.8vw,18px);
+      --touch:52px;
+      --maxw:820px;
     }
     @media (prefers-color-scheme: dark){
       :root{ --infobla:#24333a; --bakgrunn:#0c0c0c; --tekst:#f2f2f2; --bord:#2a2a2a; --shadow:0 2px 10px rgba(0,0,0,.35); }
@@ -57,7 +64,19 @@
     details[open] .chev{ transform:rotate(90deg); }
 
     .panel{ display:grid; gap:12px; padding:16px 18px 18px; }
-    .muted{ font-size:.95em; opacity:.85; }
+    ul{ margin:0; padding-left:22px; }
+    li{ margin:6px 0; }
+
+    /* Tilbake-boks i Tollmørkeblå */
+    .footer-card{ margin-top:20px; }
+    .link-button{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      width:100%; min-height:var(--touch); padding:14px 18px; background:var(--tollmorkebla); color:#fff;
+      font-weight:700; font-size:var(--header-size); text-decoration:none;
+      border-radius:var(--radius); border:1px solid var(--bord);
+    }
+    .link-button:hover{ filter:brightness(.98); }
+    .link-button:focus-visible{ outline:3px solid rgba(18,64,79,.6); outline-offset:2px; }
   </style>
 </head>
 <body>
@@ -69,19 +88,51 @@
       </section>
 
       <div class="stack" role="list">
-        <!-- Norsk -->
+        <!-- Norsk (alltid øverst) -->
         <details class="card" role="listitem" open>
           <summary><span>Norsk</span><span class="chev">▶</span></summary>
           <div class="panel">
-            <p>Du har fått et forenklet forelegg for brudd på regelverket. Beløp og grunnlag fremgår av vedlagte informasjon. Dersom du vedtar forelegget, må beløpet betales innen fristen. Manglende betaling kan føre til inndrivelse. Har du spørsmål, ta kontakt med tollmyndighetene.</p>
+            <p><strong>Innledning</strong><br>
+              Brudd på kvotebestemmelsene gir en reaksjon. Du kan velge mellom to alternativer for hvordan saken skal behandles.
+            </p>
+
+            <p><strong>Alternativ 1</strong></p>
+            <ul>
+              <li>Varene utover lovlig reisekvote beslaglegges.</li>
+              <li>Tolletaten skriver en rapport om forholdet.</li>
+              <li>Politiet mottar anmeldelse, og saken følges opp på vanlig måte i rettssystemet.</li>
+            </ul>
+
+            <p><strong>Alternativ 2</strong></p>
+            <ul>
+              <li>Tolletaten inndrar varene utover tollfri kvote.</li>
+              <li>Du godtar et forenklet forelegg. Det betyr at saken avgjøres på stedet og at avgjørelsen er endelig (kan ikke påklages).</li>
+              <li>Forelegget må betales nå eller innen 7 dager. Saken er avgjort når du har betalt.</li>
+            </ul>
           </div>
         </details>
 
-        <!-- Svensk -->
+        <!-- Arabisk -->
         <details class="card" role="listitem">
-          <summary><span>Svensk</span><span class="chev">▶</span></summary>
-          <div class="panel">
-            <p>Du har fått ett förenklat bötesföreläggande för överträdelse av regelverket. Belopp och grund framgår av bifogad information. Om du godkänner föreläggandet ska beloppet betalas inom fristen. Utebliven betalning kan leda till indrivning. Vid frågor, kontakta tullmyndigheten.</p>
+          <summary><span>Arabisk</span><span class="chev">▶</span></summary>
+          <div class="panel" dir="rtl">
+            <p><strong>مقدمة</strong><br>
+              يترتب على مخالفة قواعد الحصص إجراءٌ. يمكنك الاختيار بين خيارين لكيفية معالجة القضية.
+            </p>
+
+            <p><strong>الخيار 1</strong></p>
+            <ul>
+              <li>تُوضَع السلع التي تتجاوز الحصة المسموح بها للمسافرين تحت الحجز (ضبط).</li>
+              <li>تُعِدّ السلطات الجمركية تقريرًا عن الواقعة.</li>
+              <li>تتلقى الشرطة بلاغًا، وتُتابَع القضية وفق الإجراءات الجزائية الاعتيادية.</li>
+            </ul>
+
+            <p><strong>الخيار 2</strong></p>
+            <ul>
+              <li>تصادر (تُحكَم بمصادرة) السلع التي تتجاوز الحصة المعفاة من الرسوم.</li>
+              <li>توافق على غرامة مبسطة (إشعار عقوبة مختصر). وهذا يعني أن الفصل في القضية يتم في الحال وأن القرار نهائي (غير قابل للطعن).</li>
+              <li>يجب دفع الغرامة الآن أو خلال 7 أيام. تُعد القضية منتهية عند إتمام الدفع.</li>
+            </ul>
           </div>
         </details>
 
@@ -89,15 +140,23 @@
         <details class="card" role="listitem">
           <summary><span>Dansk</span><span class="chev">▶</span></summary>
           <div class="panel">
-            <p>Du har modtaget et forenklet bødeforelæg for overtrædelse af reglerne. Beløb og grundlag fremgår af den vedlagte information. Hvis du vedtager forelægget, skal beløbet betales inden fristen. Manglende betaling kan medføre inddrivelse. Kontakt toldmyndighederne ved spørgsmål.</p>
-          </div>
-        </details>
+            <p><strong>Indledning</strong><br>
+              Brud på kvotebestemmelserne medfører en reaktion. Du kan vælge mellem to alternativer for, hvordan sagen skal behandles.
+            </p>
 
-        <!-- Finsk -->
-        <details class="card" role="listitem">
-          <summary><span>Finsk</span><span class="chev">▶</span></summary>
-          <div class="panel">
-            <p>Olet saanut yksinkertaistetun rangaistusmääräyksen sääntöjen rikkomisesta. Summa ja peruste ilmenevät liitetyistä tiedoista. Jos hyväksyt määräyksen, maksa summa määräajassa. Maksun laiminlyönti voi johtaa perintään. Kysymyksissä ota yhteyttä tulliviranomaisiin.</p>
+            <p><strong>Alternativ 1</strong></p>
+            <ul>
+              <li>Varer ud over den lovlige rejsekvote tages i beslag.</li>
+              <li>Toldmyndighederne udarbejder en rapport om forholdet.</li>
+              <li>Politiet modtager en anmeldelse, og sagen behandles efter almindelig strafferetlig proces.</li>
+            </ul>
+
+            <p><strong>Alternativ 2</strong></p>
+            <ul>
+              <li>Toldmyndighederne inddrager (konfiskerer) varerne ud over den toldfrie kvote.</li>
+              <li>Du vedtager et forenklet bødeforelæg. Det betyder, at sagen afgøres på stedet, og at afgørelsen er endelig (kan ikke påklages).</li>
+              <li>Forelægget skal betales nu eller inden 7 dage. Sagen er afgjort, når du har betalt.</li>
+            </ul>
           </div>
         </details>
 
@@ -105,15 +164,71 @@
         <details class="card" role="listitem">
           <summary><span>Engelsk</span><span class="chev">▶</span></summary>
           <div class="panel">
-            <p>You have received a simplified fine (summary penalty notice) for a regulatory violation. The amount and legal basis are stated in the attached information. If you accept the notice, the amount must be paid within the deadline. Failure to pay may lead to enforcement. For questions, contact the customs authorities.</p>
+            <p><strong>Introduction</strong><br>
+              A breach of the quota rules results in a sanction. You may choose between two options for how the case is handled.
+            </p>
+
+            <p><strong>Option 1</strong></p>
+            <ul>
+              <li>Goods exceeding the lawful travel allowance will be seized.</li>
+              <li>The customs authorities will prepare a report on the matter.</li>
+              <li>The police will receive a complaint, and the case will proceed through the ordinary criminal process.</li>
+            </ul>
+
+            <p><strong>Option 2</strong></p>
+            <ul>
+              <li>The customs authorities will forfeit the goods that exceed the duty-free allowance.</li>
+              <li>You accept a simplified fine (summary penalty notice). This means the case is decided on the spot and the decision is final (no right of appeal).</li>
+              <li>The notice must be paid now or within 7 days. The case is concluded once you have paid.</li>
+            </ul>
           </div>
         </details>
 
-        <!-- Tysk -->
+        <!-- Estisk -->
         <details class="card" role="listitem">
-          <summary><span>Tysk</span><span class="chev">▶</span></summary>
+          <summary><span>Estisk</span><span class="chev">▶</span></summary>
           <div class="panel">
-            <p>Sie haben einen vereinfachten Bußgeldbescheid wegen eines Verstoßes gegen Vorschriften erhalten. Höhe und Grundlage sind den beigefügten Informationen zu entnehmen. Wenn Sie den Bescheid akzeptieren, ist der Betrag innerhalb der Frist zu zahlen. Bei Nichtzahlung kann eine Vollstreckung erfolgen. Bei Fragen wenden Sie sich bitte an die Zollbehörden.</p>
+            <p><strong>Sissejuhatus</strong><br>
+              Kvoodireeglite rikkumise korral rakendatakse meetmeid. Saate valida kahe variandi vahel, kuidas juhtum lahendatakse.
+            </p>
+
+            <p><strong>Variant 1</strong></p>
+            <ul>
+              <li>Lubatud reisikvooti ületavad kaubad arestitakse (võetakse ajutiselt ära).</li>
+              <li>Toll koostab juhtumi kohta aruande.</li>
+              <li>Politseile esitatakse teade ja asi menetletakse tavalises kriminaalmenetluses.</li>
+            </ul>
+
+            <p><strong>Variant 2</strong></p>
+            <ul>
+              <li>Toll konfiskeerib tollivaba kvooti ületavad kaubad.</li>
+              <li>Te nõustute lihtsustatud trahviga (trahviteade). See tähendab, et asi otsustatakse kohapeal ja otsus on lõplik (ei saa edasi kaevata).</li>
+              <li>Trahv tuleb tasuda kohe või 7 päeva jooksul. Asi loetakse lõpetatuks, kui olete tasunud.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Finsk -->
+        <details class="card" role="listitem">
+          <summary><span>Finsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Johdanto</strong><br>
+              Kiintiösäännösten rikkomisesta seuraa toimenpide. Voit valita kahdesta vaihtoehdosta, miten asia käsitellään.
+            </p>
+
+            <p><strong>Vaihtoehto 1</strong></p>
+            <ul>
+              <li>Sallitun matkakiintiön ylittävät tavarat otetaan takavarikkoon.</li>
+              <li>Tulli laatii tapahtumasta raportin.</li>
+              <li>Asiasta tehdään ilmoitus poliisille, ja se käsitellään tavanomaisessa rikosprosessissa.</li>
+            </ul>
+
+            <p><strong>Vaihtoehto 2</strong></p>
+            <ul>
+              <li>Tulli määrää tullittoman kiintiön ylittävät tavarat menetetyiksi (konfiskoidaan).</li>
+              <li>Hyväksyt yksinkertaistetun rangaistusmääräyksen. Tämä tarkoittaa, että asia ratkaistaan paikan päällä ja päätös on lopullinen (ei muutoksenhakuoikeutta).</li>
+              <li>Rangaistus on maksettava heti tai 7 päivän kuluessa. Asia on ratkaistu, kun olet maksanut.</li>
+            </ul>
           </div>
         </details>
 
@@ -121,7 +236,95 @@
         <details class="card" role="listitem">
           <summary><span>Fransk</span><span class="chev">▶</span></summary>
           <div class="panel">
-            <p>Vous avez reçu une amende simplifiée pour infraction à la réglementation. Le montant et le fondement juridique figurent dans les informations jointes. Si vous acceptez l’amende, vous devez payer le montant dans le délai imparti. En cas de non-paiement, une exécution forcée peut être engagée. Pour toute question, contactez les autorités douanières.</p>
+            <p><strong>Introduction</strong><br>
+              Toute violation des règles de quota entraîne une mesure. Vous pouvez choisir entre deux options pour le traitement de l’affaire.
+            </p>
+
+            <p><strong>Option 1</strong></p>
+            <ul>
+              <li>Les marchandises au-delà de la franchise voyage sont mises sous saisie.</li>
+              <li>Les autorités douanières établissent un rapport sur les faits.</li>
+              <li>Une plainte est transmise à la police et l’affaire suit la procédure pénale ordinaire.</li>
+            </ul>
+
+            <p><strong>Option 2</strong></p>
+            <ul>
+              <li>Les autorités douanières prononcent la confiscation des marchandises dépassant la franchise douanière.</li>
+              <li>Vous acceptez une amende simplifiée (avis de sanction). Cela signifie que l’affaire est tranchée sur place et que la décision est définitive (sans voie de recours).</li>
+              <li>L’amende doit être payée immédiatement ou dans un délai de 7 jours. L’affaire est close une fois le paiement effectué.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Italiensk -->
+        <details class="card" role="listitem">
+          <summary><span>Italiensk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Introduzione</strong><br>
+              La violazione delle regole sulle quote comporta un provvedimento. Puoi scegliere tra due opzioni su come gestire il caso.
+            </p>
+
+            <p><strong>Opzione 1</strong></p>
+            <ul>
+              <li>I beni che superano la franchigia di viaggio consentita vengono sequestrati.</li>
+              <li>Le autorità doganali redigono un rapporto sull’accaduto.</li>
+              <li>Viene presentata una denuncia alla polizia e il caso procede secondo il normale iter penale.</li>
+            </ul>
+
+            <p><strong>Opzione 2</strong></p>
+            <ul>
+              <li>Le autorità doganali dispongono la confisca dei beni che superano la franchigia daziaria.</li>
+              <li>Accetti una sanzione semplificata (verbale sanzionatorio). Ciò significa che il caso viene deciso sul posto e la decisione è definitiva (non impugnabile).</li>
+              <li>La sanzione deve essere pagata ora o entro 7 giorni. Il caso è concluso una volta effettuato il pagamento.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Latvisk -->
+        <details class="card" role="listitem">
+          <summary><span>Latvisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Ievads</strong><br>
+              Kvotu noteikumu pārkāpuma gadījumā tiek piemērots pasākums. Jūs varat izvēlēties vienu no divām iespējām, kā lietu izskatīt.
+            </p>
+
+            <p><strong>1. variants</strong></p>
+            <ul>
+              <li>Preces, kas pārsniedz atļauto ceļošanas kvotu, tiek izņemtas (arestētas).</li>
+              <li>Muitas iestāde sastāda ziņojumu par notikušo.</li>
+              <li>Policija saņem paziņojumu, un lieta tiek izskatīta parastajā kriminālprocesā.</li>
+            </ul>
+
+            <p><strong>2. variants</strong></p>
+            <ul>
+              <li>Muitas iestāde konfiscē preces, kas pārsniedz beznodokļu kvotu.</li>
+              <li>Jūs piekrītat vienkāršotam naudas sodam (soda paziņojumam). Tas nozīmē, ka lieta tiek izlemta uz vietas un lēmums ir galīgs (nav pārsūdzams).</li>
+              <li>Sods ir jāsamaksā tagad vai 7 dienu laikā. Lieta ir pabeigta, kad samaksa ir veikta.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Litauisk -->
+        <details class="card" role="listitem">
+          <summary><span>Litauisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Įvadas</strong><br>
+              Pažeidus kvotos taisykles, taikoma priemonė. Galite pasirinkti vieną iš dviejų bylos nagrinėjimo variantų.
+            </p>
+
+            <p><strong>1 variantas</strong></p>
+            <ul>
+              <li>Kelionių kvotą viršijančios prekės sulaikomos (areštuojamos).</li>
+              <li>Muitinė parengia įvykio ataskaitą.</li>
+              <li>Policijai pateikiamas pranešimas, o byla nagrinėjama įprasta baudžiamojo proceso tvarka.</li>
+            </ul>
+
+            <p><strong>2 variantas</strong></p>
+            <ul>
+              <li>Muitinė konfiskuoja prekes, viršijančias neapmuitinamą kvotą.</li>
+              <li>Jūs sutinkate su supaprastinta bauda (baudos nutarimu). Tai reiškia, kad byla išsprendžiama vietoje, o sprendimas yra galutinis (neapskundžiamas).</li>
+              <li>Bauda turi būti sumokėta dabar arba per 7 dienas. Byla laikoma baigta, kai sumokate.</li>
+            </ul>
           </div>
         </details>
 
@@ -129,7 +332,23 @@
         <details class="card" role="listitem">
           <summary><span>Nederlandsk</span><span class="chev">▶</span></summary>
           <div class="panel">
-            <p>U heeft een vereenvoudigde boete ontvangen wegens een overtreding van de voorschriften. Het bedrag en de grondslag staan vermeld in de bijgevoegde informatie. Als u de boete aanvaardt, moet het bedrag binnen de termijn worden betaald. Bij uitblijven van betaling kan invordering volgen. Vragen? Neem contact op met de douane.</p>
+            <p><strong>Inleiding</strong><br>
+              Een overtreding van de quotaregels leidt tot een maatregel. U kunt kiezen uit twee opties voor de afhandeling van de zaak.
+            </p>
+
+            <p><strong>Optie 1</strong></p>
+            <ul>
+              <li>Goederen boven de toegestane reisvrijstelling worden in beslag genomen.</li>
+              <li>De douane stelt een rapport over het incident op.</li>
+              <li>Er wordt aangifte gedaan bij de politie en de zaak verloopt via de reguliere strafrechtelijke procedure.</li>
+            </ul>
+
+            <p><strong>Optie 2</strong></p>
+            <ul>
+              <li>De douane verklaart de goederen die de belastingvrije vrijstelling overschrijden verbeurd (verbeurdverklaring).</li>
+              <li>U aanvaardt een vereenvoudigde boete (strafbeschikking). Dit betekent dat de zaak ter plaatse wordt beslist en de beslissing definitief is (geen beroep mogelijk).</li>
+              <li>De boete moet nu of binnen 7 dagen worden betaald. De zaak is afgehandeld zodra u hebt betaald.</li>
+            </ul>
           </div>
         </details>
 
@@ -137,23 +356,176 @@
         <details class="card" role="listitem">
           <summary><span>Polsk</span><span class="chev">▶</span></summary>
           <div class="panel">
-            <p>Otrzymałeś uproszczony mandat za naruszenie przepisów. Kwota i podstawa prawna znajdują się w załączonych informacjach. Jeżeli akceptujesz mandat, kwotę należy zapłacić w wyznaczonym terminie. Brak płatności może skutkować egzekucją. W razie pytań skontaktuj się z organami celnymi.</p>
+            <p><strong>Wprowadzenie</strong><br>
+              Naruszenie przepisów dotyczących limitów skutkuje działaniem organów. Możesz wybrać jedną z dwóch opcji sposobu załatwienia sprawy.
+            </p>
+
+            <p><strong>Opcja 1</strong></p>
+            <ul>
+              <li>Towary przekraczające dozwolony limit podróżny zostają zajęte (zabezpieczone).</li>
+              <li>Organy celne sporządzają raport dotyczący zdarzenia.</li>
+              <li>Do policji kierowane jest zawiadomienie, a sprawa jest prowadzona w zwykłym trybie postępowania karnego.</li>
+            </ul>
+
+            <p><strong>Opcja 2</strong></p>
+            <ul>
+              <li>Organy celne orzekają przepadek towarów przekraczających limit bezcłowy (konfiskata).</li>
+              <li>Akceptujesz uproszczony mandat (zawiadomienie o nałożeniu kary). Oznacza to, że sprawa zostaje rozstrzygnięta na miejscu, a decyzja jest ostateczna (bez prawa do odwołania).</li>
+              <li>Mandat należy opłacić teraz lub w ciągu 7 dni. Sprawa zostaje zakończona po dokonaniu płatności.</li>
+            </ul>
           </div>
         </details>
 
-        <!-- Arabisk -->
+        <!-- Rumensk -->
         <details class="card" role="listitem">
-          <summary><span>Arabisk</span><span class="chev">▶</span></summary>
+          <summary><span>Rumensk</span><span class="chev">▶</span></summary>
           <div class="panel">
-            <p dir="rtl">لقد استلمتَ إشعار غرامة مبسطًا بسبب مخالفة للأنظمة. يَرد مبلغ الغرامة والأساس القانوني في المعلومات المُرفقة. إذا قبلتَ الإشعار، فيجب دفع المبلغ خلال المهلة المحددة. قد يؤدّي عدم الدفع إلى إجراءات تحصيل. للاستفسار، تواصل مع السلطات الجمركية.</p>
+            <p><strong>Introducere</strong><br>
+              Încălcarea regulilor privind cotele atrage o măsură. Puteți alege între două opțiuni privind soluționarea cazului.
+            </p>
+
+            <p><strong>Opțiunea 1</strong></p>
+            <ul>
+              <li>Bunurile care depășesc cota legală pentru călători sunt sechestrate (ridicate).</li>
+              <li>Autoritatea vamală întocmește un raport privind situația.</li>
+              <li>Se transmite o sesizare către poliție, iar cauza este urmată în procedura penală obișnuită.</li>
+            </ul>
+
+            <p><strong>Opțiunea 2</strong></p>
+            <ul>
+              <li>Autoritatea vamală dispune confiscarea bunurilor care depășesc cota scutită de taxe.</li>
+              <li>Aceptați o amendă simplificată (proces-verbal de sancționare). Aceasta înseamnă că soluția se dă pe loc, iar decizia este definitivă (fără cale de atac).</li>
+              <li>Amenda trebuie plătită acum sau în termen de 7 zile. Cauza este finalizată după efectuarea plății.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Russisk -->
+        <details class="card" role="listitem">
+          <summary><span>Russisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Введение</strong><br>
+              Нарушение правил квот влечёт применение меры. Вы можете выбрать один из двух вариантов рассмотрения дела.
+            </p>
+
+            <p><strong>Вариант 1</strong></p>
+            <ul>
+              <li>Товары, превышающие допустимую туристическую квоту, изымаются (временно изымаются).</li>
+              <li>Таможенные органы составляют рапорт по факту.</li>
+              <li>В полицию направляется заявление, и дело рассматривается в общем порядке уголовного процесса.</li>
+            </ul>
+
+            <p><strong>Вариант 2</strong></p>
+            <ul>
+              <li>Таможенные органы конфискуют товары, превышающие беспошлинную квоту.</li>
+              <li>Вы соглашаетесь на упрощённый штраф (постановление о назначении штрафа). Это означает, что дело решается на месте, а решение является окончательным (обжалованию не подлежит).</li>
+              <li>Штраф необходимо оплатить сейчас или в течение 7 дней. Дело считается завершённым после оплаты.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Spansk -->
+        <details class="card" role="listitem">
+          <summary><span>Spansk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Introducción</strong><br>
+              La infracción de las normas de cuota conlleva una medida. Puede elegir entre dos opciones sobre cómo tramitar el caso.
+            </p>
+
+            <p><strong>Opción 1</strong></p>
+            <ul>
+              <li>Los bienes que superan la franquicia de viaje legal serán incautados.</li>
+              <li>Las autoridades aduaneras elaborarán un informe sobre los hechos.</li>
+              <li>Se presenta una denuncia a la policía y el caso sigue el procedimiento penal ordinario.</li>
+            </ul>
+
+            <p><strong>Opción 2</strong></p>
+            <ul>
+              <li>Las autoridades aduaneras decomisan los bienes que superan la franquicia libre de impuestos.</li>
+              <li>Usted acepta una multa simplificada (aviso de sanción). Esto significa que el asunto se decide en el acto y la decisión es definitiva (sin derecho a recurso).</li>
+              <li>La multa debe pagarse ahora o dentro de 7 días. El caso concluye una vez realizado el pago.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Svensk -->
+        <details class="card" role="listitem">
+          <summary><span>Svensk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Inledning</strong><br>
+              Brott mot kvotbestämmelserna medför en åtgärd. Du kan välja mellan två alternativ för hur ärendet ska hanteras.
+            </p>
+
+            <p><strong>Alternativ 1</strong></p>
+            <ul>
+              <li>De varor som överstiger tillåten resekvot tas i beslag.</li>
+              <li>Tullmyndigheten upprättar en rapport om händelsen.</li>
+              <li>Polisen får en anmälan och ärendet hanteras enligt ordinarie straffrättsligt förfarande.</li>
+            </ul>
+
+            <p><strong>Alternativ  2</strong></p>
+            <ul>
+              <li>Tullmyndigheten förverkar de varor som överstiger den tullfria kvoten.</li>
+              <li>Du godkänner ett förenklat föreläggande. Det innebär att ärendet avgörs på plats och att beslutet är slutligt (kan inte överklagas).</li>
+              <li>Föreläggandet ska betalas nu eller inom 7 dagar. Ärendet är avgjort när du har betalat.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Tysk -->
+        <details class="card" role="listitem">
+          <summary><span>Tysk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Einleitung</strong><br>
+              Ein Verstoß gegen die Quotenbestimmungen führt zu einer Maßnahme. Sie können zwischen zwei Optionen wählen, wie der Fall behandelt wird.
+            </p>
+
+            <p><strong>Option 1</strong></p>
+            <ul>
+              <li>Waren, die die zulässige Reisefreimenge überschreiten, werden beschlagnahmt.</li>
+              <li>Die Zollbehörden fertigen einen Bericht über den Vorgang an.</li>
+              <li>Der Polizei wird eine Anzeige erstattet, und der Fall wird im ordentlichen Strafverfahren weiterverfolgt.</li>
+            </ul>
+
+            <p><strong>Option 2</strong></p>
+            <ul>
+              <li>Die Zollbehörden ziehen die die zollfreie Freimenge überschreitenden Waren ein (Einziehung/Konfiskation).</li>
+              <li>Sie akzeptieren einen vereinfachten Strafbefehl. Das bedeutet, der Fall wird vor Ort entschieden und der Bescheid ist endgültig (nicht anfechtbar).</li>
+              <li>Der Strafbefehl ist sofort oder innerhalb von 7 Tagen zu bezahlen. Der Fall ist abgeschlossen, sobald Sie bezahlt haben.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Ukrainsk -->
+        <details class="card" role="listitem">
+          <summary><span>Ukrainsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Вступ</strong><br>
+              Порушення правил квот тягне застосування заходів. Ви можете обрати один із двох варіантів розгляду справи.
+            </p>
+
+            <p><strong>Варіант 1</strong></p>
+            <ul>
+              <li>Товари, що перевищують дозволену туристичну квоту, вилучаються (тимчасово).</li>
+              <li>Митні органи складають рапорт щодо події.</li>
+              <li>До поліції надсилається повідомлення, і справа розглядається у звичайному кримінальному провадженні.</li>
+            </ul>
+
+            <p><strong>Варіант 2</strong></p>
+            <ul>
+              <li>Митні органи конфіскують товари, що перевищують безмитну квоту.</li>
+              <li>Ви погоджуєтеся на спрощений штраф (повідомлення про накладення штрафу). Це означає, що справу вирішено на місці, а рішення є остаточним (оскарженню не підлягає).</li>
+              <li>Штраф необхідно сплатити зараз або протягом 7 днів. Справу вважають завершеною після сплати.</li>
+            </ul>
           </div>
         </details>
       </div>
 
       <!-- Tilbake til Sanksjonering -->
-      <section class="card" style="margin-top:20px;" aria-label="Tilbake">
-        <a href="sanksjonering.html" class="banner-title" style="text-decoration:none; border-left:none; border-radius:12px;">
-          ← Tilbake til Sanksjonering
+      <section class="card footer-card" aria-label="Tilbake">
+        <a class="link-button" href="sanksjonering.html">
+          <span>← Tilbake til Sanksjonering</span>
+          <span class="chev">▶</span>
         </a>
       </section>
     </div>
