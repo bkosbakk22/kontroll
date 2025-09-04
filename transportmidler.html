@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vareførselforskriften §4-1-14 – transportmidler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#12404F" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --tollturkis:#007682;
+      --tollmorkebla:#12404F;
+      --infobla:#dce8ed;
+      --bakgrunn:#f9f9f9;
+      --tekst:#121212;
+      --bord:#e5e5e5;
+      --radius:12px;
+      --shadow:0 2px 8px rgba(0,0,0,.06);
+      --space:clamp(12px,2.5vw,20px);
+      --header-size:clamp(18px,2.6vw,20px);
+      --title-size:clamp(24px,4vw,32px);
+      --body-size:clamp(16px,2.8vw,18px);
+      --touch:52px;
+      --maxw:820px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --infobla:#24333a; --bakgrunn:#0c0c0c; --tekst:#f2f2f2; --bord:#2a2a2a; --shadow:0 2px 10px rgba(0,0,0,.35); }
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0; font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      font-size:var(--body-size); line-height:1.55; color:var(--tekst); background:var(--bakgrunn);
+      -webkit-text-size-adjust:100%; text-rendering:optimizeLegibility;
+    }
+
+    .page{
+      padding:calc(env(safe-area-inset-top)+var(--space))
+              calc(env(safe-area-inset-right)+var(--space))
+              calc(env(safe-area-inset-bottom)+var(--space))
+              calc(env(safe-area-inset-left)+var(--space));
+      display:grid; place-items:start center;
+    }
+    .container{ width:100%; max-width:var(--maxw); display:flex; flex-direction:column; }
+
+    .stack{ display:grid; gap:12px; grid-template-columns:1fr; }
+
+    .card{ background:rgba(255,255,255,.9); border:1px solid var(--bord); border-radius:var(--radius); box-shadow:var(--shadow); overflow:clip; }
+    @media (prefers-color-scheme: dark){ .card{ background:rgba(20,20,20,.9); } }
+
+    .banner{ border-left:6px solid var(--tollmorkebla); margin-bottom:12px; }
+    .banner-title{ display:grid; place-items:center; min-height:max(var(--touch),64px); font-weight:800; font-size:var(--title-size); background:var(--tollmorkebla); color:#fff; letter-spacing:.2px; padding:8px 12px; }
+
+    details{ border-radius:var(--radius); }
+    summary{
+      list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%;
+      min-height:var(--touch); padding:14px 18px; background:var(--tollturkis); color:#fff; font-weight:700; font-size:var(--header-size);
+      cursor:pointer; user-select:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .chev{ transition:transform .2s ease; inline-size:1.1em; text-align:center; }
+    details[open] .chev{ transform:rotate(90deg); }
+
+    .panel{ display:grid; gap:12px; padding:16px 18px 18px; }
+    .panel p{ margin:0; }
+    ul{ margin:0; padding-left:22px; }
+    li{ margin:6px 0; }
+
+    /* Tilbakeknapp nederst */
+    .footer-card{ margin-top:20px; }
+    .link-button{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      width:100%; min-height:var(--touch); padding:14px 18px; background:var(--tollmorkebla); color:#fff;
+      font-weight:700; font-size:var(--header-size); text-decoration:none;
+      border-radius:var(--radius); border:1px solid var(--bord);
+    }
+    .link-button:hover{ filter:brightness(.98); }
+    .link-button:focus-visible{ outline:3px solid rgba(18,64,79,.6); outline-offset:2px; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+      <!-- Overskrift (ikke oversettes) -->
+      <section class="card banner" aria-label="Tittel">
+        <div class="banner-title">Vareførselforskriften §4-1-14</div>
+      </section>
+
+      <div class="stack" role="list">
+        <!-- Norsk først -->
+        <details class="card" role="listitem">
+          <summary><span>Norsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Reisegods for personer i tjeneste på transportmidler</strong></p>
+            <p>Personer som i løpet av reisen til Norge er i tjeneste på transportmiddel i internasjonal trafikk og personer på norske marinefartøy kan én gang innenfor en 24-timers periode innføre følgende varer uten å deklarere varene for tollmyndighetene:</p>
+            <ul>
+              <li>a. 40 sigaretter, 100 gram andre tobakksvarer, 4 milliliter e-væske med nikotin eller 40 gram andre nikotinvarer,</li>
+              <li>b. 100 blad sigarettpapir, og</li>
+              <li>c. andre varer enn alkohol til en verdi av 500 kr.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Arabic -->
+        <details class="card" role="listitem">
+          <summary><span>Arabic / العربية</span><span class="chev">▶</span></summary>
+          <div class="panel" dir="rtl">
+            <p><strong>§ 4-1-14. أمتعة السفر للأشخاص العاملين على وسائل النقل</strong></p>
+            <p>الأشخاص الذين يكونون أثناء رحلتهم إلى النرويج في خدمة على وسيلة نقل في حركة دولية، والأشخاص على السفن الحربية النرويجية، يمكنهم مرة واحدة خلال فترة 24 ساعة إدخال السلع التالية دون التصريح عنها لدى سلطات الجمارك:</p>
+            <ul>
+              <li>أ. 40 سيجارة، أو 100 غرام من منتجات تبغ أخرى، أو 4 مليلترات من سائل إلكتروني يحتوي على نيكوتين، أو 40 غرامًا من منتجات نيكوتين أخرى،</li>
+              <li>ب. 100 ورقة لف سجائر، و</li>
+              <li>ج. سلع غير الكحول بقيمة تصل إلى 500 كرونة نرويجية (NOK).</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Danish -->
+        <details class="card" role="listitem">
+          <summary><span>Danish / Dansk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Rejsegods for personer i tjeneste på transportmidler</strong></p>
+            <p>Personer, som under rejsen til Norge er i tjeneste på et transportmiddel i international trafik, og personer på norske marineskibe, kan én gang inden for en 24-timers periode indføre følgende varer uden at deklarere dem for toldmyndighederne:</p>
+            <ul>
+              <li>a. 40 cigaretter, 100 gram andet tobaksvarer, 4 milliliter e-væske med nikotin eller 40 gram andre nikotinvarer,</li>
+              <li>b. 100 blade cigarettpapir, og</li>
+              <li>c. andre varer end alkohol til en værdi af 500 kroner (NOK).</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Dutch -->
+        <details class="card" role="listitem">
+          <summary><span>Dutch / Nederlands</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Reisgoederen voor personen in dienst op vervoermiddelen</strong></p>
+            <p>Personen die tijdens hun reis naar Noorwegen dienst doen op een vervoermiddel in internationaal verkeer, en personen op Noorse marineschepen, mogen eenmaal binnen een periode van 24 uur de volgende goederen invoeren zonder deze bij de douane aan te geven:</p>
+            <ul>
+              <li>a. 40 sigaretten, 100 gram andere tabaksproducten, 4 milliliter e-vloeistof met nicotine of 40 gram andere nicotineproducten,</li>
+              <li>b. 100 vel sigarettenpapier, en</li>
+              <li>c. andere goederen dan alcohol met een waarde van 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- English -->
+        <details class="card" role="listitem">
+          <summary><span>English</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Personal goods for persons on duty on means of transport</strong></p>
+            <p>Persons who, during their journey to Norway, are on duty on a means of transport in international traffic, and persons on Norwegian naval vessels, may once within a 24-hour period bring in the following goods without declaring them to the customs authorities:</p>
+            <ul>
+              <li>a. 40 cigarettes, 100 grams of other tobacco products, 4 millilitres of e-liquid with nicotine, or 40 grams of other nicotine products,</li>
+              <li>b. 100 sheets of cigarette paper, and</li>
+              <li>c. goods other than alcohol with a value of 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Estonian -->
+        <details class="card" role="listitem">
+          <summary><span>Estonian / Eesti</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Teenistusülesandeid täitvate isikute reisikaubad</strong></p>
+            <p>Isikud, kes on teel Norrasse teenistuses rahvusvahelises liikluses oleval veovahendil, ning isikud Norra mereväealustel võivad üks kord 24-tunnise perioodi jooksul tuua järgmised kaubad sisse tolliasutustele deklareerimata:</p>
+            <ul>
+              <li>a. 40 sigaretti, 100 grammi muid tubakatooteid, 4 milliliitrit nikotiini sisaldavat e-vedelikku või 40 grammi muid nikotiinitooteid,</li>
+              <li>b. 100 lehte sigaretipaberit, ja</li>
+              <li>c. muud kaubad kui alkohol väärtusega kuni 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Finnish -->
+        <details class="card" role="listitem">
+          <summary><span>Finnish / Suomi</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Matkatavarat liikennevälineissä palveluksessa oleville henkilöille</strong></p>
+            <p>Henkilöt, jotka Norjaan suuntautuvan matkansa aikana ovat palveluksessa kansainvälisessä liikenteessä olevassa liikennevälineessä, sekä Norjan merivoimien aluksilla olevat henkilöt saavat kerran 24 tunnin aikana tuoda seuraavat tavarat ilmoittamatta niitä tulliviranomaisille:</p>
+            <ul>
+              <li>a. 40 savuketta, 100 grammaa muuta tupakkaa, 4 millilitraa nikotiinia sisältävää e-nestettä tai 40 grammaa muita nikotiinituotteita,</li>
+              <li>b. 100 arkkia savukepaperia, ja</li>
+              <li>c. muita kuin alkoholituotteita enintään 500 Norjan kruunun (NOK) arvosta.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- French -->
+        <details class="card" role="listitem">
+          <summary><span>French / Français</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Bagages des personnes en service à bord de moyens de transport</strong></p>
+            <p>Les personnes qui, au cours de leur voyage vers la Norvège, sont en service à bord d’un moyen de transport en trafic international, ainsi que les personnes à bord de navires de la marine norvégienne, peuvent, une fois sur une période de 24 heures, importer les biens suivants sans les déclarer aux autorités douanières :</p>
+            <ul>
+              <li>a. 40 cigarettes, 100 grammes d’autres produits du tabac, 4 millilitres de liquide électronique avec nicotine ou 40 grammes d’autres produits nicotinés,</li>
+              <li>b. 100 feuilles de papier à cigarettes, et</li>
+              <li>c. d’autres biens que l’alcool, d’une valeur de 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- German -->
+        <details class="card" role="listitem">
+          <summary><span>German / Deutsch</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Reisegut für im Dienst befindliche Personen auf Verkehrsmitteln</strong></p>
+            <p>Personen, die während der Reise nach Norwegen auf einem Verkehrsmittel im internationalen Verkehr Dienst tun, sowie Personen auf norwegischen Marineschiffen dürfen einmal innerhalb von 24 Stunden die folgenden Waren einführen, ohne sie bei den Zollbehörden anzumelden:</p>
+            <ul>
+              <li>a. 40 Zigaretten, 100 Gramm sonstige Tabakwaren, 4 Milliliter E-Liquid mit Nikotin oder 40 Gramm sonstige Nikotinprodukte,</li>
+              <li>b. 100 Blätter Zigarettenpapier und</li>
+              <li>c. andere Waren als Alkohol im Wert von 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Italian -->
+        <details class="card" role="listitem">
+          <summary><span>Italian / Italiano</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Bagagli per persone in servizio sui mezzi di trasporto</strong></p>
+            <p>Le persone che, durante il viaggio verso la Norvegia, sono in servizio su un mezzo di trasporto in traffico internazionale, nonché le persone a bordo di navi della marina norvegese, possono una volta nell’arco di 24 ore introdurre i seguenti beni senza dichiararli alle autorità doganali:</p>
+            <ul>
+              <li>a. 40 sigarette, 100 grammi di altri prodotti del tabacco, 4 millilitri di liquido elettronico con nicotina oppure 40 grammi di altri prodotti alla nicotina,</li>
+              <li>b. 100 fogli di cartine, e</li>
+              <li>c. beni diversi dall’alcol per un valore di 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Latvian -->
+        <details class="card" role="listitem">
+          <summary><span>Latvian / Latviešu</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Ceļojuma bagāža personām, kas ir dienestā transportlīdzekļos</strong></p>
+            <p>Personas, kuras ceļojuma uz Norvēģiju laikā ir dienestā starptautiskajā satiksmē esošā transportlīdzeklī, kā arī personas uz Norvēģijas kara flotes kuģiem, vienu reizi 24 stundu periodā var ievest šādas preces, tās nedeklarējot muitas iestādēm:</p>
+            <ul>
+              <li>a. 40 cigaretes, 100 gramu citu tabakas izstrādājumu, 4 mililitrus e-šķidruma ar nikotīnu vai 40 gramus citu nikotīna izstrādājumu,</li>
+              <li>b. 100 loksnes cigarešu papīra, un</li>
+              <li>c. citas preces, izņemot alkoholu, līdz 500 NOK vērtībā.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Lithuanian -->
+        <details class="card" role="listitem">
+          <summary><span>Lithuanian / Lietuvių</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Kelionės daiktai asmenims, dirbantiems transporto priemonėse</strong></p>
+            <p>Asmenys, kurie kelionės į Norvegiją metu dirba tarptautiniame transporte, taip pat esantys Norvegijos karinio jūrų laivyno laivuose, vieną kartą per 24 valandas gali įvežti šias prekes jų nedeklaruodami muitinei:</p>
+            <ul>
+              <li>a. 40 cigarečių, 100 gramų kitų tabako gaminių, 4 mililitrus e-skysčio su nikotinu arba 40 gramų kitų nikotino gaminių,</li>
+              <li>b. 100 lapelių cigarečių popieriaus, ir</li>
+              <li>c. kitas prekes, išskyrus alkoholį, kurių vertė iki 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Polish -->
+        <details class="card" role="listitem">
+          <summary><span>Polish / Polski</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Bagaż podręczny dla osób pełniących służbę w środkach transportu</strong></p>
+            <p>Osoby, które podczas podróży do Norwegii pełnią służbę w środku transportu w ruchu międzynarodowym, oraz osoby na norweskich okrętach wojennych, mogą raz w ciągu 24 godzin wwieźć następujące towary bez zgłaszania ich organom celnym:</p>
+            <ul>
+              <li>a. 40 papierosów, 100 gramów innych wyrobów tytoniowych, 4 mililitry płynu elektronicznego z nikotyną lub 40 gramów innych produktów nikotynowych,</li>
+              <li>b. 100 bibułek papierosowych oraz</li>
+              <li>c. towary inne niż alkohol o wartości do 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Russian -->
+        <details class="card" role="listitem">
+          <summary><span>Russian / Русский</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Багаж для лиц, находящихся на службе на транспортных средствах</strong></p>
+            <p>Лица, которые во время поездки в Норвегию находятся на службе на транспортном средстве в международном сообщении, а также лица на судах Военно-морских сил Норвегии, могут один раз в течение 24 часов ввозить следующие товары без декларирования их таможенным органам:</p>
+            <ul>
+              <li>a. 40 сигарет, 100 граммов прочих табачных изделий, 4 миллилитра электронной жидкости с никотином или 40 граммов прочих никотинсодержащих изделий,</li>
+              <li>b. 100 листов сигаретной бумаги, и</li>
+              <li>c. товары, кроме алкоголя, на сумму до 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Spanish -->
+        <details class="card" role="listitem">
+          <summary><span>Spanish / Español</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Efectos personales para personas en servicio en medios de transporte</strong></p>
+            <p>Las personas que, durante su viaje a Noruega, estén de servicio en un medio de transporte en tráfico internacional, y las personas a bordo de buques de la marina noruega, pueden, una vez en un período de 24 horas, introducir los siguientes bienes sin declararlos ante las autoridades aduaneras:</p>
+            <ul>
+              <li>a. 40 cigarrillos, 100 gramos de otros productos del tabaco, 4 mililitros de líquido electrónico con nicotina o 40 gramos de otros productos con nicotina,</li>
+              <li>b. 100 hojas de papel de liar, y</li>
+              <li>c. bienes distintos del alcohol por un valor de 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Swedish -->
+        <details class="card" role="listitem">
+          <summary><span>Swedish / Svenska</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Resegods för personer i tjänst på transportmedel</strong></p>
+            <p>Personer som under resan till Norge är i tjänst på ett transportmedel i internationell trafik, samt personer på norska marinfartyg, får en gång inom en 24-timmarsperiod föra in följande varor utan att deklarera dem för tullmyndigheterna:</p>
+            <ul>
+              <li>a. 40 cigaretter, 100 gram andra tobaksvaror, 4 milliliter e-vätska med nikotin eller 40 gram andra nikotinvaror,</li>
+              <li>b. 100 blad cigarettpapper, och</li>
+              <li>c. andra varor än alkohol till ett värde av 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Ukrainian -->
+        <details class="card" role="listitem">
+          <summary><span>Ukrainian / Українська</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>§ 4-1-14. Дорожні речі для осіб, які перебувають на службі на транспортних засобах</strong></p>
+            <p>Особи, які під час подорожі до Норвегії виконують службові обов’язки на транспортному засобі в міжнародному русі, а також особи на кораблях ВМС Норвегії, можуть один раз протягом 24 годин ввозити такі товари без декларування їх митним органам:</p>
+            <ul>
+              <li>a. 40 сигарет, 100 грамів інших тютюнових виробів, 4 мілілітри рідини для електронних сигарет з нікотином або 40 грамів інших нікотиновмісних виробів,</li>
+              <li>b. 100 аркушів паперу для сигарет, та</li>
+              <li>c. інші товари, крім алкоголю, на суму до 500 NOK.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- Tilbake til forsiden -->
+      <section class="card footer-card" aria-label="Tilbake">
+        <a class="link-button" href="index.html">
+          <span>← Tilbake til forsiden</span>
+          <span class="chev">▶</span>
+        </a>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
