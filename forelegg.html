@@ -6,11 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#12404F" />
-
-  <!-- Font ytelse -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
 
   <style>
@@ -81,9 +76,6 @@
     }
     .link-button:hover{ filter:brightness(.98); }
     .link-button:focus-visible{ outline:3px solid rgba(18,64,79,.6); outline-offset:2px; }
-
-    /* Tilgjengelighet: synlig fokus for tastaturbrukere */
-    summary:focus-visible { outline:3px solid rgba(18,64,79,.6); outline-offset:2px; }
   </style>
 </head>
 <body>
@@ -95,7 +87,8 @@
       </section>
 
       <div class="stack" role="list">
-        <!-- Norsk (lukket) -->
+
+        <!-- Norsk <VALIDERT> -->
         <details class="card" role="listitem" lang="no">
           <summary><span>Norsk</span><span class="chev">▶</span></summary>
           <div class="panel">
@@ -122,35 +115,34 @@
           </div>
         </details>
 
-        <!-- Arabisk -->
+        <!-- Arabisk <IKKE VALIDERT> -->
         <details class="card" role="listitem" lang="ar">
           <summary><span>Arabisk</span><span class="chev">▶</span></summary>
           <div class="panel" dir="rtl">
             <p><strong>مقدمة</strong><br>
-              لديك بضائع تتجاوز الحد المسموح به. خرق القواعد يؤدي الآن إلى إجراء. 
-              يمكنك اختيار واحد من خيارين لمعالجة القضية.
+              لديك بضائع تتجاوز الحد المسموح به. خرق القواعد يؤدي الآن إلى إجراء.
+              يمكنك اختيار واحدًا من خيارين لمعالجة القضية.
             </p>
 
             <p><strong>الخيار 1</strong></p>
             <ul>
               <li>الجمارك تصادر البضائع التي تتجاوز الكمية المسموح بها بدون رسوم.</li>
-              <li>تُعطى لك غرامة مبسطة (<em>forenklet forelegg</em>).</li>
               <li>توافق على الغرامة في الحال وتدفع الآن أو خلال 7 أيام.</li>
-              <li>القضية تُعتبر منتهية عند الدفع.</li>
+              <li>تُعتبر القضية منتهية عند الدفع.</li>
               <li>لا يمكن الطعن في هذا القرار.</li>
             </ul>
 
             <p><strong>الخيار 2</strong></p>
             <ul>
               <li>الجمارك تحتجز البضائع التي تتجاوز الكمية المسموح بها.</li>
-              <li>يتم رفع بلاغ إلى الشرطة، وتُعالج القضية بالطريقة الجنائية العادية.</li>
+              <li>يتم رفع بلاغ إلى الشرطة، وتُعالج القضية وفق الإجراءات الجنائية المعتادة.</li>
             </ul>
 
             <p><em>ماذا تختار؟</em></p>
           </div>
         </details>
 
-        <!-- Dansk -->
+        <!-- Dansk <VALIDERT> -->
         <details class="card" role="listitem" lang="da">
           <summary><span>Dansk</span><span class="chev">▶</span></summary>
           <div class="panel">
@@ -161,7 +153,7 @@
             <p><strong>Alternativ 1</strong></p>
             <ul>
               <li>Toldmyndigheden inddrager de varer, du har over den toldfrie kvote.</li>
-              <li>Du tilbydes at afslutte sagen med et forenklet forelæg (forenklet forelegg).</li>
+              <li>Du tilbydes at afslutte sagen med et forenklet forelæg.</li>
               <li>Du vedtager forelægget på stedet og betaler nu eller inden 7 dage.</li>
               <li>Sagen er afgjort, når betalingen er gennemført.</li>
               <li>Afgørelsen kan ikke påklages.</li>
@@ -177,7 +169,7 @@
           </div>
         </details>
 
-        <!-- Engelsk -->
+        <!-- Engelsk <VALIDERT> -->
         <details class="card" role="listitem" lang="en">
           <summary><span>Engelsk</span><span class="chev">▶</span></summary>
           <div class="panel">
@@ -189,7 +181,7 @@
             <p><strong>Option 1</strong></p>
             <ul>
               <li>Customs will <strong>confiscate</strong> the goods you have above the duty-free allowance.</li>
-              <li>You are offered to settle the case with a <strong>simplified fine.</strong>.</li>
+              <li>You are offered to settle the case with a <strong>simplified fine</strong>.</li>
               <li>You accept the fine here on the spot and pay now or within 7 days.</li>
               <li>The case is closed once the payment has been made.</li>
               <li>The decision cannot be appealed.</li>
@@ -205,7 +197,7 @@
           </div>
         </details>
 
-        <!-- Estisk -->
+        <!-- Estisk <VALIDERT> -->
         <details class="card" role="listitem" lang="et">
           <summary><span>Estisk</span><span class="chev">▶</span></summary>
           <div class="panel">
@@ -216,8 +208,7 @@
             <p><strong>Variant 1</strong></p>
             <ul>
               <li>Toll konfiskeerib tollivaba kvooti ületavad kaubad.</li>
-              <li>Teile pakutakse asja lahendamist lihtsustatud trahviteatega (<em>forenklet forelegg</em>).</li>
-              <li>Te nõustute teatega kohapeal ja maksate nüüd või 7 päeva jooksul.</li>
+              <li>Te nõustute kohapeal ja maksate nüüd või 7 päeva jooksul.</li>
               <li>Asi loetakse lõpetatuks pärast makse laekumist.</li>
               <li>Otsust ei saa edasi kaevata.</li>
             </ul>
@@ -232,36 +223,36 @@
           </div>
         </details>
 
-     <!-- Finsk -->
-<details class="card" role="listitem" lang="fi">
-  <summary><span>Finsk</span><span class="chev">▶</span></summary>
-  <div class="panel">
-    <p><strong>Johdanto</strong><br>
-      Sinulla on mukana tavaroita, jotka rikkovat kiintiösääntöjä. 
-      Rikkeestä seuraa toimenpide. 
-      Voit valita kahdesta vaihtoehdosta.
-    </p>
+        <!-- Finsk <VALIDERT> -->
+        <details class="card" role="listitem" lang="fi">
+          <summary><span>Finsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Johdanto</strong><br>
+              Sinulla on mukana tavaroita, jotka rikkovat kiintiösääntöjä.
+              Rikkeestä seuraa toimenpide.
+              Voit valita kahdesta vaihtoehdosta.
+            </p>
 
-    <p><strong>Vaihtoehto 1</strong></p>
-    <ul>
-      <li>Tulli määrää tullittoman kiintiön ylittävät tavarat menetetyiksi.</li>
-      <li>Voit ratkaista asian yksinkertaistetulla sakolla (<em>forenklet forelegg</em>).</li>
-      <li>Hyväksyt sakon paikan päällä ja maksat nyt tai 7 päivän kuluessa.</li>
-      <li>Asia on ratkaistu, kun maksu on suoritettu.</li>
-      <li>Päätöksestä ei voi valittaa.</li>
-    </ul>
+            <p><strong>Vaihtoehto 1</strong></p>
+            <ul>
+              <li>Tulli määrää tullittoman kiintiön ylittävät tavarat menetetyiksi.</li>
+              <li>Voit ratkaista asian yksinkertaistetulla sakolla.</li>
+              <li>Hyväksyt sakon paikan päällä ja maksat nyt tai 7 päivän kuluessa.</li>
+              <li>Asia on ratkaistu, kun maksu on suoritettu.</li>
+              <li>Päätöksestä ei voi valittaa.</li>
+            </ul>
 
-    <p><strong>Vaihtoehto 2</strong></p>
-    <ul>
-      <li>Tulli ottaa tullittoman kiintiön ylittävät tavarat takavarikkoon.</li>
-      <li>Asiasta tehdään rikosilmoitus poliisille ja asiaa käsitellään tavanomaisen prosessin mukaan.</li>
-    </ul>
+            <p><strong>Vaihtoehto 2</strong></p>
+            <ul>
+              <li>Tulli ottaa tullittoman kiintiön ylittävät tavarat takavarikkoon.</li>
+              <li>Asiasta tehdään rikosilmoitus poliisille ja asiaa käsitellään tavanomaisen prosessin mukaan.</li>
+            </ul>
 
-    <p><em>Kumman vaihtoehdon valitset?</em></p>
-  </div>
-</details>
+            <p><em>Kumman vaihtoehdon valitset?</em></p>
+          </div>
+        </details>
 
-        <!-- Fransk -->
+        <!-- Fransk <IKKE VALIDERT> -->
         <details class="card" role="listitem" lang="fr">
           <summary><span>Fransk</span><span class="chev">▶</span></summary>
           <div class="panel">
@@ -272,7 +263,6 @@
             <p><strong>Option 1</strong></p>
             <ul>
               <li>Les marchandises au-delà de la franchise hors taxes sont confisquées par la douane.</li>
-              <li>Il vous est proposé de régler l’affaire par une amende simplifiée (<em>forenklet forelegg</em>).</li>
               <li>Vous acceptez l’amende sur place et payez maintenant ou dans les 7 jours.</li>
               <li>L’affaire est close une fois le paiement effectué.</li>
               <li>La décision ne peut pas être contestée.</li>
@@ -288,64 +278,62 @@
           </div>
         </details>
 
-        <!-- Italiensk -->
-<details class="card" role="listitem" lang="it">
-  <summary><span>Italiensk</span><span class="chev">▶</span></summary>
-  <div class="panel">
-    <p><strong>Introduzione</strong><br>
-      Stai trasportando merci che superano la franchigia doganale. 
-      Ciò viola le regole delle quote e comporta una risposta. 
-      Puoi scegliere tra due opzioni per la gestione del caso.
-    </p>
+        <!-- Italiensk <IKKE VALIDERT> -->
+        <details class="card" role="listitem" lang="it">
+          <summary><span>Italiensk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Introduzione</strong><br>
+              Stai trasportando merci che superano la franchigia doganale. Ciò viola le regole sulle quote e comporta un provvedimento. Puoi scegliere tra due opzioni su come procedere.
+            </p>
 
-    <p><strong>Opzione 1</strong></p>
-    <ul>
-      <li>Le autorità doganali confischeranno le merci che superano la franchigia duty-free.</li>
-      <li>Ti viene offerta la possibilità di chiudere il caso con una sanzione semplificata (<em>forenklet forelegg</em>).</li>
-      <li>Accetti la sanzione sul posto e paghi ora o entro 7 giorni.</li>
-      <li>La questione si considera chiusa una volta effettuato il pagamento.</li>
-      <li>La decisione è definitiva e non può essere impugnata.</li>
-    </ul>
+            <p><strong>Opzione 1</strong></p>
+            <ul>
+              <li>Le autorità doganali dispongono la confisca dei beni oltre la franchigia duty-free.</li>
+              <li>Accetti la sanzione sul posto e paghi ora o entro 7 giorni.</li>
+              <li>La questione si considera chiusa una volta effettuato il pagamento.</li>
+              <li>La decisione è definitiva e non impugnabile.</li>
+            </ul>
 
-    <p><strong>Opzione 2</strong></p>
-    <ul>
-      <li>Le merci che superano la franchigia vengono sequestrate dalla dogana.</li>
-      <li>Il caso viene denunciato alla polizia e perseguito secondo la procedura ordinaria.</li>
-    </ul>
+            <p><strong>Opzione 2</strong></p>
+            <ul>
+              <li>I beni oltre la franchigia vengono posti sotto sequestro doganale.</li>
+              <li>Il caso viene denunciato alla polizia e perseguito secondo la procedura ordinaria.</li>
+            </ul>
 
-    <p><em>Cosa scegli?</em></p>
-  </div>
-</details>
-       <!-- Latvisk -->
-<details class="card" role="listitem">
-  <summary><span>Latvisk</span><span class="chev">▶</span></summary>
-  <div class="panel">
-    <p><strong>Ievads</strong><br>
-      Jums ir līdzi preces, kas pārkāpj kvotu noteikumus. 
-      Par pārkāpumu tagad tiek piemērots sods. 
-      Jūs varat izvēlēties starp diviem variantiem:
-    </p>
+            <p><em>Cosa scegli?</em></p>
+          </div>
+        </details>
 
-    <p><strong>1. variants</strong></p>
-    <ul>
-      <li>Muita konfiscē preces, kas pārsniedz beznodokļu kvotu (atļautais daudzums, ko drīkst ievest bez nodokļiem).</li>
-      <li>Jūs varat lietu nokārtot, samaksājot sodu (<em>forenklet forelegg</em>).</li>
-      <li>Jūs piekrītat sodam uzreiz un maksājat tagad vai 7 dienu laikā.</li>
-      <li>Lieta tiek uzskatīta par pabeigtu, kad maksājums ir veikts.</li>
-      <li>Lēmumu nevar pārsūdzēt.</li>
-    </ul>
+        <!-- Latvisk <VALIDERT> -->
+        <details class="card" role="listitem" lang="lv">
+          <summary><span>Latvisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Ievads</strong><br>
+              Jums ir līdzi preces, kas pārkāpj kvotu noteikumus.
+              Par pārkāpumu tagad tiek piemērots sods.
+              Jūs varat izvēlēties starp diviem variantiem:
+            </p>
 
-    <p><strong>2. variants</strong></p>
-    <ul>
-      <li>Muita izņem (arestē) preces virs beznodokļu kvotas.</li>
-      <li>Par lietu tiek iesniegts ziņojums policijā un tā tiek izskatīta parastajā kārtībā.</li>
-    </ul>
+            <p><strong>1. variants</strong></p>
+            <ul>
+              <li>Muita konfiscē preces, kas pārsniedz beznodokļu kvotu (atļautais daudzums, ko drīkst ievest bez nodokļiem).</li>
+              <li>Jūs varat lietu nokārtot, samaksājot sodu.</li>
+              <li>Jūs piekrītat sodam uzreiz un maksājat tagad vai 7 dienu laikā.</li>
+              <li>Lieta tiek uzskatīta par pabeigtu, kad maksājums ir veikts.</li>
+              <li>Lēmumu nevar pārsūdzēt.</li>
+            </ul>
 
-    <p><em>Ko jūs izvēlaties?</em></p>
-  </div>
-</details>
+            <p><strong>2. variants</strong></p>
+            <ul>
+              <li>Muita izņem (arestē) preces virs beznodokļu kvotas.</li>
+              <li>Par lietu tiek iesniegts ziņojums policijā un tā tiek izskatīta parastajā kārtībā.</li>
+            </ul>
 
-        <!-- Litauisk -->
+            <p><em>Ko jūs izvēlaties?</em></p>
+          </div>
+        </details>
+
+        <!-- Litauisk <IKKE VALIDERT> -->
         <details class="card" role="listitem" lang="lt">
           <summary><span>Litauisk</span><span class="chev">▶</span></summary>
           <div class="panel">
@@ -356,7 +344,6 @@
             <p><strong>1 variantas</strong></p>
             <ul>
               <li>Muitinė konfiskuoja prekes, viršijančias neapmuitinamą kvotą.</li>
-              <li>Siūloma bylą užbaigti taikant supaprastintą baudos nutarimą (<em>forenklet forelegg</em>).</li>
               <li>Sutinkate vietoje ir sumokate dabar arba per 7 dienas.</li>
               <li>Byla laikoma užbaigta, kai mokėjimas atliktas.</li>
               <li>Sprendimas negali būti skundžiamas.</li>
@@ -372,46 +359,46 @@
           </div>
         </details>
 
-      <!-- Nederlandsk -->
-<details class="card" role="listitem" lang="nl">
-  <summary><span>Nederlandsk</span><span class="chev">▶</span></summary>
-  <div class="panel">
-    <p><strong>Inleiding</strong><br>
-      U vervoert goederen in strijd met de quotaregels. Deze overtreding leidt nu tot een maatregel. 
-      U kunt kiezen uit twee opties voor het vervolg.
-    </p>
+        <!-- Nederlandsk <VALIDERT> -->
+        <details class="card" role="listitem" lang="nl">
+          <summary><span>Nederlandsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Inleiding</strong><br>
+              U vervoert meer goederen dan zijn toegestaan voor de vrijstelling van belastingvrije artikelen.
+              Dit is in strijd met de quotaregels. Dit is een overtreding, die nu leidt tot een sanctie.
+              U kunt kiezen uit twee opties voor het vervolg.
+            </p>
 
-    <p><strong>Optie 1</strong></p>
-    <ul>
-      <li>De douane verklaart goederen boven de belastingvrije vrijstelling verbeurd.</li>
-      <li>U krijgt de mogelijkheid de zaak af te doen met een vereenvoudigde boetebeschikking (<em>forenklet forelegg</em>).</li>
-      <li>U aanvaardt de beschikking ter plaatse en betaalt nu of binnen 7 dagen.</li>
-      <li>De zaak is afgerond zodra de betaling is gedaan.</li>
-      <li>De beslissing kan niet worden aangevochten.</li>
-    </ul>
+            <p><strong>Optie 1</strong></p>
+            <ul>
+              <li>De douane neemt de goederen boven de belastingvrije vrijstelling in beslag.</li>
+              <li>U betaalt de boete nu ter plaatse of binnen 7 dagen.</li>
+              <li>De zaak is afgerond zodra de betaling is gedaan.</li>
+              <li>De beslissing kan niet worden aangevochten.</li>
+            </ul>
 
-    <p><strong>Optie 2</strong></p>
-    <ul>
-      <li>De douane neemt goederen boven de vrijstelling in beslag.</li>
-      <li>Er wordt aangifte gedaan bij de politie en de zaak wordt volgens de normale procedure vervolgd.</li>
-    </ul>
+            <p><strong>Optie 2</strong></p>
+            <ul>
+              <li>De douane neemt goederen boven de vrijstelling in beslag.</li>
+              <li>Er wordt aangifte gedaan bij de politie en de zaak wordt volgens de normale procedure vervolgd.</li>
+            </ul>
 
-    <p><em>Waar kiest u voor?</em></p>
-  </div>
-</details>
-        <!-- Polsk -->
+            <p><em>Waar kiest u voor?</em></p>
+          </div>
+        </details>
+
+        <!-- Polsk <VALIDERT> -->
         <details class="card" role="listitem" lang="pl">
           <summary><span>Polsk</span><span class="chev">▶</span></summary>
           <div class="panel">
             <p><strong>Wprowadzenie</strong><br>
-              Masz ze sobą towary ponad dozwoloną ilość. Naruszenie zasad limitów powoduje reakcję. 
+              Masz ze sobą towary ponad dozwoloną ilość. Naruszenie zasad limitów powoduje reakcję.
               Możesz wybrać jeden z dwóch sposobów rozwiązania sprawy.
             </p>
 
             <p><strong>Opcja 1</strong></p>
             <ul>
               <li>Celnicy zabiorą towary ponad limit bezcłowy.</li>
-              <li>Otrzymasz uproszczoną grzywnę (<em>forenklet forelegg</em>).</li>
               <li>Przyjmujesz grzywnę na miejscu i płacisz teraz lub w ciągu 7 dni.</li>
               <li>Sprawa jest zakończona, gdy zapłacisz.</li>
               <li>Nie można się odwołać od tej decyzji.</li>
@@ -426,175 +413,169 @@
             <p><em>Co wybierasz?</em></p>
           </div>
         </details>
-        
-       <!-- Rumensk -->
-<details class="card" role="listitem" lang="ro">
-  <summary><span>Rumensk</span><span class="chev">▶</span></summary>
-  <div class="panel">
-    <p><strong>Introducere</strong><br>
-      Aveți bunuri care depășesc cota fără taxe vamale permisă, 
-      de aceea vor apărea consecințe. 
-      Pentru a rezolva situația, aveți două opțiuni dintre care puteți alege:
-    </p>
 
-    <p><strong>Opțiunea 1</strong></p>
-    <ul>
-      <li>Vama va confisca bunurile pe care le aveți ce depășesc limita legală/impusă.</li>
-      <li>Vi se oferă posibilitatea de a plăti o amendă simplificată (<em>forenklet forelegg</em>).</li>
-      <li>O puteți accepta pe loc și aveți posibilitatea de a o plăti acum sau în termen de 7 zile.</li>
-      <li>Cazul este considerat închis după efectuarea plății.</li>
-      <li>Decizia este definitivă și nu poate fi contestată.</li>
-    </ul>
+        <!-- Rumensk <VALIDERT> -->
+        <details class="card" role="listitem" lang="ro">
+          <summary><span>Rumensk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Introducere</strong><br>
+              Aveți bunuri care depășesc cota fără taxe vamale permisă, de aceea vor apărea consecințe.
+              Pentru a rezolva cazul, aveți două opțiuni dintre care puteți alege.
+            </p>
 
-    <p><strong>Opțiunea 2</strong></p>
-    <ul>
-      <li>Vama va reține bunurile pe care le aveți peste limita impusă.</li>
-      <li>Cazul va fi raportat la poliție și urmărit conform procedurii obișnuite.</li>
-    </ul>
+            <p><strong>Opțiunea 1</strong></p>
+            <ul>
+              <li>Vama va confisca bunurile pe care le aveți ce depășesc limita impusă.</li>
+              <li>O puteți accepta pe loc și aveți posibilitatea de a plăti acum sau în termen de 7 zile.</li>
+              <li>Cazul este considerat închis după efectuarea plății.</li>
+              <li>Decizia este definitivă și nu poate fi contestată.</li>
+            </ul>
 
-    <p><em>Ce alegeți?</em></p>
-  </div>
-</details>
-       <!-- Russisk -->
-<details class="card" role="listitem">
-  <summary><span>Russisk</span><span class="chev">▶</span></summary>
-  <div class="panel">
-    <p><strong>Введение</strong><br>
-      У вас есть товары сверх допустимой нормы. Это нарушает правила и приведет к последствиям. 
-      Вы можете выбрать один из двух вариантов.
-    </p>
+            <p><strong>Opțiunea 2</strong></p>
+            <ul>
+              <li>Vama va reține bunurile pe care le aveți peste limita impusă.</li>
+              <li>Cazul va fi raportat la poliție și urmărit conform procedurii obișnuite.</li>
+            </ul>
 
-    <p><strong>Вариант 1</strong></p>
-    <ul>
-      <li>Таможня изымает товары сверх беспошлинной нормы.</li>
-      <li>Вам назначается упрощённый штраф (<em>forenklet forelegg</em>).</li>
-      <li>Вы соглашаетесь на штраф и платите сразу или в течение 7 дней.</li>
-      <li>Дело закрывается после оплаты.</li>
-      <li>Решение нельзя обжаловать.</li>
-    </ul>
+            <p><em>Ce alegeți?</em></p>
+          </div>
+        </details>
 
-    <p><strong>Вариант 2</strong></p>
-    <ul>
-      <li>Таможня арестует товары сверх нормы.</li>
-      <li>Дело передаётся в полицию и рассматривается в обычном уголовном порядке.</li>
-    </ul>
+        <!-- Russisk <VALIDERT> -->
+        <details class="card" role="listitem" lang="ru">
+          <summary><span>Russisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Введение</strong><br>
+              У вас есть товары сверх допустимой нормы. Это нарушает правила и приведет к последствиям.
+              Вы можете выбрать один из двух вариантов.
+            </p>
 
-    <p><em>Что вы выбираете?</em></p>
-  </div>
-</details>
+            <p><strong>Вариант 1</strong></p>
+            <ul>
+              <li>Таможня изымает товары сверх беспошлинной нормы.</li>
+              <li>Вы соглашаетесь на месте и оплачиваете сейчас или в течение 7 дней.</li>
+              <li>Дело закрывается после оплаты.</li>
+              <li>Решение нельзя обжаловать.</li>
+            </ul>
 
-        <!-- Spansk -->
+            <p><strong>Вариант 2</strong></p>
+            <ul>
+              <li>Таможня арестует товары сверх нормы.</li>
+              <li>Дело передается в полицию и рассматривается в обычном порядке.</li>
+            </ul>
+
+            <p><em>Какой вариант вы выбираете?</em></p>
+          </div>
+        </details>
+
+        <!-- Spansk <IKKE VALIDERT> -->
         <details class="card" role="listitem" lang="es">
           <summary><span>Spansk</span><span class="chev">▶</span></summary>
           <div class="panel">
             <p><strong>Introducción</strong><br>
-              Transporta mercancías en incumplimiento de las normas de cupo. Esta infracción conlleva ahora una medida. Puede elegir entre dos opciones para continuar.
+              Transporta mercancías que superan la franquicia libre de impuestos. Esto infringe las normas de cupo y conlleva una medida.
+              Puede elegir entre dos opciones para continuar.
             </p>
 
             <p><strong>Opción 1</strong></p>
             <ul>
               <li>Aduanas decomisa los bienes que superan la franquicia libre de impuestos.</li>
-              <li>Se le ofrece resolver el caso mediante una notificación de multa simplificada (<em>forenklet forelegg</em>).</li>
               <li>Usted acepta en el acto y paga ahora o dentro de 7 días.</li>
               <li>El asunto queda concluido una vez realizado el pago.</li>
-              <li>La decisión es definitiva y no puede recurrirse.</li>
+              <li>La decisión no puede recurrirse.</li>
             </ul>
 
             <p><strong>Opción 2</strong></p>
             <ul>
               <li>Aduanas incauta los bienes que superan la franquicia.</li>
-              <li>El caso se denuncia a la policía y se persigue por el cauce ordinario.</li>
+              <li>El caso se denuncia a la policía y se tramita por el cauce ordinario.</li>
             </ul>
 
             <p><em>¿Qué opción elige?</em></p>
           </div>
         </details>
 
-       <!-- Svensk -->
-<details class="card" role="listitem" lang="sv">
-  <summary><span>Svensk</span><span class="chev">▶</span></summary>
-  <div class="panel">
-    <p><strong>Inledning</strong><br>
-      Du har med varor som strider mot kvotbestämmelserna. 
-      Överträdelsen medför nu en åtgärd. 
-      Du kan välja mellan två alternativ för hur ärendet hanteras vidare.
-    </p>
+        <!-- Svensk <VALIDERT> -->
+        <details class="card" role="listitem" lang="sv">
+          <summary><span>Svensk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Inledning</strong><br>
+              Du har med varor som strider mot kvotbestämmelserna. Överträdelsen medför nu en åtgärd. Du kan välja mellan två alternativ för hur ärendet hanteras vidare.
+            </p>
 
-    <p><strong>Alternativ 1</strong></p>
-    <ul>
-      <li>Tullverket förverkar de varor du har över den tullfria kvoten.</li>
-      <li>Du erbjuds att avsluta ärendet med ett förenklat föreläggande (<em>forenklet forelegg</em>).</li>
-      <li>Du godtar föreläggandet på plats och betalar nu eller inom 7 dagar.</li>
-      <li>Ärendet är avgjort när betalningen har skett.</li>
-      <li>Beslutet kan inte överklagas.</li>
-    </ul>
+            <p><strong>Alternativ 1</strong></p>
+            <ul>
+              <li>Tullverket förverkar de varor du har över den tullfria kvoten.</li>
+              <li>Du godtar föreläggandet på plats och betalar nu eller inom 7 dagar.</li>
+              <li>Ärendet är avgjort när betalningen har skett.</li>
+              <li>Beslutet kan inte överklagas.</li>
+            </ul>
 
-    <p><strong>Alternativ 2</strong></p>
-    <ul>
-      <li>Tullverket tar varorna över kvoten i beslag.</li>
-      <li>Ärendet anmäls till polisen och hanteras enligt ordinarie förfarande.</li>
-    </ul>
+            <p><strong>Alternativ 2</strong></p>
+            <ul>
+              <li>Tullverket tar varorna över kvoten i beslag.</li>
+              <li>Ärendet anmäls till polisen och hanteras enligt ordinarie förfarande.</li>
+            </ul>
 
-    <p><em>Vilket alternativ väljer du?</em></p>
-  </div>
-</details>
-        <!-- Tysk -->
-<details class="card" role="listitem" lang="de">
-  <summary><span>Tysk</span><span class="chev">▶</span></summary>
-  <div class="panel">
-    <p><strong>Einleitung</strong><br>
-      Sie führen Waren mit sich, die gegen die Quotenbestimmungen verstoßen. 
-      Dieser Verstoß hat nun rechtliche Folgen. 
-      Für das weitere Vorgehen können Sie zwischen zwei Optionen wählen.
-    </p>
+            <p><em>Vad väljer du?</em></p>
+          </div>
+        </details>
 
-    <p><strong>Option 1</strong></p>
-    <ul>
-      <li>Der Zoll zieht die Waren über der zollfreien Freimenge ein (Einziehung).</li>
-      <li>Ihnen wird angeboten, die Sache mit einem vereinfachten Strafbescheid 
-          (= Geldbuße/Geldbusse) zu erledigen (<em>forenklet forelegg</em>).</li>
-      <li>Sie akzeptieren den Strafbescheid vor Ort und zahlen sofort oder innerhalb von 7 Tagen.</li>
-      <li>Die Sache ist abgeschlossen, sobald die Zahlung erfolgt ist.</li>
-      <li>Die Entscheidung ist endgültig und nicht anfechtbar.</li>
-    </ul>
+        <!-- Tysk <VALIDERT> -->
+        <details class="card" role="listitem" lang="de">
+          <summary><span>Tysk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Einleitung</strong><br>
+              Sie führen Waren mit sich, die gegen die Quotenbestimmungen verstoßen. Dieser Verstoß hat nun eine (gesetzliche) Maßnahme zur Folge.
+              Für das weitere Vorgehen können Sie zwischen zwei Optionen wählen.
+            </p>
 
-    <p><strong>Option 2</strong></p>
-    <ul>
-      <li>Der Zoll beschlagnahmt die Waren über der Freimenge.</li>
-      <li>Der Fall wird der Polizei gemeldet und im ordentlichen Verfahren verfolgt.</li>
-    </ul>
+            <p><strong>Option 1</strong></p>
+            <ul>
+              <li>Der Zoll zieht die Waren über der zollfreien <em>Freimenge</em> ein (Einziehung).</li>
+              <li>Es wird angeboten, die Sache mit einem vereinfachten <em>Strafbescheid</em> (= Geldbusse/Geldbuße) zu erledigen.</li>
+              <li>Sie akzeptieren den Bescheid vor Ort und zahlen jetzt oder innerhalb von 7 Tagen.</li>
+              <li>Die Angelegenheit ist erledigt, sobald die Zahlung erfolgt ist.</li>
+              <li>Der Bescheid ist endgültig und nicht anfechtbar.</li>
+            </ul>
 
-    <p><em>Wofür entscheiden Sie sich?</em></p>
-  </div>
-</details>
+            <p><strong>Option 2</strong></p>
+            <ul>
+              <li>Der Zoll beschlagnahmt die Waren über der Freimenge.</li>
+              <li>Der Fall wird bei der Polizei angezeigt und im ordentlichen Verfahren verfolgt.</li>
+            </ul>
 
-       <!-- Ukrainsk -->
-<details class="card" role="listitem" lang="uk">
-  <summary><span>Ukrainsk</span><span class="chev">▶</span></summary>
-  <div class="panel">
-    <p><strong>Вступ</strong><br>
-      Перевезення товарів з порушеннями правил щодо митних квот тягне за собою адміністративну відповідальність. 
-      Ви можете обрати один з двох варіантів подальшого розвитку подій.
-    </p>
+            <p><em>Wofür entscheiden Sie sich?</em></p>
+          </div>
+        </details>
 
-    <p><strong>Варіант 1</strong></p>
-    <ul>
-      <li>Митниця вилучає товари які не підпадають під квоту для безмитного ввезеня. 
-          Після цього вам запропонують вирішити справу за спрощеним штрафним повідомленням (<em>forenklet forelegg</em>).</li>
-      <li>Ви маєте підтвердити свою згоду на місці та сплатити штраф відразу або протягом 7 днів.</li>
-      <li>Справу вважають завершеною тільки після здійснення платежу.</li>
-      <li>Рішення є остаточним і не підлягає оскарженню.</li>
-    </ul>
+        <!-- Ukrainsk <VALIDERT> -->
+        <details class="card" role="listitem" lang="uk">
+          <summary><span>Ukrainsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Вступ</strong><br>
+              Ви перевозите товари з порушенням правил квот. Це порушення тягне за собою захід.
+              Ви можете обрати один з двох варіантів подальшого розгляду.
+            </p>
 
-    <p><strong>Варіант 2</strong></p>
-    <ul>
-      <li>Митниця вилучає товари які не підпадають під квоту для безмитного ввезення.</li>
-      <li>Справу передають до поліції для подальшого впровадження у чинному судовому порядку.</li>
-    </ul>
+            <p><strong>Варіант 1</strong></p>
+            <ul>
+              <li>Митниця конфіскує товари понад безмитну норму.</li>
+              <li>Ви погоджуєтеся на місці та сплачуєте зараз або протягом 7 днів.</li>
+              <li>Справу вважають завершеною після здійснення платежу.</li>
+              <li>Рішення є остаточним і не підлягає оскарженню.</li>
+            </ul>
 
-    <p><em>Який варіант ви обирете?</em></p>
-  </div>
-</details>
+            <p><strong>Варіант 2</strong></p>
+            <ul>
+              <li>Митниця вилучає товари понад встановлену норму.</li>
+              <li>Справу передають до поліції та переслідують у звичайному порядку.</li>
+            </ul>
+
+            <p><em>Що ви обираєте?</em></p>
+          </div>
+        </details>
+
       </div>
 
       <!-- Tilbake til Sanksjonering -->
