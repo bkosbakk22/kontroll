@@ -7,7 +7,6 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#12404F" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
-
   <style>
     :root {
       --tollturkis:#007682;
@@ -28,14 +27,12 @@
     @media (prefers-color-scheme: dark){
       :root{ --infobla:#24333a; --bakgrunn:#0c0c0c; --tekst:#f2f2f2; --bord:#2a2a2a; --shadow:0 2px 10px rgba(0,0,0,.35); }
     }
-
-    html, body { height: 100%; }
+    html, body { height:100%; }
     body{
       margin:0; font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
       font-size:var(--body-size); line-height:1.55; color:var(--tekst); background:var(--bakgrunn);
       -webkit-text-size-adjust:100%; text-rendering:optimizeLegibility;
     }
-
     .page{
       padding:calc(env(safe-area-inset-top)+var(--space))
               calc(env(safe-area-inset-right)+var(--space))
@@ -44,15 +41,13 @@
       display:grid; place-items:start center;
     }
     .container{ width:100%; max-width:var(--maxw); display:flex; flex-direction:column; }
-
     .stack{ display:grid; gap:12px; grid-template-columns:1fr; }
-
-    .card{ background:rgba(255,255,255,.9); border:1px solid var(--bord); border-radius:var(--radius); box-shadow:var(--shadow); overflow:clip; }
+    .card{ background:rgba(255,255,255,.9); border:1px solid var(--bord);
+           border-radius:var(--radius); box-shadow:var(--shadow); overflow:clip; }
     @media (prefers-color-scheme: dark){ .card{ background:rgba(20,20,20,.9); } }
-
     .banner{ border-left:6px solid var(--tollmorkebla); margin-bottom:12px; }
-    .banner-title{ display:grid; place-items:center; min-height:max(var(--touch),64px); font-weight:800; font-size:var(--title-size); background:var(--tollmorkebla); color:#fff; letter-spacing:.2px; padding:8px 12px; }
-
+    .banner-title{ display:grid; place-items:center; min-height:max(var(--touch),64px);
+      font-weight:800; font-size:var(--title-size); background:var(--tollmorkebla); color:#fff; letter-spacing:.2px; padding:8px 12px; }
     details{ border-radius:var(--radius); }
     summary{
       list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%;
@@ -61,20 +56,11 @@
     }
     summary::-webkit-details-marker{ display:none; }
     .chev{ transition:transform .2s ease; inline-size:1.1em; text-align:center; }
-    details[open] .chev{ transform:rotate(90deg); }
-
     .panel{ display:grid; gap:12px; padding:16px 18px 18px; }
-    ul{ margin:0; padding-left:22px; }
-    li{ margin:6px 0; }
-
-    table { width:100%; border-collapse:collapse; }
-    th, td { padding:10px 12px; border:1px solid var(--bord); vertical-align:top; }
-    th { text-align:left; font-weight:700; background:var(--infobla); }
-    @media (prefers-color-scheme: dark){
-      th { background:#102028; }
-    }
-
-    .note { font-size:0.95em; opacity:0.95; }
+    table{ border-collapse:collapse; width:100%; margin:8px 0 0; }
+    th, td{ border:1px solid var(--bord); padding:10px 12px; text-align:left; vertical-align:top; }
+    th{ background:var(--infobla); font-weight:700; }
+    @media (prefers-color-scheme: dark){ th{ background:#102028; } }
   </style>
 </head>
 <body>
@@ -88,24 +74,17 @@
       <div class="stack" role="list">
 
         <!-- Norsk -->
-        <details class="card" role="listitem" open>
+        <details class="card" role="listitem">
           <summary><span>Norsk</span><span class="chev">▶</span></summary>
           <div class="panel">
             <p><strong>Alkohol- og tobakkskvote inn til Norge</strong></p>
+            <p>Kvotene som oppgis er per person. Du må være 18 år eller mer for å innføre øl, vin og tobakk.
+               Skal du ha med deg brennevin og lignende over 22 prosent, må du være 20 år eller mer.</p>
 
-            <p>Kvotene som oppgis er per person.  
-            Du må være 18 år eller mer for å innføre øl, vin og tobakk. Skal du ha med deg brennevin og lignende over 22 prosent, må du være 20 år eller mer.</p>
-
-            <p><strong>Kvote for alkohol og tobakk:</strong></p>
+            <p><strong>Kvote for alkohol og tobakk</strong></p>
             <p>Oversikten nedenfor viser hvor mye alkohol og tobakk du kan ta med deg inn til Norge. Mengden du kan ha med deg avhenger av hva slags type varer du tar med deg inn til Norge.</p>
-
             <table aria-label="Alkohol- og tobakkskvote">
-              <thead>
-                <tr>
-                  <th scope="col">Varetype</th>
-                  <th scope="col">Mengde</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Varetype</th><th>Mengde</th></tr></thead>
               <tbody>
                 <tr>
                   <td>Brennevin/sprit/likør og lignende over 22 % til og med 60 %</td>
@@ -121,7 +100,7 @@
                 </tr>
                 <tr>
                   <td>Sigaretter eller annen tobakk (for eksempel snus)</td>
-                  <td>Kvoten for tobakk er den samme uavhengig av hvor mye alkohol du tar med deg. Du kan ta med 100 stk sigaretter eller 125 gram annen tobakk.</td>
+                  <td>100 stk sigaretter eller 125 gram annen tobakk.</td>
                 </tr>
                 <tr>
                   <td>Sigarettpapir og -hylser</td>
@@ -132,37 +111,95 @@
 
             <p><strong>Bytteregler</strong></p>
             <ul>
-              <li>Brennevinskvoten kan byttes i 1,5 liter av enten vin eller øl, mens vinkvoten kan byttes i øl, liter for liter.</li>
+              <li>Brennevinskvoten kan byttes i 1,5 liter av enten vin eller øl.</li>
+              <li>Vinkvoten kan byttes i øl, liter for liter.</li>
               <li>Vin og øl kan ikke byttes i sterkere drikke.</li>
-              <li>Du kan ikke bytte tobakkskvoten med vin eller øl.</li>
+              <li>Tobakkskvoten kan ikke byttes i vin eller øl.</li>
             </ul>
 
             <p><strong>Hvis du er i utlandet kortere enn ett døgn</strong></p>
             <p>Ved utenlandsopphold på mindre enn ett døgn kan du én gang i løpet av 24 timer ta med deg alkohol- og tobakkskvoten hvis du kan dokumentere at du har betalt avgifter i et EØS-land. Du kan derfor ikke handle på tax-free.</p>
-
-            <p><strong>Det er forbudt å innføre</strong></p>
-            <ul>
-              <li>Nye former for tobakks- og nikotinholdige produkter som ikke er godkjent for innførsel eller salg i Norge. Eksempler på nye produkter uten godkjenning er:
-                <ul>
-                  <li>Nikotinsnus (uten tobakk)</li>
-                  <li>Heated Tobacco Products (HTP)/Iqos med Heets sticks</li>
-                </ul>
-              </li>
-              <li>Vannpipetobakk</li>
-              <li>E-sigaretter med nikotin (inkludert e-væske/e-liquid) med tobakk- og aromasmak, uten legeerklæring som dokumenterer røykeavvenning.</li>
-              <li>E-sigaretter uten nikotin med aromasmak.</li>
-              <li>Etuier, esker, omslag, innpakninger og ethvert annet produkt som har til hensikt å skjule eller tilsløre helseadvarslene på produktene.</li>
-              <li>Tobakksvarer for videresalg uten bevilling.</li>
-            </ul>
           </div>
         </details>
 
-        <!-- Alfabetiske språkblokker starter her -->
+        <!-- English (MASTER) -->
+        <details class="card" role="listitem">
+          <summary><span>English</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>The alcohol and tobacco quota</strong></p>
+            <p><strong>Alcohol and tobacco quota for residents in Norway:</strong></p>
+            <table aria-label="Alcohol and tobacco quota for residents in Norway">
+              <thead><tr><th>Goods</th><th>Amount</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Spirits etc. over 22% up to and including 60%</td>
+                  <td>1 litre</td>
+                </tr>
+                <tr>
+                  <td>Wine etc. over 2.5% up to and including 22%</td>
+                  <td>1.5 litres (2 bottles)</td>
+                </tr>
+                <tr>
+                  <td>Beer above 2.5% (including strong beer), or alcopops/cider etc. above 2.5% up to and including 4.7%</td>
+                  <td>2 litres (6 x 0.33 litre bottles/cans)</td>
+                </tr>
+                <tr>
+                  <td>Cigarettes or other types of tobacco (e.g. snuff)</td>
+                  <td>100 cigarettes or 125 grams of other tobacco products (snuff, cigars and cigarillos are counted in grams)</td>
+                </tr>
+                <tr>
+                  <td>Cigarette paper</td>
+                  <td>100 sheets</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p><strong>Rules for exchanging alcohol</strong></p>
+            <ul>
+              <li>The spirits quota can be exchanged with 1.5 litres of either wine or beer/alcopops/cider.</li>
+              <li>The wine quota can be exchanged with equal amounts of beer/alcopops/cider.</li>
+              <li>Note that wine and beer/alcopops/cider may not be exchanged for stronger beverages, and you may not exchange your tobacco quota with beer or wine.</li>
+            </ul>
+
+            <p><strong>Rules for tourists residing outside of Norway</strong></p>
+            <p>For tourists residing outside of Norway, the quota is 200 cigarettes or 250 grams of tobacco, and 200 cigarette papers. The alcohol quota is the same for tourists as it is for residents in Norway.</p>
+            <p>Even though tourists have a larger quota, it is not possible to buy more than the ordinary tobacco quota (100 cigarettes or 125 grams of other tobacco products and 100 cigarette papers) in duty-free shops upon arrival at airports in Norway.</p>
+
+            <p><strong>If your stay abroad is shorter than 24 hours</strong></p>
+            <p>If your stay abroad is less than 24 hours you may, once within these 24 hours, bring alcohol and tobacco, if you can document that you have paid local taxes in an EEA-country. You cannot purchase alcohol and tobacco products tax-free when your stay abroad is shorter than 24 hours.</p>
+          </div>
+        </details>
+
         <!-- Arabisk -->
         <details class="card" role="listitem">
           <summary><span>Arabisk</span><span class="chev">▶</span></summary>
           <div class="panel" dir="rtl">
-            <p>نص بديل مؤقت – سيتم إضافة الترجمة لاحقًا.</p>
+            <p><strong>حصة الكحول والتبغ</strong></p>
+            <p><strong>حصة الكحول والتبغ للمقيمين في النرويج:</strong></p>
+            <table aria-label="حصة الكحول والتبغ للمقيمين في النرويج">
+              <thead><tr><th>السلعة</th><th>الكمية</th></tr></thead>
+              <tbody>
+                <tr><td>مشروبات روحية بنسبة كحول أعلى من 22% ولغاية 60% (شاملة)</td><td>1 لتر</td></tr>
+                <tr><td>نبيذ وما شابهه بنسبة كحول أعلى من 2.5% ولغاية 22% (شاملة)</td><td>1.5 لتر (زجاجتان)</td></tr>
+                <tr><td>بيرة بنسبة أكثر من 2.5% (بما في ذلك القوية) أو مشروبات جاهزة/سيدر بأكثر من 2.5% ولغاية 4.7% (شاملة)</td><td>2 لتر (6 عبوات × 0.33 لتر)</td></tr>
+                <tr><td>سجائر أو أنواع أخرى من التبغ (مثل السنوس)</td><td>100 سيجارة أو 125 غرامًا من منتجات تبغ أخرى</td></tr>
+                <tr><td>أوراق لف السجائر</td><td>100 ورقة</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>قواعد تبادل حصص الكحول</strong></p>
+            <ul>
+              <li>يمكن استبدال حصة المشروبات الروحية بـ 1.5 لتر من النبيذ أو من البيرة/المشروبات الجاهزة/السيدر.</li>
+              <li>يمكن استبدال حصة النبيذ بكمية مساوية من البيرة/المشروبات الجاهزة/السيدر.</li>
+              <li>ملاحظة: لا يجوز استبدال النبيذ أو البيرة/المشروبات الجاهزة/السيدر بمشروبات أقوى، ولا يجوز استبدال حصة التبغ بالنبيذ أو البيرة.</li>
+            </ul>
+
+            <p><strong>قواعد للسياح المقيمين خارج النرويج</strong></p>
+            <p>بالنسبة للسياح المقيمين خارج النرويج، تكون الحصة: 200 سيجارة أو 250 غرامًا من التبغ، و200 ورقة لف. حصة الكحول هي نفسها للمقيمين في النرويج.</p>
+            <p>على الرغم من أن للسياح حصة تبغ أكبر، لا يمكن شراء أكثر من الحصة العادية للتبغ (100 سيجارة أو 125 غرامًا من منتجات تبغ أخرى و100 ورقة لف) في متاجر «الديوتي فري» عند الوصول إلى المطارات في النرويج.</p>
+
+            <p><strong>إذا كانت إقامتك خارج البلاد أقل من 24 ساعة</strong></p>
+            <p>إذا كانت إقامتك خارج البلاد أقل من 24 ساعة، يمكنك مرة واحدة ضمن هذه الـ 24 ساعة إدخال الكحول والتبغ إذا استطعت إثبات دفع الضرائب المحلية في إحدى دول المنطقة الاقتصادية الأوروبية (EEA). لا يمكنك شراء الكحول والتبغ معفاة من الرسوم عندما تكون مدة الإقامة أقل من 24 ساعة.</p>
           </div>
         </details>
 
@@ -170,16 +207,32 @@
         <details class="card" role="listitem">
           <summary><span>Dansk</span><span class="chev">▶</span></summary>
           <div class="panel">
-            <p>Pladsholder for dansk version.</p>
-          </div>
-        </details>
+            <p><strong>Afgiftsfri kvote for alkohol og tobak</strong></p>
+            <p><strong>Kvote for personer bosat i Norge:</strong></p>
+            <table aria-label="Kvote for alkohol og tobak for personer bosat i Norge">
+              <thead><tr><th>Vare</th><th>Mængde</th></tr></thead>
+              <tbody>
+                <tr><td>Spiritus m.v. over 22% til og med 60%</td><td>1 liter</td></tr>
+                <tr><td>Vin m.v. over 2,5% til og med 22%</td><td>1,5 liter (2 flasker)</td></tr>
+                <tr><td>Øl over 2,5% (inkl. stærkøl) eller breezers/cider m.v. over 2,5% til og med 4,7%</td><td>2 liter (6 × 0,33 l flasker/dåser)</td></tr>
+                <tr><td>Cigaretter eller anden tobak (fx snus)</td><td>100 cigaretter eller 125 gram anden tobak</td></tr>
+                <tr><td>Cigaretpapir</td><td>100 ark</td></tr>
+              </tbody>
+            </table>
 
-        <!-- Engelsk -->
-        <details class="card" role="listitem">
-          <summary><span>Engelsk</span><span class="chev">▶</span></summary>
-          <div class="panel">
-            <p><strong>The alcohol and tobacco quota</strong></p>
-            <!-- Hele engelske versjon her (som vi laget tidligere, med tabell og regler) -->
+            <p><strong>Bytteregler for alkohol</strong></p>
+            <ul>
+              <li>Spirituskvoten kan byttes til 1,5 liter vin eller øl/breezers/cider.</li>
+              <li>Vinkvoten kan byttes til tilsvarende mængde øl/breezers/cider.</li>
+              <li>Bemærk: Vin og øl/breezers/cider kan ikke byttes til stærkere drikke, og tobakskvoten kan ikke byttes til vin eller øl.</li>
+            </ul>
+
+            <p><strong>Regler for turister bosat uden for Norge</strong></p>
+            <p>For turister bosat uden for Norge er kvoten 200 cigaretter eller 250 gram tobak samt 200 cigaretpapir. Alkoholkvoten er den samme som for personer bosat i Norge.</p>
+            <p>Selv om turister har en større tobakskvote, kan man ikke købe mere end den almindelige tobakskvote (100 cigaretter eller 125 gram anden tobak og 100 cigaretpapir) i taxfree-butikker ved ankomst til norske lufthavne.</p>
+
+            <p><strong>Hvis dit ophold i udlandet er kortere end 24 timer</strong></p>
+            <p>Hvis dit ophold i udlandet er under 24 timer, kan du én gang inden for disse 24 timer medbringe alkohol og tobak, hvis du kan dokumentere, at du har betalt lokale afgifter i et EØS-land. Du kan ikke købe alkohol- og tobaksvarer afgiftsfrit, når opholdet er kortere end 24 timer.</p>
           </div>
         </details>
 
@@ -187,11 +240,463 @@
         <details class="card" role="listitem">
           <summary><span>Estisk</span><span class="chev">▶</span></summary>
           <div class="panel">
-            <p>Kohatäitja eesti keele versioonile.</p>
+            <p><strong>Alkoholi ja tubaka kvoot</strong></p>
+            <p><strong>Norras elavate isikute kvoot:</strong></p>
+            <table aria-label="Alkoholi ja tubaka kvoot Norras elavatele isikutele">
+              <thead><tr><th>Kaup</th><th>Kogus</th></tr></thead>
+              <tbody>
+                <tr><td>Kanged joogid jms üle 22% kuni (kaasa arvatud) 60%</td><td>1 liiter</td></tr>
+                <tr><td>Vein jms üle 2,5% kuni (kaasa arvatud) 22%</td><td>1,5 liitrit (2 pudelit)</td></tr>
+                <tr><td>Õlu üle 2,5% (sh kange õlu) või alcopopid/siider jms üle 2,5% kuni (kaasa arvatud) 4,7%</td><td>2 liitrit (6 × 0,33 l pudelit/purki)</td></tr>
+                <tr><td>Sigaretid või muud tubakatooted (nt snus)</td><td>100 sigaretti või 125 grammi muid tubakatooteid</td></tr>
+                <tr><td>Sigaretipaber</td><td>100 lehte</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Alkoholi kvoodi vahetamise reeglid</strong></p>
+            <ul>
+              <li>Kangete jookide kvooti võib vahetada 1,5 liitri veini või õlle/alcopopi/siidri vastu.</li>
+              <li>Veinikvooti võib vahetada samas koguses õlle/alcopopi/siidri vastu.</li>
+              <li>Märkus: veini ja õlut/alcopopi/siidrit ei tohi vahetada kangemate jookide vastu ning tubakakvooti ei tohi vahetada veini ega õlle vastu.</li>
+            </ul>
+
+            <p><strong>Reeglid väljaspool Norrat elavatele turistidele</strong></p>
+            <p>Väljaspool Norrat elavate turistide kvoot on 200 sigaretti või 250 grammi tubakat ning 200 sigaretipaberit. Alkoholikvoot on turistidele sama mis Norras elavatele isikutele.</p>
+            <p>Kuigi turistidele kehtib suurem tubakakvoot, ei ole võimalik Norra lennujaamade tollivabades poodides saabumisel osta rohkem kui tavaline tubakakvoot (100 sigaretti või 125 g muid tubakatooteid ja 100 sigaretipaberit).</p>
+
+            <p><strong>Kui sinu välisreis on lühem kui 24 tundi</strong></p>
+            <p>Kui viibid välismaal alla 24 tunni, võid üks kord 24 tunni jooksul tuua alkoholi ja tubakat, kui suudad tõendada, et oled maksnud kohalikke makse mõnes EMP riigis. Alla 24 tunni kestva reisi korral ei tohi alkoholi ega tubakatooteid maksuvabalt osta.</p>
           </div>
         </details>
 
-        <!-- ... resten av språkene på samme måte ... -->
+        <!-- Finsk -->
+        <details class="card" role="listitem">
+          <summary><span>Finsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Alkoholi- ja tupakkakiintiö</strong></p>
+            <p><strong>Norjassa asuvien kiintiö:</strong></p>
+            <table aria-label="Alkoholi- ja tupakkakiintiö Norjassa asuville">
+              <thead><tr><th>Tuote</th><th>Määrä</th></tr></thead>
+              <tbody>
+                <tr><td>Väkevät juomat ym. yli 22 % ja enintään 60 %</td><td>1 litra</td></tr>
+                <tr><td>Viini ym. yli 2,5 % ja enintään 22 %</td><td>1,5 litraa (2 pulloa)</td></tr>
+                <tr><td>Olut yli 2,5 % (ml. vahva olut) tai lonkero/siider ym. yli 2,5 % ja enintään 4,7 %</td><td>2 litraa (6 × 0,33 l pulloa/tölkkiä)</td></tr>
+                <tr><td>Savukkeet tai muu tupakka (esim. snus)</td><td>100 savuketta tai 125 grammaa muita tupakkatuotteita</td></tr>
+                <tr><td>Savukepaperi</td><td>100 arkkia</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Säännöt alkoholin vaihtamisesta</strong></p>
+            <ul>
+              <li>Väkevien juomien kiintiö voidaan vaihtaa 1,5 litraan viiniä tai olutta/lonkeroa/siideriä.</li>
+              <li>Viinikiintiö voidaan vaihtaa vastaavaan määrään olutta/lonkeroa/siideriä.</li>
+              <li>Huom.: viiniä ja olutta/lonkeroa/siideriä ei voi vaihtaa vahvempiin juomiin, eikä tupakkakiintiötä voi vaihtaa olueen tai viiniin.</li>
+            </ul>
+
+            <p><strong>Säännöt Norjan ulkopuolella asuville turisteille</strong></p>
+            <p>Norjan ulkopuolella asuvien turistien kiintiö on 200 savuketta tai 250 g tupakkaa sekä 200 savukepaperia. Alkoholikiintiö on sama kuin Norjassa asuvilla.</p>
+            <p>Vaikka turisteilla on suurempi tupakkakiintiö, Norjan lentoasemien tax free -myymälöissä ei voi ostaa enempää kuin tavallisen tupakkakiintiön (100 savuketta tai 125 g muita tupakkatuotteita ja 100 savukepaperia).</p>
+
+            <p><strong>Jos ulkomaanoleskelu on alle 24 tuntia</strong></p>
+            <p>Jos ulkomaanoleskelu on alle 24 tuntia, voit kerran 24 tunnin aikana tuoda alkoholia ja tupakkaa, jos voit osoittaa maksaneesi paikalliset verot ETA-maassa. Alle 24 tunnin oleskelulla alkoholia ja tupakkaa ei voi ostaa verovapaasti.</p>
+          </div>
+        </details>
+
+        <!-- Fransk -->
+        <details class="card" role="listitem">
+          <summary><span>Fransk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Franchises d’alcool et de tabac</strong></p>
+            <p><strong>Franchise pour les résidents en Norvège&nbsp;:</strong></p>
+            <table aria-label="Franchise d’alcool et de tabac pour les résidents en Norvège">
+              <thead><tr><th>Produits</th><th>Quantité</th></tr></thead>
+              <tbody>
+                <tr><td>Spiritueux etc. de plus de 22&nbsp;% et jusqu’à 60&nbsp;% inclus</td><td>1 litre</td></tr>
+                <tr><td>Vin etc. de plus de 2,5&nbsp;% et jusqu’à 22&nbsp;% inclus</td><td>1,5 litre (2 bouteilles)</td></tr>
+                <tr><td>Bière &gt; 2,5&nbsp;% (y c. bière forte), ou premix/cidre etc. &gt; 2,5&nbsp;% jusqu’à 4,7&nbsp;% inclus</td><td>2 litres (6 × 0,33&nbsp;l bouteilles/boîtes)</td></tr>
+                <tr><td>Cigarettes ou autres produits du tabac (p. ex. snus)</td><td>100 cigarettes ou 125&nbsp;g d’autres produits du tabac</td></tr>
+                <tr><td>Feuilles à rouler</td><td>100 feuilles</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Règles d’échange pour l’alcool</strong></p>
+            <ul>
+              <li>La franchise de spiritueux peut être échangée contre 1,5&nbsp;l de vin ou de bière/premix/cidre.</li>
+              <li>La franchise de vin peut être échangée contre la même quantité de bière/premix/cidre.</li>
+              <li>Remarque&nbsp;: vin et bière/premix/cidre ne peuvent pas être échangés contre des boissons plus fortes, et la franchise de tabac ne peut pas être échangée contre de la bière ou du vin.</li>
+            </ul>
+
+            <p><strong>Règles pour les touristes résidant hors de Norvège</strong></p>
+            <p>Pour les touristes résidant hors de Norvège, la franchise est de 200 cigarettes ou 250&nbsp;g de tabac, et 200 feuilles à rouler. La franchise d’alcool est la même que pour les résidents en Norvège.</p>
+            <p>Bien que les touristes aient une franchise de tabac plus élevée, il n’est pas possible d’acheter plus que la franchise ordinaire (100 cigarettes ou 125&nbsp;g d’autres produits du tabac et 100 feuilles) dans les boutiques duty-free à l’arrivée dans les aéroports norvégiens.</p>
+
+            <p><strong>Si votre séjour à l’étranger est inférieur à 24&nbsp;heures</strong></p>
+            <p>Si votre séjour à l’étranger est inférieur à 24&nbsp;heures, vous pouvez une fois pendant cette période apporter alcool et tabac si vous pouvez prouver avoir payé les taxes locales dans un pays de l’EEE. Les achats en duty-free ne sont pas autorisés si le séjour est inférieur à 24&nbsp;heures.</p>
+          </div>
+        </details>
+
+        <!-- Italiensk -->
+        <details class="card" role="listitem">
+          <summary><span>Italiensk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Quota di alcol e tabacco</strong></p>
+            <p><strong>Quota per i residenti in Norvegia:</strong></p>
+            <table aria-label="Quota di alcol e tabacco per i residenti in Norvegia">
+              <thead><tr><th>Prodotti</th><th>Quantità</th></tr></thead>
+              <tbody>
+                <tr><td>Superalcolici ecc. oltre il 22% e fino al 60% incluso</td><td>1 litro</td></tr>
+                <tr><td>Vino ecc. oltre il 2,5% e fino al 22% incluso</td><td>1,5 litri (2 bottiglie)</td></tr>
+                <tr><td>Birra oltre il 2,5% (inclusa birra forte) o alcopop/sidro ecc. oltre il 2,5% e fino al 4,7% incluso</td><td>2 litri (6 × 0,33 l bottiglie/lattine)</td></tr>
+                <tr><td>Sigarette o altri tipi di tabacco (ad es. snus)</td><td>100 sigarette o 125 grammi di altri prodotti del tabacco</td></tr>
+                <tr><td>Cartine per sigarette</td><td>100 fogli</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Regole per lo scambio della quota di alcol</strong></p>
+            <ul>
+              <li>La quota di superalcolici può essere scambiata con 1,5 litri di vino oppure di birra/alcopop/sidro.</li>
+              <li>La quota di vino può essere scambiata con pari quantità di birra/alcopop/sidro.</li>
+              <li>Nota: vino e birra/alcopop/sidro non possono essere scambiati con bevande più forti; la quota di tabacco non può essere scambiata con birra o vino.</li>
+            </ul>
+
+            <p><strong>Regole per i turisti residenti al di fuori della Norvegia</strong></p>
+            <p>Per i turisti residenti al di fuori della Norvegia, la quota è di 200 sigarette o 250 grammi di tabacco e 200 cartine. La quota di alcol è uguale a quella dei residenti in Norvegia.</p>
+            <p>Anche se i turisti hanno una quota di tabacco più alta, non è possibile acquistare più della quota ordinaria (100 sigarette o 125 grammi di altri prodotti del tabacco e 100 cartine) nei negozi duty-free all’arrivo negli aeroporti norvegesi.</p>
+
+            <p><strong>Se il soggiorno all’estero è inferiore a 24 ore</strong></p>
+            <p>Se il soggiorno all’estero è inferiore a 24 ore, è possibile, una volta in tali 24 ore, portare alcol e tabacco se si può documentare di aver pagato le tasse locali in un Paese SEE. Non è possibile acquistare alcol e tabacco in esenzione da imposte quando il soggiorno è inferiore a 24 ore.</p>
+          </div>
+        </details>
+
+        <!-- Latvisk -->
+        <details class="card" role="listitem">
+          <summary><span>Latvisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Alkohola un tabakas kvota</strong></p>
+            <p><strong>Norvēģijā dzīvojošajiem:</strong></p>
+            <table aria-label="Alkohola un tabakas kvota Norvēģijā dzīvojošajiem">
+              <thead><tr><th>Prece</th><th>Daudzums</th></tr></thead>
+              <tbody>
+                <tr><td>Stiprie alkoholiskie dzērieni u. c. virs 22% līdz 60% (ieskaitot)</td><td>1 litrs</td></tr>
+                <tr><td>Vīns u. c. virs 2,5% līdz 22% (ieskaitot)</td><td>1,5 litri (2 pudeles)</td></tr>
+                <tr><td>Alus virs 2,5% (t.sk. stiprais alus) vai alcopop/cidons u. c. virs 2,5% līdz 4,7% (ieskaitot)</td><td>2 litri (6 × 0,33 l pudeles/kannas)</td></tr>
+                <tr><td>Cigaretes vai citi tabakas izstrādājumi (piem., snus)</td><td>100 cigaretes vai 125 g citu tabakas izstrādājumu</td></tr>
+                <tr><td>Cigarešu papīrs</td><td>100 loksnes</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Alkohola kvotas maiņas noteikumi</strong></p>
+            <ul>
+              <li>Stipro dzērienu kvotu var apmainīt pret 1,5 l vīna vai alus/alcopop/cidra.</li>
+              <li>Vīna kvotu var apmainīt pret tādu pašu daudzumu alus/alcopop/cidra.</li>
+              <li>Piezīme: vīnu un alu/alcopop/cidru nedrīkst apmainīt pret stiprākiem dzērieniem, un tabakas kvotu nedrīkst apmainīt pret alu vai vīnu.</li>
+            </ul>
+
+            <p><strong>Noteikumi tūristiem, kuri dzīvo ārpus Norvēģijas</strong></p>
+            <p>Tūristiem, kuri dzīvo ārpus Norvēģijas, kvota ir 200 cigaretes vai 250 g tabakas un 200 cigarešu papīra loksnes. Alkohola kvota ir tāda pati kā Norvēģijas iedzīvotājiem.</p>
+            <p>Lai gan tūristiem ir lielāka tabakas kvota, ielidojot Norvēģijas lidostās beznodokļu veikalos nevar iegādāties vairāk par parasto tabakas kvotu (100 cigaretes vai 125 g citu tabakas izstrādājumu un 100 papīra loksnes).</p>
+
+            <p><strong>Ja uzturēšanās ārzemēs ir īsāka par 24 stundām</strong></p>
+            <p>Ja uzturēšanās ārzemēs ir mazāka par 24 stundām, vienu reizi šajā periodā drīkst ievest alkoholu un tabaku, ja varat pierādīt, ka esat samaksājis vietējos nodokļus kādā EEZ valstī. Nevar iegādāties alkoholu un tabaku bez nodokļiem, ja uzturēšanās ir īsāka par 24 stundām.</p>
+          </div>
+        </details>
+
+        <!-- Litauisk -->
+        <details class="card" role="listitem">
+          <summary><span>Litauisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Alkoholio ir tabako kvota</strong></p>
+            <p><strong>Norvegijoje gyvenantiems asmenims:</strong></p>
+            <table aria-label="Alkoholio ir tabako kvota Norvegijoje gyvenantiems">
+              <thead><tr><th>Prekė</th><th>Kiekis</th></tr></thead>
+              <tbody>
+                <tr><td>Stiprieji gėrimai ir pan. virš 22% iki 60% imtinai</td><td>1 litras</td></tr>
+                <tr><td>Vynas ir pan. virš 2,5% iki 22% imtinai</td><td>1,5 litro (2 buteliai)</td></tr>
+                <tr><td>Alus virš 2,5% (įskaitant stiprų alų) arba alcopopai/sidras ir pan. virš 2,5% iki 4,7% imtinai</td><td>2 litrai (6 × 0,33 l buteliai/skardinės)</td></tr>
+                <tr><td>Cigaretės arba kiti tabako gaminiai (pvz., snusas)</td><td>100 cigarečių arba 125 g kitų tabako gaminių</td></tr>
+                <tr><td>Sukimo popierėliai</td><td>100 vnt.</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Alkoholio kvotos keitimo taisyklės</strong></p>
+            <ul>
+              <li>Stipriųjų gėrimų kvotą galima pakeisti į 1,5 l vyno arba alaus/alcopopų/sidro.</li>
+              <li>Vyno kvotą galima pakeisti į tokią pačią alaus/alcopopų/sidro kiekį.</li>
+              <li>Pastaba: vyno ir alaus/alcopopų/sidro negalima keisti į stipresnius gėrimus; tabako kvotos negalima keisti į alų ar vyną.</li>
+            </ul>
+
+            <p><strong>Taisyklės turistams, gyvenantiems už Norvegijos ribų</strong></p>
+            <p>Turistams, gyvenantiems už Norvegijos ribų, kvota yra 200 cigarečių arba 250 g tabako ir 200 sukimo popierėlių. Alkoholio kvota tokia pati kaip ir Norvegijoje gyvenantiems.</p>
+            <p>Nors turistams taikoma didesnė tabako kvota, atvykus į Norvegijos oro uostus laisvojoje prekyboje negalima įsigyti daugiau nei įprasta tabako kvota (100 cigarečių arba 125 g kitų tabako gaminių ir 100 popierėlių).</p>
+
+            <p><strong>Jei viešnagė užsienyje trumpesnė nei 24 val.</strong></p>
+            <p>Jei viešnagė užsienyje trumpesnė nei 24 val., vieną kartą per 24 val. galite įsivežti alkoholio ir tabako, jei galite įrodyti, kad sumokėjote vietinius mokesčius EEE šalyje. Negalima įsigyti alkoholio ir tabako be mokesčių, kai viešnagė trumpesnė nei 24 val.</p>
+          </div>
+        </details>
+
+        <!-- Nederlandsk -->
+        <details class="card" role="listitem">
+          <summary><span>Nederlandsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Belastingvrije alcohol- en tabaksquota</strong></p>
+            <p><strong>Quota voor inwoners van Noorwegen:</strong></p>
+            <table aria-label="Alcohol- en tabaksquota voor inwoners van Noorwegen">
+              <thead><tr><th>Goederen</th><th>Hoeveelheid</th></tr></thead>
+              <tbody>
+                <tr><td>Gedistilleerd e.d. boven 22% tot en met 60%</td><td>1 liter</td></tr>
+                <tr><td>Wijn e.d. boven 2,5% tot en met 22%</td><td>1,5 liter (2 flessen)</td></tr>
+                <tr><td>Bier boven 2,5% (incl. sterk bier) of alcopops/cider e.d. boven 2,5% tot en met 4,7%</td><td>2 liter (6 × 0,33 l flessen/blikjes)</td></tr>
+                <tr><td>Sigaretten of andere tabaksproducten (bijv. snus)</td><td>100 sigaretten of 125 gram andere tabaksproducten</td></tr>
+                <tr><td>Cigarettevloei</td><td>100 blaadjes</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Regels voor het uitwisselen van alcoholquota</strong></p>
+            <ul>
+              <li>De gedistilleerd-quotum kan worden omgewisseld voor 1,5 liter wijn of bier/alcopops/cider.</li>
+              <li>Het wijnquotum kan worden omgewisseld voor een gelijke hoeveelheid bier/alcopops/cider.</li>
+              <li>Let op: wijn en bier/alcopops/cider mogen niet worden omgewisseld voor sterkere dranken, en het tabaksquotum mag niet worden ingeruild voor bier of wijn.</li>
+            </ul>
+
+            <p><strong>Regels voor toeristen met woonplaats buiten Noorwegen</strong></p>
+            <p>Voor toeristen die buiten Noorwegen wonen, is de quotum 200 sigaretten of 250 gram tabak, en 200 blaadjes vloei. De alcoholquota is hetzelfde als voor inwoners van Noorwegen.</p>
+            <p>Hoewel toeristen een grotere tabaksquota hebben, is het niet mogelijk om bij aankomst op Noorse luchthavens in dutyfree-winkels meer dan de gewone tabaksquota te kopen (100 sigaretten of 125 g andere tabaksproducten en 100 blaadjes).</p>
+
+            <p><strong>Als uw verblijf in het buitenland korter is dan 24 uur</strong></p>
+            <p>Als uw verblijf in het buitenland minder dan 24 uur bedraagt, mag u eenmaal binnen deze 24 uur alcohol en tabak meenemen, mits u kunt aantonen dat u lokale belastingen hebt betaald in een EER-land. Aankoop van alcohol en tabak vrij van belasting is niet toegestaan bij verblijven korter dan 24 uur.</p>
+          </div>
+        </details>
+
+        <!-- Polsk -->
+        <details class="card" role="listitem">
+          <summary><span>Polsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Limit alkoholu i wyrobów tytoniowych</strong></p>
+            <p><strong>Dla osób mieszkających w Norwegii:</strong></p>
+            <table aria-label="Limit alkoholu i wyrobów tytoniowych dla mieszkańców Norwegii">
+              <thead><tr><th>Towar</th><th>Ilość</th></tr></thead>
+              <tbody>
+                <tr><td>Wyroby spirytusowe itd. powyżej 22% do 60% włącznie</td><td>1 litr</td></tr>
+                <tr><td>Wino itd. powyżej 2,5% do 22% włącznie</td><td>1,5 litra (2 butelki)</td></tr>
+                <tr><td>Piwo powyżej 2,5% (w tym mocne) lub alcopopy/cydr itd. powyżej 2,5% do 4,7% włącznie</td><td>2 litry (6 × 0,33 l butelek/puszek)</td></tr>
+                <tr><td>Papierosy lub inne wyroby tytoniowe (np. snus)</td><td>100 papierosów lub 125 g innych wyrobów tytoniowych</td></tr>
+                <tr><td>Bibułki papierosowe</td><td>100 sztuk</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Zasady wymiany limitów alkoholu</strong></p>
+            <ul>
+              <li>Limit na alkohol wysokoprocentowy można wymienić na 1,5 l wina lub piwa/alcopopów/cydru.</li>
+              <li>Limit na wino można wymienić na równą ilość piwa/alcopopów/cydru.</li>
+              <li>Uwaga: wina i piwa/alcopopów/cydru nie można wymieniać na mocniejsze napoje; limitu tytoniowego nie można wymieniać na piwo lub wino.</li>
+            </ul>
+
+            <p><strong>Zasady dla turystów mieszkających poza Norwegią</strong></p>
+            <p>Dla turystów mieszkających poza Norwegią limit wynosi 200 papierosów lub 250 g tytoniu oraz 200 bibułek. Limit alkoholu jest taki sam jak dla mieszkańców Norwegii.</p>
+            <p>Mimo że turyści mają większy limit tytoniowy, po przylocie na lotniska w Norwegii nie można kupić w sklepach duty free więcej niż zwykły limit (100 papierosów lub 125 g innych wyrobów tytoniowych i 100 bibułek).</p>
+
+            <p><strong>Jeśli pobyt za granicą jest krótszy niż 24 godziny</strong></p>
+            <p>Jeśli pobyt za granicą jest krótszy niż 24 godziny, można raz w tym okresie przywieźć alkohol i tytoń, jeśli można udokumentować zapłatę lokalnych podatków w kraju EOG. Nie można kupować alkoholu i tytoniu bezcłowo, gdy pobyt jest krótszy niż 24 godziny.</p>
+          </div>
+        </details>
+
+        <!-- Rumensk -->
+        <details class="card" role="listitem">
+          <summary><span>Rumensk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Cota pentru alcool și tutun</strong></p>
+            <p><strong>Pentru rezidenții din Norvegia:</strong></p>
+            <table aria-label="Cota pentru alcool și tutun pentru rezidenții din Norvegia">
+              <thead><tr><th>Bunuri</th><th>Cantitate</th></tr></thead>
+              <tbody>
+                <tr><td>Băuturi spirtoase etc. peste 22% până la 60% inclusiv</td><td>1 litru</td></tr>
+                <tr><td>Vin etc. peste 2,5% până la 22% inclusiv</td><td>1,5 litri (2 sticle)</td></tr>
+                <tr><td>Bere peste 2,5% (inclusiv bere tare) sau alcopop/cidru etc. peste 2,5% până la 4,7% inclusiv</td><td>2 litri (6 × 0,33 l sticle/doze)</td></tr>
+                <tr><td>Țigări sau alte produse din tutun (de ex. snus)</td><td>100 țigări sau 125 grame alte produse din tutun</td></tr>
+                <tr><td>Foițe de țigări</td><td>100 foițe</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Reguli pentru schimbul cotei de alcool</strong></p>
+            <ul>
+              <li>Cota pentru băuturi spirtoase poate fi schimbată cu 1,5 litri de vin sau de bere/alcopop/cidru.</li>
+              <li>Cota pentru vin poate fi schimbată cu o cantitate egală de bere/alcopop/cidru.</li>
+              <li>Notă: vinul și berea/alcopop/cidru nu pot fi schimbate pentru băuturi mai tari, iar cota de tutun nu poate fi schimbată pentru bere sau vin.</li>
+            </ul>
+
+            <p><strong>Reguli pentru turiștii care locuiesc în afara Norvegiei</strong></p>
+            <p>Pentru turiștii care locuiesc în afara Norvegiei, cota este de 200 de țigări sau 250 g de tutun și 200 de foițe. Cota de alcool este aceeași ca pentru rezidenții din Norvegia.</p>
+            <p>Deși turiștii au o cotă mai mare pentru tutun, nu este posibil să cumpere mai mult decât cota obișnuită (100 de țigări sau 125 g alte produse din tutun și 100 de foițe) în magazinele duty-free la sosirea pe aeroporturile din Norvegia.</p>
+
+            <p><strong>Dacă șederea în străinătate este mai scurtă de 24 de ore</strong></p>
+            <p>Dacă șederea în străinătate este mai scurtă de 24 de ore, o singură dată în acest interval puteți aduce alcool și tutun dacă puteți dovedi că ați plătit taxele locale într-o țară SEE. Nu puteți cumpăra alcool și tutun fără taxe când șederea este mai scurtă de 24 de ore.</p>
+          </div>
+        </details>
+
+        <!-- Russisk -->
+        <details class="card" role="listitem">
+          <summary><span>Russisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Нормы ввоза алкоголя и табака</strong></p>
+            <p><strong>Для резидентов Норвегии:</strong></p>
+            <table aria-label="Нормы ввоза алкоголя и табака для резидентов Норвегии">
+              <thead><tr><th>Товары</th><th>Количество</th></tr></thead>
+              <tbody>
+                <tr><td>Крепкие напитки и т. п. свыше 22% до 60% включительно</td><td>1 литр</td></tr>
+                <tr><td>Вино и т. п. свыше 2,5% до 22% включительно</td><td>1,5 литра (2 бутылки)</td></tr>
+                <tr><td>Пиво свыше 2,5% (включая крепкое) или слабоалк. напитки/сидр и т. п. свыше 2,5% до 4,7% включительно</td><td>2 литра (6 × 0,33 л бутылок/банок)</td></tr>
+                <tr><td>Сигареты или другие табачные изделия (напр., снус)</td><td>100 сигарет или 125 г других табачных изделий</td></tr>
+                <tr><td>Папиросная бумага</td><td>100 листов</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Правила обмена алкогольной квоты</strong></p>
+            <ul>
+              <li>Квоту на крепкие напитки можно обменять на 1,5 л вина или пива/слабоалк. напитков/сидра.</li>
+              <li>Квоту на вино можно обменять на равный объем пива/слабоалк. напитков/сидра.</li>
+              <li>Примечание: вино и пиво/слабоалк. напитки/сидр нельзя обменять на более крепкие напитки; табачную квоту нельзя обменять на пиво или вино.</li>
+            </ul>
+
+            <p><strong>Правила для туристов, проживающих за пределами Норвегии</strong></p>
+            <p>Для туристов, проживающих за пределами Норвегии, квота составляет 200 сигарет или 250 г табака и 200 листов папиросной бумаги. Алкогольная квота такая же, как для резидентов Норвегии.</p>
+            <p>Хотя у туристов квота на табак больше, при прибытии в аэропорты Норвегии в магазинах duty free нельзя купить больше обычной табачной квоты (100 сигарет или 125 г других табачных изделий и 100 листов).</p>
+
+            <p><strong>Если ваша поездка за границу короче 24 часов</strong></p>
+            <p>Если пребывание за границей короче 24 часов, вы можете один раз в течение этих 24 часов ввезти алкоголь и табак при наличии подтверждения об уплате местных налогов в стране ЕЭЗ. При поездках короче 24 часов покупка алкоголя и табака без налогов не допускается.</p>
+          </div>
+        </details>
+
+        <!-- Spansk -->
+        <details class="card" role="listitem">
+          <summary><span>Spansk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Franquicia de alcohol y tabaco</strong></p>
+            <p><strong>Para residentes en Noruega:</strong></p>
+            <table aria-label="Franquicia de alcohol y tabaco para residentes en Noruega">
+              <thead><tr><th>Bienes</th><th>Cantidad</th></tr></thead>
+              <tbody>
+                <tr><td>Bebidas espirituosas, etc., de más del 22% hasta el 60% inclusive</td><td>1 litro</td></tr>
+                <tr><td>Vino, etc., de más del 2,5% hasta el 22% inclusive</td><td>1,5 litros (2 botellas)</td></tr>
+                <tr><td>Cerveza por encima del 2,5% (incluida la fuerte), o alcopops/sidra, etc., por encima del 2,5% hasta el 4,7% inclusive</td><td>2 litros (6 × 0,33 l botellas/latas)</td></tr>
+                <tr><td>Cigarrillos u otros tipos de tabaco (p. ej., snus)</td><td>100 cigarrillos o 125 gramos de otros productos de tabaco</td></tr>
+                <tr><td>Papel de liar</td><td>100 hojas</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Reglas para intercambiar la cuota de alcohol</strong></p>
+            <ul>
+              <li>La cuota de bebidas espirituosas puede cambiarse por 1,5 litros de vino o de cerveza/alcopops/sidra.</li>
+              <li>La cuota de vino puede cambiarse por una cantidad equivalente de cerveza/alcopops/sidra.</li>
+              <li>Nota: no se puede cambiar vino y cerveza/alcopops/sidra por bebidas más fuertes, ni la cuota de tabaco por vino o cerveza.</li>
+            </ul>
+
+            <p><strong>Reglas para turistas que residen fuera de Noruega</strong></p>
+            <p>Para los turistas que residen fuera de Noruega, la franquicia es de 200 cigarrillos o 250 g de tabaco, y 200 hojas de papel de liar. La franquicia de alcohol es la misma que para los residentes en Noruega.</p>
+            <p>Aunque los turistas tienen una franquicia de tabaco mayor, no es posible comprar más de la franquicia ordinaria (100 cigarrillos o 125 g de otros productos de tabaco y 100 hojas) en tiendas duty-free al llegar a los aeropuertos de Noruega.</p>
+
+            <p><strong>Si su estancia en el extranjero es inferior a 24 horas</strong></p>
+            <p>Si su estancia en el extranjero es inferior a 24 horas, puede, una vez dentro de ese período, traer alcohol y tabaco si puede documentar que ha pagado los impuestos locales en un país del EEE. No se puede comprar alcohol ni tabaco libres de impuestos cuando la estancia es inferior a 24 horas.</p>
+          </div>
+        </details>
+
+        <!-- Svensk -->
+        <details class="card" role="listitem">
+          <summary><span>Svensk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Alkohol- och tobakskvoter</strong></p>
+            <p><strong>För personer bosatta i Norge:</strong></p>
+            <table aria-label="Alkohol- och tobakskvoter för personer bosatta i Norge">
+              <thead><tr><th>Varor</th><th>Mängd</th></tr></thead>
+              <tbody>
+                <tr><td>Sprit m.m. över 22% till och med 60%</td><td>1 liter</td></tr>
+                <tr><td>Vin m.m. över 2,5% till och med 22%</td><td>1,5 liter (2 flaskor)</td></tr>
+                <tr><td>Öl över 2,5% (inkl. starköl) eller alkoläsk/cider m.m. över 2,5% till och med 4,7%</td><td>2 liter (6 × 0,33 l flaskor/burkar)</td></tr>
+                <tr><td>Cigaretter eller andra tobaksvaror (t.ex. snus)</td><td>100 cigaretter eller 125 gram annan tobak</td></tr>
+                <tr><td>Cigarettpapper</td><td>100 ark</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Regler för byte av alkoholkvot</strong></p>
+            <ul>
+              <li>Spritkvoten kan bytas mot 1,5 liter vin eller öl/alkoläsk/cider.</li>
+              <li>Vinkvoten kan bytas mot motsvarande mängd öl/alkoläsk/cider.</li>
+              <li>Observera: vin och öl/alkoläsk/cider får inte bytas mot starkare drycker och tobakskvoten får inte bytas mot öl eller vin.</li>
+            </ul>
+
+            <p><strong>Regler för turister bosatta utanför Norge</strong></p>
+            <p>För turister bosatta utanför Norge är kvoten 200 cigaretter eller 250 gram tobak samt 200 cigarettpapper. Alkoholkvoten är densamma som för personer bosatta i Norge.</p>
+            <p>Även om turister har en större tobakskvot går det inte att köpa mer än den ordinarie tobakskvoten (100 cigaretter eller 125 gram andra tobaksvaror och 100 cigarettpapper) i taxfree-butiker vid ankomst till flygplatser i Norge.</p>
+
+            <p><strong>Om din utlandsvistelse är kortare än 24 timmar</strong></p>
+            <p>Om din utlandsvistelse är kortare än 24 timmar får du en gång under denna period ta med alkohol och tobak, om du kan visa att du har betalat lokala skatter i ett EES-land. Du får inte köpa alkohol- och tobaksvaror skattefritt när vistelsen är kortare än 24 timmar.</p>
+          </div>
+        </details>
+
+        <!-- Tysk -->
+        <details class="card" role="listitem">
+          <summary><span>Tysk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Alkohol- und Tabakfreimengen</strong></p>
+            <p><strong>Für in Norwegen ansässige Personen:</strong></p>
+            <table aria-label="Alkohol- und Tabakfreimengen für in Norwegen Ansässige">
+              <thead><tr><th>Waren</th><th>Menge</th></tr></thead>
+              <tbody>
+                <tr><td>Spirituosen u. Ä. über 22% bis einschließlich 60%</td><td>1 Liter</td></tr>
+                <tr><td>Wein u. Ä. über 2,5% bis einschließlich 22%</td><td>1,5 Liter (2 Flaschen)</td></tr>
+                <tr><td>Bier über 2,5% (einschl. Starkbier) oder Alkopops/Cider u. Ä. über 2,5% bis einschließlich 4,7%</td><td>2 Liter (6 × 0,33-L-Flaschen/Dosen)</td></tr>
+                <tr><td>Zigaretten oder andere Tabakwaren (z. B. Snus)</td><td>100 Zigaretten oder 125 Gramm anderer Tabakprodukte</td></tr>
+                <tr><td>Zigarettenpapier</td><td>100 Blättchen</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Regeln zum Umtausch von Alkohol</strong></p>
+            <ul>
+              <li>Die Spirituosenfreimenge kann gegen 1,5 Liter Wein oder Bier/Alkopops/Cider getauscht werden.</li>
+              <li>Die Weinfreimenge kann in gleicher Menge gegen Bier/Alkopops/Cider getauscht werden.</li>
+              <li>Hinweis: Wein und Bier/Alkopops/Cider dürfen nicht gegen stärkere Getränke getauscht werden, und die Tabakfreimenge darf nicht gegen Bier oder Wein getauscht werden.</li>
+            </ul>
+
+            <p><strong>Regeln für Touristinnen und Touristen mit Wohnsitz außerhalb Norwegens</strong></p>
+            <p>Für Touristinnen und Touristen mit Wohnsitz außerhalb Norwegens beträgt die Freimenge 200 Zigaretten oder 250 Gramm Tabak sowie 200 Blättchen Zigarettenpapier. Die Alkoholfreimenge ist dieselbe wie für in Norwegen Ansässige.</p>
+            <p>Auch wenn Touristinnen und Touristen eine größere Tabakfreimenge haben, ist es bei Ankunft an norwegischen Flughäfen in Duty-free-Geschäften nicht möglich, mehr als die gewöhnliche Tabakfreimenge (100 Zigaretten oder 125 g andere Tabakprodukte und 100 Blättchen) zu kaufen.</p>
+
+            <p><strong>Bei einem Auslandsaufenthalt von weniger als 24 Stunden</strong></p>
+            <p>Bei einem Auslandsaufenthalt von weniger als 24 Stunden dürfen Sie einmal innerhalb dieses Zeitraums Alkohol und Tabak einführen, wenn Sie nachweisen können, dass Sie in einem EWR-Land die lokalen Abgaben bezahlt haben. Steuerfreier Erwerb von Alkohol und Tabak ist bei Aufenthalten unter 24 Stunden nicht zulässig.</p>
+          </div>
+        </details>
+
+        <!-- Ukrainsk -->
+        <details class="card" role="listitem">
+          <summary><span>Ukrainsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Норми ввезення алкоголю та тютюну</strong></p>
+            <p><strong>Для резидентів Норвегії:</strong></p>
+            <table aria-label="Норми ввезення алкоголю та тютюну для резидентів Норвегії">
+              <thead><tr><th>Товари</th><th>Кількість</th></tr></thead>
+              <tbody>
+                <tr><td>Міцні напої тощо понад 22% до 60% включно</td><td>1 літр</td></tr>
+                <tr><td>Вино тощо понад 2,5% до 22% включно</td><td>1,5 літра (2 пляшки)</td></tr>
+                <tr><td>Пиво понад 2,5% (включно з міцним) або слабоалк. напої/сидр тощо понад 2,5% до 4,7% включно</td><td>2 літри (6 × 0,33 л пляшок/банок)</td></tr>
+                <tr><td>Сигарети або інші тютюнові вироби (напр., снус)</td><td>100 сигарет або 125 г інших тютюнових виробів</td></tr>
+                <tr><td>Папір для скручування сигарет</td><td>100 аркушів</td></tr>
+              </tbody>
+            </table>
+
+            <p><strong>Правила обміну алкогольної квоти</strong></p>
+            <ul>
+              <li>Квоту на міцні напої можна обміняти на 1,5 л вина або пива/слабоалк. напоїв/сидру.</li>
+              <li>Квоту на вино можна обміняти на таку ж кількість пива/слабоалк. напоїв/сидру.</li>
+              <li>Примітка: вино та пиво/слабоалк. напої/сидр не можна обмінювати на міцніші напої; тютюнову квоту не можна обмінювати на пиво чи вино.</li>
+            </ul>
+
+            <p><strong>Правила для туристів, що проживають за межами Норвегії</strong></p>
+            <p>Для туристів, що проживають за межами Норвегії, квота становить 200 сигарет або 250 г тютюну та 200 аркушів паперу для цигарок. Алкогольна квота така ж, як і для резидентів Норвегії.</p>
+            <p>Хоча туристи мають більшу тютюнову квоту, під час прибуття до аеропортів Норвегії в duty-free магазинах неможливо придбати більше, ніж звичайну тютюнову квоту (100 сигарет або 125 г інших тютюнових виробів і 100 аркушів).</p>
+
+            <p><strong>Якщо перебування за кордоном коротше 24 годин</strong></p>
+            <p>Якщо перебування за кордоном менше 24 годин, ви можете один раз протягом цього періоду ввезти алкоголь і тютюн, якщо зможете підтвердити сплату місцевих податків у країні ЄЕЗ. Придбання алкоголю й тютюну без податків не дозволяється при перебуванні коротше 24 годин.</p>
+          </div>
+        </details>
 
       </div>
     </div>
