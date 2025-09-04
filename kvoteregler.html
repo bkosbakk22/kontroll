@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kvoteregler – alkohol og tobakk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#12404F" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --tollturkis:#007682;
+      --tollmorkebla:#12404F;
+      --infobla:#dce8ed;
+      --bakgrunn:#f9f9f9;
+      --tekst:#121212;
+      --bord:#e5e5e5;
+      --radius:12px;
+      --shadow:0 2px 8px rgba(0,0,0,.06);
+      --space:clamp(12px,2.5vw,20px);
+      --header-size:clamp(18px,2.6vw,20px);
+      --title-size:clamp(24px,4vw,32px);
+      --body-size:clamp(16px,2.8vw,18px);
+      --touch:52px;
+      --maxw:820px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --infobla:#24333a; --bakgrunn:#0c0c0c; --tekst:#f2f2f2; --bord:#2a2a2a; --shadow:0 2px 10px rgba(0,0,0,.35); }
+    }
+
+    html, body { height: 100%; }
+    body{
+      margin:0; font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      font-size:var(--body-size); line-height:1.55; color:var(--tekst); background:var(--bakgrunn);
+      -webkit-text-size-adjust:100%; text-rendering:optimizeLegibility;
+    }
+
+    .page{
+      padding:calc(env(safe-area-inset-top)+var(--space))
+              calc(env(safe-area-inset-right)+var(--space))
+              calc(env(safe-area-inset-bottom)+var(--space))
+              calc(env(safe-area-inset-left)+var(--space));
+      display:grid; place-items:start center;
+    }
+    .container{ width:100%; max-width:var(--maxw); display:flex; flex-direction:column; }
+
+    .stack{ display:grid; gap:12px; grid-template-columns:1fr; }
+
+    .card{ background:rgba(255,255,255,.9); border:1px solid var(--bord); border-radius:var(--radius); box-shadow:var(--shadow); overflow:clip; }
+    @media (prefers-color-scheme: dark){ .card{ background:rgba(20,20,20,.9); } }
+
+    .banner{ border-left:6px solid var(--tollmorkebla); margin-bottom:12px; }
+    .banner-title{ display:grid; place-items:center; min-height:max(var(--touch),64px); font-weight:800; font-size:var(--title-size); background:var(--tollmorkebla); color:#fff; letter-spacing:.2px; padding:8px 12px; }
+
+    details{ border-radius:var(--radius); }
+    summary{
+      list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%;
+      min-height:var(--touch); padding:14px 18px; background:var(--tollturkis); color:#fff; font-weight:700; font-size:var(--header-size);
+      cursor:pointer; user-select:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .chev{ transition:transform .2s ease; inline-size:1.1em; text-align:center; }
+    details[open] .chev{ transform:rotate(90deg); }
+
+    .panel{ display:grid; gap:12px; padding:16px 18px 18px; }
+    ul{ margin:0; padding-left:22px; }
+    li{ margin:6px 0; }
+
+    table { width:100%; border-collapse:collapse; }
+    th, td { padding:10px 12px; border:1px solid var(--bord); vertical-align:top; }
+    th { text-align:left; font-weight:700; background:var(--infobla); }
+    @media (prefers-color-scheme: dark){
+      th { background:#102028; }
+    }
+
+    .note { font-size:0.95em; opacity:0.95; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+      <!-- Toppbanner -->
+      <section class="card banner" aria-label="Tittel">
+        <div class="banner-title">Kvoteregler – alkohol og tobakk</div>
+      </section>
+
+      <div class="stack" role="list">
+
+        <!-- Norsk -->
+        <details class="card" role="listitem" open>
+          <summary><span>Norsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>Alkohol- og tobakkskvote inn til Norge</strong></p>
+
+            <p>Kvotene som oppgis er per person.  
+            Du må være 18 år eller mer for å innføre øl, vin og tobakk. Skal du ha med deg brennevin og lignende over 22 prosent, må du være 20 år eller mer.</p>
+
+            <p><strong>Kvote for alkohol og tobakk:</strong></p>
+            <p>Oversikten nedenfor viser hvor mye alkohol og tobakk du kan ta med deg inn til Norge. Mengden du kan ha med deg avhenger av hva slags type varer du tar med deg inn til Norge.</p>
+
+            <table aria-label="Alkohol- og tobakkskvote">
+              <thead>
+                <tr>
+                  <th scope="col">Varetype</th>
+                  <th scope="col">Mengde</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Brennevin/sprit/likør og lignende over 22 % til og med 60 %</td>
+                  <td>Dersom du kun tar med brennevin/sprit/likør, kan du ha med maks 1 liter.</td>
+                </tr>
+                <tr>
+                  <td>Vin og lignende over 2,5 % til og med 22 %</td>
+                  <td>Dersom du kun tar med vin, kan du ha med maks 3 liter.</td>
+                </tr>
+                <tr>
+                  <td>Øl (også sterkøl) over 2,5 % eller rusbrus o.l. over 2,5 % til og med 4,7 %</td>
+                  <td>Dersom du kun tar med øl/rusbrus, kan du ha med maks 5 liter.</td>
+                </tr>
+                <tr>
+                  <td>Sigaretter eller annen tobakk (for eksempel snus)</td>
+                  <td>Kvoten for tobakk er den samme uavhengig av hvor mye alkohol du tar med deg. Du kan ta med 100 stk sigaretter eller 125 gram annen tobakk.</td>
+                </tr>
+                <tr>
+                  <td>Sigarettpapir og -hylser</td>
+                  <td>100 stk</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p><strong>Bytteregler</strong></p>
+            <ul>
+              <li>Brennevinskvoten kan byttes i 1,5 liter av enten vin eller øl, mens vinkvoten kan byttes i øl, liter for liter.</li>
+              <li>Vin og øl kan ikke byttes i sterkere drikke.</li>
+              <li>Du kan ikke bytte tobakkskvoten med vin eller øl.</li>
+            </ul>
+
+            <p><strong>Hvis du er i utlandet kortere enn ett døgn</strong></p>
+            <p>Ved utenlandsopphold på mindre enn ett døgn kan du én gang i løpet av 24 timer ta med deg alkohol- og tobakkskvoten hvis du kan dokumentere at du har betalt avgifter i et EØS-land. Du kan derfor ikke handle på tax-free.</p>
+
+            <p><strong>Det er forbudt å innføre</strong></p>
+            <ul>
+              <li>Nye former for tobakks- og nikotinholdige produkter som ikke er godkjent for innførsel eller salg i Norge. Eksempler på nye produkter uten godkjenning er:
+                <ul>
+                  <li>Nikotinsnus (uten tobakk)</li>
+                  <li>Heated Tobacco Products (HTP)/Iqos med Heets sticks</li>
+                </ul>
+              </li>
+              <li>Vannpipetobakk</li>
+              <li>E-sigaretter med nikotin (inkludert e-væske/e-liquid) med tobakk- og aromasmak, uten legeerklæring som dokumenterer røykeavvenning.</li>
+              <li>E-sigaretter uten nikotin med aromasmak.</li>
+              <li>Etuier, esker, omslag, innpakninger og ethvert annet produkt som har til hensikt å skjule eller tilsløre helseadvarslene på produktene.</li>
+              <li>Tobakksvarer for videresalg uten bevilling.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Alfabetiske språkblokker starter her -->
+        <!-- Arabisk -->
+        <details class="card" role="listitem">
+          <summary><span>Arabisk</span><span class="chev">▶</span></summary>
+          <div class="panel" dir="rtl">
+            <p>نص بديل مؤقت – سيتم إضافة الترجمة لاحقًا.</p>
+          </div>
+        </details>
+
+        <!-- Dansk -->
+        <details class="card" role="listitem">
+          <summary><span>Dansk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p>Pladsholder for dansk version.</p>
+          </div>
+        </details>
+
+        <!-- Engelsk -->
+        <details class="card" role="listitem">
+          <summary><span>Engelsk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p><strong>The alcohol and tobacco quota</strong></p>
+            <!-- Hele engelske versjon her (som vi laget tidligere, med tabell og regler) -->
+          </div>
+        </details>
+
+        <!-- Estisk -->
+        <details class="card" role="listitem">
+          <summary><span>Estisk</span><span class="chev">▶</span></summary>
+          <div class="panel">
+            <p>Kohatäitja eesti keele versioonile.</p>
+          </div>
+        </details>
+
+        <!-- ... resten av språkene på samme måte ... -->
+
+      </div>
+    </div>
+  </main>
+</body>
+</html>
