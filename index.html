@@ -116,6 +116,22 @@
     .link-button:hover{ filter:brightness(.98); }
     .link-button:focus-visible{ outline:3px solid rgba(18,64,79,.6); outline-offset:2px; }
 
+    /* Nested summaries i Lenker-boksen */
+    .panel details summary {
+      background: var(--infobla);
+      color: var(--tekst);
+      font-weight: 700;
+      font-size: calc(var(--header-size) - 2px);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+    }
+    @media (prefers-color-scheme: dark){
+      .panel details summary {
+        background:#1b2830;
+        color:#f2f2f2;
+      }
+    }
+
     @media (min-width:430px){
       .panel{ padding:18px 22px 22px; }
       summary{ padding:16px 22px; }
@@ -232,36 +248,21 @@
         </a>
       </section>
 
-      <!-- Andre verktøy (lukket som standard, mørkeblå header) -->
+      <!-- Info på ulike språk -->
       <details class="card" role="listitem" style="margin-top:12px;">
         <summary style="background: var(--tollmorkebla); color:#fff; font-weight:700; font-size:var(--header-size); display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:var(--touch); padding:14px 18px; cursor:pointer; user-select:none;">
-          <span>Andre verktøy</span>
+          <span>Info på ulike språk</span>
           <span class="chev">▶</span>
         </summary>
         <div class="panel">
-          <!-- Kjæledyr -->
-          <a class="link-button" href="dyr.html">
-            <span>Info om kjæledyr på ulike språk</span>
-            <span class="chev">▶</span>
-          </a>
-
-          <!-- Kvoteregler -->
-          <a class="link-button" href="kvoteregler.html">
-            <span>Kvoteregler på ulike språk</span>
-            <span class="chev">▶</span>
-          </a>
-
-          <!-- Transportmidler -->
-          <a class="link-button" href="transportmidler.html">
-            <span>Info på ulike språk til personer i tjeneste på transportmidler</span>
-            <span class="chev">▶</span>
-          </a>
-
-          <!-- Her kan du legge til flere interne verktøy senere -->
+          <a class="link-button" href="dyr.html"><span>Info om kjæledyr på ulike språk</span><span class="chev">▶</span></a>
+          <a class="link-button" href="kvoteregler.html"><span>Kvoteregler på ulike språk</span><span class="chev">▶</span></a>
+          <a class="link-button" href="forelegg.html"><span>Info om sanksjonering – ulike språk</span><span class="chev">▶</span></a>
+          <a class="link-button" href="transportmidler.html"><span>Info på ulike språk til personer i tjeneste på transportmidler</span><span class="chev">▶</span></a>
         </div>
       </details>
 
-      <!-- Lenker (lukket som standard, mørkeblå header) -->
+      <!-- Lenker -->
       <details class="card" role="listitem" style="margin-top:12px;">
         <summary style="background: var(--tollmorkebla); color:#fff; font-weight:700; font-size:var(--header-size); display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:var(--touch); padding:14px 18px; cursor:pointer; user-select:none;">
           <span>Lenker</span>
@@ -273,14 +274,8 @@
           <details>
             <summary><span>Juridisk</span><span class="chev">▶</span></summary>
             <div class="panel">
-              <a class="link-button" href="https://lovdata.no/dokument/NL/lov/2022-03-11-9?q=varef%C3%B8rselloven" target="_blank" rel="noopener">
-                <span>Vareførselloven (VFL)</span>
-                <span class="chev">▶</span>
-              </a>
-              <a class="link-button" href="https://lovdata.no/dokument/SF/forskrift/2022-10-27-1901?q=varef%C3%B8rselforskriften" target="_blank" rel="noopener">
-                <span>Vareførselforskriften (VFF)</span>
-                <span class="chev">▶</span>
-              </a>
+              <a class="link-button" href="https://lovdata.no/dokument/NL/lov/2022-03-11-9?q=varef%C3%B8rselloven" target="_blank"><span>Vareførselloven (VFL)</span><span class="chev">▶</span></a>
+              <a class="link-button" href="https://lovdata.no/dokument/SF/forskrift/2022-10-27-1901?q=varef%C3%B8rselforskriften" target="_blank"><span>Vareførselforskriften (VFF)</span><span class="chev">▶</span></a>
             </div>
           </details>
 
@@ -288,22 +283,11 @@
           <details>
             <summary><span>Import/Eksport</span><span class="chev">▶</span></summary>
             <div class="panel">
-              <a class="link-button" href="https://www.mattilsynet.no/import/import-av-dyr" target="_blank" rel="noopener">
-                <span>Mattilsynet – Import av dyr</span>
-                <span class="chev">▶</span>
-              </a>
-              <a class="link-button" href="https://www.toll.no/no/verktoy/valutakurser" target="_blank" rel="noopener">
-                <span>Tolletatens valutakalkulator</span>
-                <span class="chev">▶</span>
-              </a>
-              <a class="link-button" href="https://www.toll.no/no/verktoy/tollkalkulator" target="_blank" rel="noopener">
-                <span>Tollkalkulatoren</span>
-                <span class="chev">▶</span>
-              </a>
-              <a class="link-button" href="https://www.skatteetaten.no/person/avgifter/kjop-fra-utlandet/nettbutikker-og-e-markedsplasser-som-er-registrert-i-voec-registeret/" target="_blank" rel="noopener">
-                <span>VOEC-registeret</span>
-                <span class="chev">▶</span>
-              </a>
+              <a class="link-button" href="https://www.mattilsynet.no/import/import-av-dyr" target="_blank"><span>Mattilsynet – Import av dyr</span><span class="chev">▶</span></a>
+              <a class="link-button" href="https://www.toll.no/no/varer/varer-med-restriksjoner" target="_blank"><span>Varer med restriksjoner ved import</span><span class="chev">▶</span></a>
+              <a class="link-button" href="https://www.toll.no/no/verktoy/valutakurser" target="_blank"><span>Tolletatens valutakalkulator</span><span class="chev">▶</span></a>
+              <a class="link-button" href="https://www.toll.no/no/verktoy/tollkalkulator" target="_blank"><span>Tollkalkulatoren</span><span class="chev">▶</span></a>
+              <a class="link-button" href="https://www.skatteetaten.no/person/avgifter/kjop-fra-utlandet/nettbutikker-og-e-markedsplasser-som-er-registrert-i-voec-registeret/" target="_blank"><span>VOEC-registeret</span><span class="chev">▶</span></a>
             </div>
           </details>
 
@@ -311,18 +295,9 @@
           <details>
             <summary><span>Diverse søk</span><span class="chev">▶</span></summary>
             <div class="panel">
-              <a class="link-button" href="https://farliggodspermen.no/" target="_blank" rel="noopener">
-                <span>Farlig godspermen</span>
-                <span class="chev">▶</span>
-              </a>
-              <a class="link-button" href="https://www.felleskatalogen.no/" target="_blank" rel="noopener">
-                <span>Felleskatalogen</span>
-                <span class="chev">▶</span>
-              </a>
-              <a class="link-button" href="https://www.speciesplus.net/" target="_blank" rel="noopener">
-                <span>Species+</span>
-                <span class="chev">▶</span>
-              </a>
+              <a class="link-button" href="https://farliggodspermen.no/" target="_blank"><span>Farlig godspermen</span><span class="chev">▶</span></a>
+              <a class="link-button" href="https://www.felleskatalogen.no/" target="_blank"><span>Felleskatalogen</span><span class="chev">▶</span></a>
+              <a class="link-button" href="https://www.speciesplus.net/" target="_blank"><span>Species+</span><span class="chev">▶</span></a>
             </div>
           </details>
 
@@ -330,15 +305,13 @@
           <details>
             <summary><span>Bakgrunn og referanser</span><span class="chev">▶</span></summary>
             <div class="panel">
-              <a class="link-button" href="referanser.html">
-                <span>Faglig bakgrunn og referanser</span>
-                <span class="chev">▶</span>
-              </a>
+              <a class="link-button" href="referanser.html"><span>Faglig bakgrunn og referanser</span><span class="chev">▶</span></a>
             </div>
           </details>
 
         </div>
       </details>
+
     </div>
   </main>
 </body>
