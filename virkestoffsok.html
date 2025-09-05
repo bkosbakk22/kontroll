@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Virkestoffsøk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#12404F" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --tollturkis:#007682;
+      --tollmorkebla:#12404F;
+      --infobla:#dce8ed;
+      --bakgrunn:#f9f9f9;
+      --tekst:#121212;
+      --bord:#e5e5e5;
+      --radius:12px;
+      --shadow:0 2px 8px rgba(0,0,0,.06);
+      --space:clamp(12px,2.5vw,20px);
+      --header-size:clamp(18px,2.6vw,20px);
+      --title-size:clamp(24px,4vw,32px);
+      --body-size:clamp(16px,2.8vw,18px);
+      --touch:52px;
+      --maxw:820px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --infobla:#24333a; --bakgrunn:#0c0c0c; --tekst:#f2f2f2; --bord:#2a2a2a; --shadow:0 2px 10px rgba(0,0,0,.35); }
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0; font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      font-size:var(--body-size); line-height:1.55; color:var(--tekst); background:var(--bakgrunn);
+      -webkit-text-size-adjust:100%; text-rendering:optimizeLegibility;
+    }
+
+    .page{
+      padding:calc(env(safe-area-inset-top)+var(--space))
+              calc(env(safe-area-inset-right)+var(--space))
+              calc(env(safe-area-inset-bottom)+var(--space))
+              calc(env(safe-area-inset-left)+var(--space));
+      display:grid; place-items:start center;
+    }
+    .container{ width:100%; max-width:var(--maxw); display:flex; flex-direction:column; gap:12px; }
+
+    .card{ background:rgba(255,255,255,.9); border:1px solid var(--bord); border-radius:var(--radius); box-shadow:var(--shadow); overflow:clip; }
+    @media (prefers-color-scheme: dark){ .card{ background:rgba(20,20,20,.9); } }
+
+    .banner{ border-left:6px solid var(--tollmorkebla); }
+    .banner-title{ display:grid; place-items:center; min-height:max(var(--touch),64px); font-weight:800; font-size:var(--title-size); background:var(--tollmorkebla); color:#fff; letter-spacing:.2px; padding:8px 12px; }
+
+    .panel{ display:grid; gap:12px; padding:16px 18px 18px; }
+    @media (min-width:430px){ .panel{ padding:18px 22px 22px; } }
+
+    .search-wrap{ display:grid; gap:10px; }
+    label{ font-weight:700; }
+    .search-bar{
+      display:flex; gap:8px; align-items:center;
+      background:#fff; color:var(--tekst); border:1px solid var(--bord); border-radius:var(--radius);
+      padding:8px 10px;
+    }
+    @media (prefers-color-scheme: dark){ .search-bar{ background:#111; } }
+    .search-bar input{
+      flex:1; min-height:44px; border:none; outline:none; font-size:1rem; background:transparent; color:inherit;
+    }
+    .search-btn{
+      min-height:44px; padding:0 14px; border-radius:10px; border:1px solid var(--bord);
+      background:var(--tollmorkebla); color:#fff; font-weight:700; cursor:pointer;
+    }
+    .search-btn:focus-visible{ outline:3px solid rgba(18,64,79,.6); outline-offset:2px; }
+
+    .pill{
+      display:inline-block; font-size:.85em; font-weight:700; padding:.2em .5em; border-radius:999px; border:1px solid var(--bord);
+      background:var(--infobla);
+    }
+    @media (prefers-color-scheme: dark){ .pill{ background:#1b2830; } }
+
+    .result-header{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .result-list{ display:grid; gap:12px; }
+    .result-item{ border:1px solid var(--bord); border-radius:var(--radius); padding:12px 14px; }
+    .result-item h3{ margin:0 0 6px 0; font-size:1.05rem; }
+    .meta{ display:flex; flex-wrap:wrap; gap:6px; margin:6px 0; }
+    .dim{ opacity:.85; }
+
+    .link-button{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      width:100%; min-height:var(--touch); padding:14px 18px; background:var(--tollmorkebla); color:#fff;
+      font-weight:700; font-size:var(--header-size); text-decoration:none;
+      border-radius:var(--radius); border:1px solid var(--bord);
+    }
+    .link-button:hover{ filter:brightness(.98); }
+    .link-button:focus-visible{ outline:3px solid rgba(18,64,79,.6); outline-offset:2px; }
+    .chev{ inline-size:1.1em; text-align:center; }
+    mark{ background: #ffe58f; color: inherit; padding:0 .15em; border-radius:4px; }
+
+    .sr-only{ position:absolute !important; clip:rect(1px,1px,1px,1px); clip-path:inset(50%); height:1px; width:1px; overflow:hidden; white-space:nowrap; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+
+      <!-- Toppbanner -->
+      <section class="card banner" aria-label="Tittel">
+        <div class="banner-title">Virkestoffsøk</div>
+      </section>
+
+      <!-- Søk -->
+      <section class="card" aria-label="Søk etter virkestoff">
+        <div class="panel">
+          <div class="search-wrap">
+            <label for="q">Søk på navn, alias, gruppe/klassifisering</label>
+            <div class="search-bar">
+              <input id="q" name="q" type="search" autocomplete="off" placeholder="F.eks. tramadol, clenbuterol, cannabis …" />
+              <button class="search-btn" id="clearBtn" type="button" aria-label="Tøm søk">Tøm</button>
+            </div>
+            <div id="status" aria-live="polite" class="sr-only"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resultat -->
+      <section class="card" aria-label="Treffliste">
+        <div class="panel">
+          <div class="result-header">
+            <strong id="count">0 treff</strong>
+            <div class="dim" id="legend">
+              <span class="pill" title="Datakilde">narkotika</span>
+              <span class="pill" title="Datakilde">doping</span>
+            </div>
+          </div>
+          <div id="results" class="result-list" role="list" aria-label="Søkeresultater"></div>
+        </div>
+      </section>
+
+      <!-- Tilbake -->
+      <a class="link-button" href="index.html" aria-label="Tilbake til KONTROLL">
+        <span>← Tilbake til KONTROLL</span>
+        <span class="chev">▶</span>
+      </a>
+
+    </div>
+  </main>
+
+  <script>
+    const DATA_URL = 'virkestoffsok.json';
+
+    const $q = document.getElementById('q');
+    const $count = document.getElementById('count');
+    const $results = document.getElementById('results');
+    const $status = document.getElementById('status');
+    const $clear = document.getElementById('clearBtn');
+
+    const norm = s => (s || '').toString().toLowerCase()
+      .normalize('NFD').replace(/\p{Diacritic}/gu,'').trim();
+
+    const hi = (text, query) => {
+      if (!query) return text;
+      const nq = norm(query);
+      // enkel markering: finn posisjon i normalisert tekst og marker tilsvarende i original
+      const nt = norm(text);
+      const idx = nt.indexOf(nq);
+      if (idx === -1) return text;
+      // map tilbake grovt (kan avvike ved diakritika – godt nok for UI)
+      const before = text.slice(0, idx);
+      const mid = text.slice(idx, idx + query.length);
+      const after = text.slice(idx + query.length);
+      return `${before}<mark>${mid}</mark>${after}`;
+    };
+
+    let DATA = [];
+
+    function render(list, query){
+      $results.innerHTML = '';
+      const frag = document.createDocumentFragment();
+
+      list.forEach(rec => {
+        const item = document.createElement('article');
+        item.className = 'result-item';
+        item.setAttribute('role','listitem');
+
+        const title = document.createElement('h3');
+        title.innerHTML = hi(rec.name || '', query) + ' ' +
+          `<span class="pill" aria-label="kilde">${rec.type}</span>`;
+        item.appendChild(title);
+
+        // alias / gruppe / klassifisering
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+
+        if (rec.aliases && rec.aliases.length){
+          const span = document.createElement('span');
+          span.className = 'pill';
+          span.innerHTML = 'alias: ' + rec.aliases.map(a => hi(a, query)).join(', ');
+          meta.appendChild(span);
+        }
+        if (rec.group){
+          const span = document.createElement('span');
+          span.className = 'pill';
+          span.innerHTML = 'gruppe: ' + hi(rec.group, query);
+          meta.appendChild(span);
+        }
+        if (rec.classification){
+          const span = document.createElement('span');
+          span.className = 'pill';
+          span.innerHTML = 'klassifisering: ' + hi(rec.classification, query);
+          meta.appendChild(span);
+        }
+        if (rec.trade_names){
+          const span = document.createElement('span');
+          span.className = 'pill';
+          span.innerHTML = 'handelsnavn: ' + hi(rec.trade_names, query);
+          meta.appendChild(span);
+        }
+        if (meta.children.length) item.appendChild(meta);
+
+        if (rec.notes){
+          const p = document.createElement('p');
+          p.className = 'dim';
+          p.innerText = rec.notes;
+          item.appendChild(p);
+        }
+
+        if (rec.sources){
+          const p = document.createElement('p');
+          p.className = 'dim';
+          p.innerHTML = '<strong>Kilder:</strong> ' + rec.sources;
+          item.appendChild(p);
+        }
+
+        frag.appendChild(item);
+      });
+
+      $results.appendChild(frag);
+      $count.textContent = `${list.length} treff`;
+      $status.textContent = `${list.length} treff for søk ${query ? '«' + query + '»' : 'uten filter'}.`;
+    }
+
+    function doSearch(q){
+      const n = norm(q);
+      if (!n) { render(DATA.slice(0, 50), ''); return; }
+      const out = DATA.filter(r => {
+        if (!r.keywords) return false;
+        return r.keywords.includes(n);
+      }).slice(0, 200);
+      render(out, q);
+    }
+
+    $q.addEventListener('input', e => doSearch(e.target.value));
+    $clear.addEventListener('click', () => { $q.value=''; $q.focus(); doSearch(''); });
+
+    // last data
+    fetch(DATA_URL).then(r => r.json()).then(json => {
+      // bygge keywords hvis ikke til stede (robusthet)
+      DATA = json.map(r => {
+        const keys = [
+          r.name || '',
+          ...(r.aliases || []),
+          r.group || '',
+          r.classification || '',
+          r.trade_names || '',
+        ].join(' ').toLowerCase();
+        return { ...r, keywords: r.keywords || keys };
+      });
+      render(DATA.slice(0, 50), '');
+    }).catch(err => {
+      $results.innerHTML = '<p>Kunne ikke laste datafilen.</p>';
+      console.error(err);
+    });
+  </script>
+</body>
+</html>
