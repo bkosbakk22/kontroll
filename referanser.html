@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bakgrunn og referanser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#12404F" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --tollturkis:#007682;
+      --tollmorkebla:#12404F;
+      --infobla:#dce8ed;
+      --bakgrunn:#f9f9f9;
+      --tekst:#121212;
+      --bord:#e5e5e5;
+      --radius:12px;
+      --shadow:0 2px 8px rgba(0,0,0,.06);
+      --space:clamp(12px,2.5vw,20px);
+      --header-size:clamp(18px,2.6vw,20px);
+      --title-size:clamp(24px,4vw,32px);
+      --body-size:clamp(16px,2.8vw,18px);
+      --touch:52px;
+      --maxw:820px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --infobla:#24333a; --bakgrunn:#0c0c0c; --tekst:#f2f2f2; --bord:#2a2a2a; --shadow:0 2px 10px rgba(0,0,0,.35); }
+    }
+
+    html, body { height:100%; }
+    body{
+      margin:0;
+      font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      font-size:var(--body-size);
+      line-height:1.55;
+      color:var(--tekst);
+      background:var(--bakgrunn);
+      -webkit-text-size-adjust:100%;
+      text-rendering:optimizeLegibility;
+    }
+
+    .page{
+      padding:
+        calc(env(safe-area-inset-top)+var(--space))
+        calc(env(safe-area-inset-right)+var(--space))
+        calc(env(safe-area-inset-bottom)+var(--space))
+        calc(env(safe-area-inset-left)+var(--space));
+      display:grid; place-items:start center;
+    }
+    .container{ width:100%; max-width:var(--maxw); display:flex; flex-direction:column; }
+
+    .stack{ display:grid; gap:12px; grid-template-columns:1fr; }
+
+    .card{
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--bord);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:clip;
+    }
+    @media (prefers-color-scheme: dark){
+      .card{ background:rgba(20,20,20,.9); }
+    }
+
+    .banner{ border-left:6px solid var(--tollmorkebla); margin-bottom:12px; }
+    .banner-title{
+      display:grid; place-items:center;
+      min-height:max(var(--touch),64px);
+      font-weight:800; font-size:var(--title-size);
+      background:var(--tollmorkebla); color:#fff;
+      letter-spacing:.2px; padding:8px 12px;
+    }
+
+    details{ border-radius:var(--radius); }
+    summary{
+      list-style:none;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; width:100%;
+      min-height:var(--touch);
+      padding:14px 18px;
+      color:#fff; font-weight:700; font-size:var(--header-size);
+      cursor:pointer; user-select:none;
+      background:var(--tollmorkebla);
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .chev{ transition:transform .2s ease; inline-size:1.1em; text-align:center; }
+    details[open] .chev{ transform:rotate(90deg); }
+
+    .panel{ display:grid; gap:12px; padding:16px 18px 18px; }
+    ul{ margin:0; padding-left:22px; }
+    li{ margin:6px 0; }
+
+    .footer-card{ margin-top:20px; }
+    .link-button{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      width:100%; min-height:var(--touch); padding:14px 18px; background:var(--tollmorkebla); color:#fff;
+      font-weight:700; font-size:var(--header-size); text-decoration:none;
+      border-radius:var(--radius); border:1px solid var(--bord);
+    }
+    .link-button:hover{ filter:brightness(.98); }
+    .link-button:focus-visible{ outline:3px solid rgba(18,64,79,.6); outline-offset:2px; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+      <!-- Overskrift -->
+      <section class="card banner" aria-label="Tittel">
+        <div class="banner-title">Bakgrunn og referanser</div>
+      </section>
+
+      <div class="stack" role="list">
+        <!-- 💡 Bruk av operative tiltakskort -->
+        <details class="card" role="listitem">
+          <summary><span>💡 Bruk av operative tiltakskort</span><span class="chev">▶</span></summary>
+          <div class="panel" role="region" aria-label="Bruk av tiltakskort">
+            <p>Bruken av tiltakskort gir en rekke gevinster i operative situasjoner:</p>
+            <ul>
+              <li>Gir struktur og støtte under samtaler og vurderinger</li>
+              <li>Fremmer felles forståelse i team og samarbeid</li>
+              <li>Forenkler dokumentasjon og rapportering</li>
+              <li>Reduserer mental belastning i pressede situasjoner</li>
+              <li>Bidrar til mer presis og effektiv kontroll</li>
+              <li>Styrker etterprøvbarhet og profesjonell praksis</li>
+            </ul>
+            <p>
+              Selv om tiltakskortene gir en felles struktur og begrepsforståelse, vil de aldri gjøre kontrollsituasjoner eller vurderinger like. Erfaring og kompetanse vil alltid prege hvordan innholdet tolkes, prioriteres og følges opp.
+            </p>
+            <p>
+              Et godt tiltakskort legger ikke bare til rette for likhet i metode, men også for ulikhet i faglig tyngde. Jo mer erfaren man er, desto mer effektivt brukes tiltakskortet – ikke for å erstatte vurderingsevne, men for å frigjøre mental kapasitet som kan brukes der den virkelig trengs: i selve kontrollsituasjonen.
+            </p>
+          </div>
+        </details>
+
+        <!-- 📚 Faglig forankring og referanser -->
+        <details class="card" role="listitem">
+          <summary><span>📚 Faglig forankring og referanser</span><span class="chev">▶</span></summary>
+          <div class="panel" role="region" aria-label="Faglig forankring">
+            <p>Hos nødetatene er operative tiltakskort anerkjent som svært effektive verktøy for å kvalitetssikre både yrkesutøvelse og håndtering av hendelser. Også på tvers av etatene benyttes felles mentale modeller for å sikre felles forståelse og felles planlegging i kritiske situasjoner.</p>
+
+            <p>Bruken av akronymer som huskeregler er veldokumentert som et effektivt virkemiddel for å etablere og dele mentale modeller på tvers av roller og fagmiljøer. Dette styrker evnen til å handle raskt, strukturert og samordnet.</p>
+
+            <ul>
+              <li><strong>Helse, brann og politi:</strong> bruker felles akronymet <strong>SPE</strong> for førsteinnsats ved ulykker og skadesteder.
+                <ul>
+                  <li><strong>SPE</strong> står for <em>Sikkerhet, Pasient, Evakuering</em></li>
+                  <li>Gir førsteinnsatsen en strukturert tilnærming i uoversiktlige situasjoner</li>
+                  <li>Forankret i <strong>Helsetilsynets Skadestedsveileder</strong> og nasjonalt samvirkekonsept</li>
+                </ul>
+              </li>
+
+              <li><strong>Politiet:</strong> benytter <strong>PBS – Politiets beredskapssystem</strong>
+                <ul>
+                  <li>Operative prosedyrer og tiltakskort for de fleste hendelsestyper</li>
+                  <li>Brukes som metodebok og beslutningsstøtte ved taktisk og operativ ledelse</li>
+                </ul>
+              </li>
+
+              <li><strong>Ambulansetjenesten:</strong> har <strong>Medisinsk Operativ Manual (MOM)</strong>
+                <ul>
+                  <li>Tiltakskort og prosedyrer for medisinske og taktiske scenarioer</li>
+                  <li>Skaper trygghet, enhetlig respons og dokumentert praksis</li>
+                </ul>
+              </li>
+            </ul>
+
+            <p>Disse systemene viser at tiltakskort og operative manualer er velprøvde og effektive i norske beredskapsorganisasjoner. De kombinerer struktur med rom for vurdering og erfaring – på samme måte som tiltakskortet <strong>KONTROLL</strong> vil kunne fungere for Tolletaten.</p>
+
+            <hr style="margin: 30px 0;">
+
+            <p><strong>Forskning støtter også bruken av tiltakskort som beslutningsstøtte i mange ulike yrker:</strong></p>
+
+            <ul>
+              <li><strong>Luftfart:</strong> Degani &amp; Wiener (1993). <em>"Cockpit Checklists: Concepts, Design, and Use"</em>. NASA TM 104805.
+                <ul>
+                  <li>Reduserer feil i høybelastede situasjoner</li>
+                  <li>Sikrer at kritiske trinn følges under stress</li>
+                  <li>Standardiserer praksis mellom erfarne og uerfarne</li>
+                </ul>
+              </li>
+
+              <li><strong>Medisin:</strong> Haynes et al. (2009). <em>"A Surgical Safety Checklist to Reduce Morbidity and Mortality"</em>. NEJM.
+                <ul>
+                  <li>Reduserte komplikasjoner og dødelighet</li>
+                  <li>Bedret teamkommunikasjon og pasientsikkerhet</li>
+                </ul>
+              </li>
+
+              <li><strong>Politi og etterforskning:</strong> Alison, Harkin &amp; Power (2013). <em>"The Effects of Subjective Time Pressure..."</em>. Legal and Criminological Psychology.
+                <ul>
+                  <li>Strukturerte verktøy styrker etterforskning under tidspress</li>
+                  <li>Støtter mer objektive og etterprøvbare vurderinger</li>
+                </ul>
+              </li>
+
+              <li><strong>Kognitiv avlasting:</strong> Riskin et al. (2010). <em>"Cognitive Offloading..."</em>. Journal of Applied Cognitive Psychology.
+                <ul>
+                  <li>Frigjør mental kapasitet og bedrer vurderingsevne</li>
+                </ul>
+              </li>
+
+              <li><strong>Situasjonsforståelse og beslutningstaking:</strong>
+                <ul>
+                  <li>Klein (1998). <em>"Sources of Power: How People Make Decisions"</em></li>
+                  <li>Endsley (1995). <em>"Toward a Theory of Situation Awareness in Dynamic Systems"</em></li>
+                  <li>Felles mentale modeller forbedrer samarbeid og avgjørelser</li>
+                  <li>Tiltakskort forsterker situasjonsforståelse i komplekse miljøer</li>
+                </ul>
+              </li>
+            </ul>
+
+            <p>Samlet gir dette faglig forankring for bruken av tiltakskortet KONTROLL – både som støtte for uerfarne og som verktøy for effektiv informasjonsinnhenting for erfarne tollere.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Tilbake til forsiden -->
+      <section class="card footer-card" aria-label="Tilbake">
+        <a class="link-button" href="index.html">
+          <span>← Tilbake til forsiden</span>
+          <span class="chev">▶</span>
+        </a>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
